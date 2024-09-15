@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c; /* Fondo oscuro */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 800px;
+}
+
+section {
+    width: 50%;
+    padding: 30px;
+    background-color: #0052cc; /* Azul oscuro */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-section {
+    background-color: #003ea8; /* Color azul más oscuro para el registro */
+}
+
+h2 {
+    margin: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+hr {
+    width: 80%;
+    border: 1px solid #fff;
+    margin: 20px 0;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.input-group label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8e8e8e; /* Color gris de los íconos */
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 0 10px 10px 0;
+    background-color: #8e8e8e; /* Color gris de los campos de entrada */
+    color: white;
+}
+
+.submit-button {
+    background-color: #1a75ff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0041b3; /* Cambio de color al hacer hover */
+}
+
+.forgot-password {
+    color: #d9d9d9;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
