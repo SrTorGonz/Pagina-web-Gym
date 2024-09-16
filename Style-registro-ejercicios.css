@@ -1,0 +1,115 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+span{
+    margin: 10px;
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: #0041b3;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tab {
+    background-color: #055274;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: #0aa3e7;
+}
+
+/* Main section */
+.exercise-section {
+    background-color: #0aa3e7;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+
+.exercise-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    margin-top: 10px;
+}
+
+.exercise-stats {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat p {
+    margin: 0;
+}
+
+input {
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    width: 100px;
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+}
+
+.save-button {
+    background-color: #0947ce;
+    border: none;
+    border-radius: 50px;
+    padding: 20px 50px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background-color: #072ca1;
+}
