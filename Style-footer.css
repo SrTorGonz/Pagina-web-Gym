@@ -1,0 +1,43 @@
+/* Estilos para el footer */
+footer {
+    background-color: #0052cc;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-logo h2 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.footer-info h3,
+.footer-info p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.footer-apps h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer-apps a img {
+    width: 150px;
+    margin: 10px 0;
+}
+
+.footer-apps a {
+    display: block;
+}
