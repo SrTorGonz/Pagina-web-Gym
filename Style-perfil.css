@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1C1C1C;
+    color: white;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Sección Progreso */
+.progress h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.progress-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #0AA3E7;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.exercise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.exercise-list input,
+.exercise-list button {
+    background-color: #055274;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.graph {
+    width: 50%;
+}
+
+.graph img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Sección Entrenamientos */
+.trainings h2 {
+    text-align: center;
+    font-size: 36px;
+    margin: 40px 0;
+}
+
+.calendar-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.calendar {
+    background-color: #00A5E3;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.calendar h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.training-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.training-summary button {
+    background-color: #697699;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.training-summary button:hover {
+    background-color: #00A5E3;
+}
+
+.exercise-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #0AA3E7;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.exercise-table th,
+.exercise-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.exercise-table th {
+    background-color: #055274;
+}
+
+.exercise-table td {
+    background-color: #00A5E3;
+}
+
+/* Sección Perfil */
+.profile h2 {
+    text-align: center;
+    font-size: 36px;
+    margin: 40px 0;
+}
+
+.profile-content {
+    background-color: #0AA3E7;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 14px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #D9D9D9;
+    font-size: 16px;
+}
+
+button {
+    background-color: #0947CE;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #0832A2;
+}
