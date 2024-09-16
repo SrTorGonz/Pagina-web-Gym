@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1C1C1C;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    margin: 20px 0;
+}
+
+.welcome-text{
+    display: flex;
+}
+.image-slider {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.image-slider img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.welcome-text h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.welcome-text p {
+    font-size: 24px;
+    color: white;
+}
+
+.welcome-text span {
+    color: #0AA3E7;
+    font-weight: bold;
+}
+
+/* Features Section */
+.features-section {
+    padding: 50px;
+    background-color: #1C1C1C;
+}
+
+.features-section h2 {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.features-section p {
+    color: #D1D1D1;
+    margin-bottom: 40px;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.feature {
+    width: 30%;
+    background-color: #0AA3E7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.feature h3 {
+    color: white;
+    font-size: 22px;
+    margin: 15px 0;
+}
+
+.feature p {
+    color: #D1D1D1;
+}
+
+.feature i {
+    font-size: 50px;
+    color: #FFF;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 50px;
+    background-color: #1C1C1C;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    text-align: center;
+}
+
+.gallery-item img {
+    border-radius: 10px;
+}
+
+.gallery-item p {
+    margin-top: 10px;
+    color: #0AA3E7;
+    font-weight: bold;
+}
+
+/* Call to Action Section */
+.cta-section {
+    padding: 40px;
+    background-color: #1C1C1C;
+}
+
+.cta-button {
+    background-color: #0947CE;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #072ca1;
+}
