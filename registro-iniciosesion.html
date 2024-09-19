@@ -1,49 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Registro e Inicio de Sesión</title>
-        <link rel="stylesheet" href="Style-registro-iniciosesion.css">
-    </head>
-    <body>
-        <div class="container">
-            <!-- Sección de Registro -->
-            <section class="register-section">
-                <h2>ÚNETE</h2>
-                <hr />
-                <form action="#" method="post">
-                    <div class="input-group">
-                        <label for="register-email">
-                            <img class = "ICON" src="Icons/ICON-mail.svg" alt="ICON-mail">   
-                        </label>
-                        <input type="email" id="register-email" name="register-email" placeholder="Correo Electrónico" required>
-                    </div>
-                    <button type="submit" class="submit-button">REGÍSTRATE</button>
-                </form>
-            </section>
 
-            <!-- Sección de Inicio de Sesión -->
-            <section class="login-section">
-                <h2>INICIA SESIÓN</h2>
-                <hr />
-                <form action="#" method="post">
-                    <div class="input-group">
-                        <label for="login-email">
-                            <img class = "ICON-mail" src="Icons/ICON-mail.svg">
-                        </label>
-                        <input type="email" id="login-email" name="login-email" placeholder="Correo Electrónico" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="login-password">
-                            <img class = "ICON" src="Icons/ICON-password.svg" alt="ICON-password">
-                        </label>
-                        <input type="password" id="login-password" name="login-password" placeholder="Contraseña" required>
-                    </div>
-                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
-                    <button type="submit" class="submit-button">INICIA SESIÓN</button>
-                </form>
-            </section>
-        </div>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro e Inicio de Sesión</title>
+
+    <!-- Agregar tipografía Baloo 2 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="Style-registro-iniciosesion.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sección de Registro -->
+        <section class="register-section">
+            <h2>ÚNETE</h2>
+            <hr />
+            <form action="#" method="post">
+                <div class="input-group">
+                    <label for="register-email">
+                        <img class="ICON" src="Icons/ICON-mail.svg" alt="ICON-mail">
+                    </label>
+                    <input type="email" id="register-email" name="register-email" placeholder="Correo Electrónico"
+                        required>
+                </div>
+                <button type="submit" class="submit-button">REGÍSTRATE</button>
+            </form>
+        </section>
+
+        <!-- Sección de Inicio de Sesión -->
+        <section class="login-section">
+            <h2>INICIA SESIÓN</h2>
+            <hr />
+            <form action="#" method="post">
+                <div class="input-group">
+                    <label for="login-email">
+                        <img class="ICON-mail" src="Icons/ICON-mail.svg">
+                    </label>
+                    <input type="email" id="login-email" name="login-email" placeholder="Correo Electrónico" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">
+                        <img class="ICON" src="Icons/ICON-password.svg" alt="ICON-password">
+                    </label>
+                    <input type="password" id="login-password" name="login-password" placeholder="Contraseña" required>
+                </div>
+                <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                <button type="submit" class="submit-button">INICIA SESIÓN</button>
+            </form>
+        </section>
+    </div>
+</body>
+
 </html>
