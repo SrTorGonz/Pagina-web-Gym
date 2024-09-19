@@ -1,4 +1,4 @@
-/* Estilos para el logo y el texto */
+
 body{
     margin: 0;
 }
@@ -15,6 +15,7 @@ header{
     align-items: center;
     background-color: #0052cc; /* Fondo azul */  
 }
+/* Estilos para el logo y el texto */
 
 .logo {
     width: 87px;
@@ -58,4 +59,26 @@ nav ul li a {
 
 nav ul li a:hover {
     font-weight: bold;
+}
+
+
+/* Estilos para el botón de login */
+.login-container {
+    display: flex;
+    align-items: center;
+}
+
+.login-button {
+    background-color: #000; /* Color de fondo negro */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Bordes redondeados */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #333; /* Color al pasar el ratón */
 }
