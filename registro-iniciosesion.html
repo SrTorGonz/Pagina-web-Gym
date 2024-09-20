@@ -11,10 +11,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
 
+    <!-- Hoja de estilos del header -->
+    <link rel="stylesheet" href="StyleHeader.css">
+
+    <!-- Hoja de estilos del registro -->
     <link rel="stylesheet" href="Style-registro-iniciosesion.css">
 </head>
 
 <body>
+    <!-- Aquí se insertará el contenido del archivo HeaderGeneral.html -->
+    <header>
+        <div class="contenido">
+            <div class="logo">
+                <div class="logo-text">
+                    <span class="logo-title">GYM</span>
+                    <span class="logo-subtitle">FITNESS</span>
+                    <span class="logo-subtitle">PLUS +</span>
+                </div>
+            </div>
+            <div class="login-container">
+                <button class="login-button">Registrarse/Iniciar Sesión</button>
+            </div>
+        </div>
+    </header>
+
     <div class="container">
         <!-- Sección de Registro -->
         <section class="register-section">
@@ -23,7 +43,8 @@
             <form action="#" method="post">
                 <div class="input-group">
                     <img class="ICON" src="Icons/ICON-mail.svg" alt="ICON-mail">
-                    <input type="email" id="register-email" name="register-email" placeholder="Correo Electrónico" required>
+                    <input type="email" id="register-email" name="register-email" placeholder="Correo Electrónico"
+                        required>
                 </div>
             </form>
             <button type="submit" class="registro-button">REGÍSTRATE</button>
@@ -49,6 +70,7 @@
             <button type="submit" class="iniciarsesion-button">INICIA SESIÓN</button>
         </section>
     </div>
+
 </body>
 
 </html>
