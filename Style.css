@@ -102,9 +102,6 @@ h1, h2 {
     margin: 20px 0;
 }
 
-.welcome-text{
-    display: flex;
-}
 .image-slider {
     width: 100%;
     display: flex;
@@ -117,21 +114,54 @@ h1, h2 {
     border-radius: 10px;
 }
 
+.welcome-text {
+    display: flex;
+    align-items: center; /* Centra la imagen y el texto verticalmente */
+    justify-content: space-between; /* Espacia la imagen y el texto */
+    gap: 20px; /* Añade espacio entre la imagen y el texto */
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Mantén todo en la misma línea */
+}
 
-.welcome-text h1 {
-    font-size: 40px;
+.welcome-text img {
+    width: 40%; /* La imagen ocupará el 50% del ancho del contenedor */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    border-radius: 10px; /* Añade bordes redondeados */
+}
+
+.welcome-text div {
+    width: 55%; /* El ancho del texto para alinearlo con la imagen */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.welcome-message {
+    text-align: left;
+    width: 50%; /* El texto ocupará el 50% del contenedor */
+}
+
+.small-text {
+    font-size: 18px;
+    color: #D1D1D1; /* Color gris claro */
     margin-bottom: 20px;
 }
 
-.welcome-text p {
+.large-text {
     font-size: 24px;
     color: white;
 }
 
-.welcome-text span {
-    color: #0AA3E7;
+.large-text span {
+    color: #0AA3E7; /* Color azul para las palabras resaltadas */
     font-weight: bold;
 }
+
+h1 {
+    font-size: 40px;
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
 
 /* Features Section */
 .features-section {
@@ -160,7 +190,7 @@ h1, h2 {
     width: 30%;
     background-color: #0AA3E7;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 100px;
 }
 
 .feature h3 {
