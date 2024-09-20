@@ -6,7 +6,7 @@
 
 body {
     font-family: "Baloo 2", sans-serif;
-    background-color: #1C1C1C;
+    background-color: #040911;
     color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
@@ -17,13 +17,13 @@ body {
 
 .container {
     text-align: center;
-    padding: 20px;
-    width: 80%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-header {
-    margin-bottom: 30px;
-}
 
 h1 {
     color: #00A5E3;
@@ -37,16 +37,18 @@ p {
 
 .routines-grid {
     display: grid;
+    width: 100%;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 20px;
 }
 
 .routine-item {
-    background-color: #2A2A2A;
+
+    width: 374px;
+    height: 374px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -64,10 +66,10 @@ p {
     height: auto;
 }
 .routine-first {
-    background-color: #2A2A2A;
+    width: 374px;
+    height: 374px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s;
     position: relative; 
 }
@@ -84,13 +86,13 @@ p {
     padding: 15px;
     position:absolute;
     bottom:0;
-    left: -100px;;
+    left: -65px;
     width: 100%;
 }
 
 .routine-info h3 {
 
-    font-size: 18px;
+    font-size: 30px;
     margin-bottom: 10px;
 }
 
@@ -98,11 +100,13 @@ p {
     font-family: "Baloo 2", sans-serif;
     background-color: #00A5E3;
     border: none;
-    padding: 10px 20px;
+    width: 220px;
+    height: 49px;
     color: white;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 30px;
+    font-weight: bold;
     transition: background-color 0.3s;
 }
 .routine-info button:hover {
