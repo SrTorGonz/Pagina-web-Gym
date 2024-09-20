@@ -12,42 +12,34 @@
     <link rel="stylesheet" href="Style-registro.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Sección de Registro -->
-        <section class="register-section">
-            <h2>ÚNETE AHORA</h2>
-            <hr />
-            <form action="#" method="post">
-                <div class="input-group">
-                    <label for="email">
-                        <img class = "ICON" src="Icons/ICON-mail.svg" alt="ICON-mail">
-                    </label>
-                    <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
-                </div>
-                <div class="input-group">
-                    <label for="name">
-                        <img class = "ICON" src="Icons/ICON-name.svg"alt="ICON-name">
-                    </label>
-                    <input type="text" id="name" name="name" placeholder="Nombre" required>
-                </div>
-                <div class="input-group">
-                    <label for="phone">
-                        <img class = "ICON" src="Icons/ICON-phone.svg" alt="ICON-phone">
-                    </label>
-                    <input type="tel" id="phone" name="phone" placeholder="Teléfono" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">
-                        <img class = "ICON" src="Icons/ICON-password.svg" alt="ICON-password">
-                    </label>
-                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
-                </div>
-                <button type="submit" class="submit-button">REGÍSTRATE</button>
-            </form>
-            <div class="login-link">
-                <p>¿Ya tienes cuenta? <a href="#">Inicia Sesión</a></p>
+    <section class="register-section">
+        <h2>ÚNETE AHORA</h2>
+        <hr />
+        <form action="#" method="post">
+            <div class="input-group">
+                <img class = "ICON" src="Icons/ICON-mail.svg" alt="ICON-mail">
+                <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
             </div>
-        </section>
-    </div>
+            <div class="input-group">
+                <img class = "ICON" src="Icons/ICON-name.svg"alt="ICON-name">
+                <input type="text" id="name" name="name" placeholder="Nombre" required>
+            </div>
+            <div class="input-group">
+                <img class = "ICON" src="Icons/ICON-phone.svg" alt="ICON-phone">
+                <input type="tel" id="phone" name="phone" placeholder="Teléfono" required>
+            </div>
+            <div class="input-group">
+                <img class = "ICON" src="Icons/ICON-password.svg" alt="ICON-password">
+                <input type="password" id="password" name="password" placeholder="Contraseña" required>
+            </div>
+            
+        </form>
+        <button type="submit" class="registro-button">REGÍSTRATE</button>
+        <div class="verificacion-cuenta">
+            <p>¿Ya tienes cuenta?</p>
+            <a href="#" class="hipervinculo">Inicia Sesión</a>
+        </div>
+        
+    </section>
 </body>
 </html>
