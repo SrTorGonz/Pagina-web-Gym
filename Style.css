@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Baloo 2', sans-serif;
     background-color: #1C1C1C;
     color: white;
     text-align: center;
@@ -13,6 +13,7 @@ header{
     justify-content: center;
     align-items: center;
 }
+
 /* Estilos para el logo y el texto */
 .contenido{
     font-family: "Baloo 2", sans-serif;
@@ -102,6 +103,7 @@ h1, h2 {
     margin: 20px 0;
 }
 
+/*
 .image-slider {
     width: 100%;
     display: flex;
@@ -112,25 +114,69 @@ h1, h2 {
 .image-slider img {
     width: 100%;
     border-radius: 10px;
+} */
+
+.image-slider {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    overflow: hidden; /* Oculta las imágenes que no están visibles */
+    border-radius: 10px;
 }
+
+.slides-container {
+    display: flex;
+    transition: transform 0.8s ease-in-out; /* Suaviza la transición entre imágenes */
+}
+
+.slide {
+    width: 100%;
+    display: none; /* Oculta todas las imágenes inicialmente */
+}
+
+.slide.active {
+    display: block; /* Muestra solo la imagen activa */
+}
+
+/* Estilo para las flechas */
+.prev-arrow, .next-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev-arrow {
+    left: 10px;
+}
+
+.next-arrow {
+    right: 10px;
+}
+
+
 
 .welcome-text {
     display: flex;
     align-items: center; /* Centra la imagen y el texto verticalmente */
     justify-content: space-between; /* Espacia la imagen y el texto */
-    gap: 20px; /* Añade espacio entre la imagen y el texto */
+    gap: 5px; /* Añade espacio entre la imagen y el texto */
     margin-bottom: 40px;
     flex-wrap: wrap; /* Mantén todo en la misma línea */
 }
 
 .welcome-text img {
-    width: 40%; /* La imagen ocupará el 50% del ancho del contenedor */
+    width: 50%; /* La imagen ocupará el 50% del ancho del contenedor */
     height: auto; /* Mantiene las proporciones de la imagen */
     border-radius: 10px; /* Añade bordes redondeados */
 }
 
 .welcome-text div {
-    width: 55%; /* El ancho del texto para alinearlo con la imagen */
+    width: 43%; /* El ancho del texto para alinearlo con la imagen */
     text-align: left; /* Alinea el texto a la izquierda */
 }
 
@@ -140,26 +186,26 @@ h1, h2 {
 }
 
 .small-text {
-    font-size: 18px;
+    font-size: 15px;
     color: #D1D1D1; /* Color gris claro */
     margin-bottom: 20px;
 }
 
-.large-text {
-    font-size: 24px;
+.welcome-message h1 {
+    font-size: 45px;
     color: white;
+    line-height: 1.4;
+    margin-bottom: 20px;
 }
 
-.large-text span {
-    color: #0AA3E7; /* Color azul para las palabras resaltadas */
+.highlight-experimenta { 
+    color: #28DEC5; /* Color para "EXPERIMENTA" */
     font-weight: bold;
 }
 
-h1 {
-    font-size: 40px;
-    color: white;
-    margin-bottom: 20px;
-    line-height: 1.2;
+.highlight-potencial {
+    color: #0AA3E7; /* Color para "POTENCIAL" */
+    font-weight: bold;
 }
 
 

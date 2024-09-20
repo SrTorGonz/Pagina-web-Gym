@@ -35,6 +35,7 @@
 
     <div class="container">
 
+        <!--
         <div class="image-slider">
             <img src="Images/Imagen banner 1.png" alt="Gym Image 1">
             <img src="Images/Imagen banner 2.png" alt="Gym Image 2">
@@ -42,31 +43,38 @@
 
         </div>
 
-        <!-- Flechas de navegacion -->
+         Flechas de navegacion 
         <div>
             <img src="Icons/Icon-arrow left.svg" alt="Icono arrow left">
             <img src="Icons/Icon-arrow right.svg" alt="Icono arrow right">
 
         </div>
-        <!--
-        <div class="welcome-text">
-            <img src="Images/Imagen pesas bienvenida.png" alt="imagen pesas bienvenida">
-            <div>
-            <h1>¡BIENVENIDO A GYM FITNESS PLUS!</h1>
-            <p><span>EXPERIMENTA</span> EL MEJOR ENTRENAMIENTO Y DESBLOQUEA TU <span>MÁXIMO POTENCIAL</span></p>
-            </div>
-        </div>
         -->
+        
+        <div class="image-slider">
+            <img src="Icons/Icon-arrow left.svg" alt="Flecha izquierda" class="prev-arrow" onclick="prevImage()">
+            
+            <div class="slides-container">
+                <img src="Images/Imagen banner 1.png" class="slide" alt="Gym Image 1">
+                <img src="Images/Imagen banner 2.png" class="slide" alt="Gym Image 2">
+                <img src="Images/Imagen banner 3.png" class="slide" alt="Gym Image 3">
+            </div>
+        
+            <img src="Icons/Icon-arrow right.svg" alt="Flecha derecha" class="next-arrow" onclick="nextImage()">
+        </div> 
+        
+    
         <div class="welcome-text">
             <img src="Images/Imagen pesas bienvenda.png" alt="imagen pesas bienvenida">
             <div class="welcome-message">
                 <p class="small-text">
                     En nuestro gimnasio, te ayudamos a mejorar tu salud física y mental con un enfoque integral. Crea tu propia rutina personalizada y registra cada avance, permitiéndote comparar los cambios en tu cuerpo a medida que progresas.
                 </p>
-                <h1>¡BIENVENIDO A GYM FITNESS PLUS!</h1>
-                <p class="large-text">
-                    <span>EXPERIMENTA</span> EL MEJOR ENTRENAMIENTO Y DESBLOQUEA TU MÁXIMO <span>POTENCIAL</span>.
-                </p>
+                <h1>¡BIENVENIDO A GYM FITNESS PLUS! 
+                    <span class="highlight-experimenta">EXPERIMENTA</span> 
+                    EL MEJOR ENTRENAMIENTO Y DESBLOQUEA TU MÁXIMO 
+                    <span class="highlight-potencial">POTENCIAL</span>.
+                </h1>
             </div>
         </div>
 
@@ -115,5 +123,42 @@
         </section>
 
     </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentIndex) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextImage() {
+            const slides = document.querySelectorAll('.slide');
+            currentIndex = (currentIndex + 1) % slides.length; // Avanza a la siguiente imagen
+            showSlides();
+        }
+
+        function prevImage() {
+            const slides = document.querySelectorAll('.slide');
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length; // Retrocede a la imagen anterior
+            showSlides();
+        }
+
+        // Cambia de imagen automáticamente cada 5 segundos
+        setInterval(nextImage, 5000);
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            showSlides(); // Muestra la primera imagen al cargar
+        });
+    </script>
+
+
+
+
 </body>
 </html>

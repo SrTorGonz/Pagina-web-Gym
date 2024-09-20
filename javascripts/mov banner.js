@@ -1,18 +1,33 @@
-let index = 0;
-const slides = document.querySelector('.image-slider');
-const totalSlides = slides.querySelectorAll('img').length;
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
 
-document.querySelector('.next').addEventListener('click', () => {
-    index = (index + 1) % totalSlides;
-    slides.style.transform = `translateX(-${index * 100}%)`;
-});
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+}
 
-document.querySelector('.prev').addEventListener('click', () => {
-    index = (index - 1 + totalSlides) % totalSlides;
-    slides.style.transform = `translateX(-${index * 100}%)`;
-});
+function nextImage() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+}
 
-setInterval(() => {
-    index = (index + 1) % totalSlides;
-    slides.style.transform = `translateX(-${index * 100}%)`;
-}, 5000);
+function prevImage() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+}
+
+function autoSlide() {
+    nextImage();
+    setTimeout(autoSlide, 3000); // Cambia la imagen cada 3 segundos
+}
+
+// Muestra la primera imagen inicialmente
+showSlide(currentSlide);
+
+// Inicia el cambio automático de imágenes
+autoSlide();
