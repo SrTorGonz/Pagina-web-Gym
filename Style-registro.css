@@ -4,6 +4,7 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
     margin: 0;
@@ -106,4 +107,15 @@ p{
 .hipervinculo:hover {
     text-decoration: underline;
     color: #4BDFF2;
+}
+
+footer{
+    width: 100%;
+    height: 42px;
+    margin-bottom: 20px;
+    background-color: #0052cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
 }
