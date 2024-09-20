@@ -13,15 +13,13 @@ body {
     height: 588px;
     display: flex;
     justify-content: space-between;
-    background-color: #f2f2f2;
-    border-radius: 15px;
+    border-radius: 18px;
     overflow: hidden;
     width: 800px;
 }
 
 section {
     width: 50%;
-    padding: 30px;
     background-color: #0B80E9; /* Azul oscuro */
     color: white;
     display: flex;
@@ -81,7 +79,7 @@ button {
     color: white;
 }
 .registro-button {
-    background-color: #1a75ff;
+    background-color: #0B80E9;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
