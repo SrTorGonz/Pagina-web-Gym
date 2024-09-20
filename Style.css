@@ -117,9 +117,10 @@ h1, h2 {
     border-radius: 10px;
 }
 
+
 .welcome-text h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+    font-size: 40px;
+    margin-bottom: 20px;
 }
 
 .welcome-text p {
