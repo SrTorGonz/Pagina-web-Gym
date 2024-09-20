@@ -63,7 +63,22 @@ p {
     width: 100%;
     height: auto;
 }
+.routine-first {
+    background-color: #2A2A2A;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+    position: relative; 
+}
+.routine-first:hover {
+    transform: scale(1.05);
+}
 
+.routine-first img {
+    width: 100%;
+    height: auto;
+}
 
 .routine-info {
     padding: 15px;
@@ -90,7 +105,9 @@ p {
     font-size: 16px;
     transition: background-color 0.3s;
 }
-
 .routine-info button:hover {
     background-color: #007AB8;
 }
+
+
+ 
