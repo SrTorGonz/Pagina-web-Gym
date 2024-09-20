@@ -3,7 +3,7 @@ body {
     background-color: #040911; /* Fondo oscuro */
     color: white;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
     margin: 0;
@@ -66,7 +66,8 @@ form  {
     margin-left: 20px;
 }
 
-button {
+
+.registro-button {
     width: 203px;
     height: 57px;
     border-radius: 31px;
@@ -74,8 +75,6 @@ button {
     font-size: 20px;
     font-weight: bold;
     color: white;
-}
-.registro-button {
     background-color: #0B80E9;
     border: none;
     padding: 10px 20px;
