@@ -52,6 +52,7 @@ p {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 0px;
+    position: relative; 
 }
 
 .routine-item:hover {
@@ -66,9 +67,14 @@ p {
 
 .routine-info {
     padding: 15px;
+    position:absolute;
+    bottom:0;
+    left: -100px;;
+    width: 100%;
 }
 
 .routine-info h3 {
+
     font-size: 18px;
     margin-bottom: 10px;
 }
