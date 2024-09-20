@@ -7,6 +7,14 @@ body{
 }
 
 header{
+    width: 100%;
+    background-color: #0052cc; /* Fondo azul */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+/* Estilos para el logo y el texto */
+.contenido{
     font-family: "Baloo 2", sans-serif;
     font-style: normal;
     width: 1216px;
@@ -18,7 +26,6 @@ header{
     align-items: center;
     background-color: #0052cc; /* Fondo azul */  
 }
-/* Estilos para el logo y el texto */
 
 .logo {
     width: 87px;
