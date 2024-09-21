@@ -35,22 +35,6 @@
 
     <div class="container">
 
-        <!--
-        <div class="image-slider">
-            <img src="Images/Imagen banner 1.png" alt="Gym Image 1">
-            <img src="Images/Imagen banner 2.png" alt="Gym Image 2">
-            <img src="Images/Imagen banner 3.png" alt="Gym Image 3">
-
-        </div>
-
-         Flechas de navegacion 
-        <div>
-            <img src="Icons/Icon-arrow left.svg" alt="Icono arrow left">
-            <img src="Icons/Icon-arrow right.svg" alt="Icono arrow right">
-
-        </div>
-        -->
-        
         <div class="image-slider">
             <img src="Icons/Icon-arrow left.svg" alt="Flecha izquierda" class="prev-arrow" onclick="prevImage()">
             
@@ -83,22 +67,30 @@
             <p>Sea cual sea tu meta, ya sea perder peso, tonificarte o mejorar tu estado físico en general, te ofrecemos las herramientas necesarias para conseguirlo.</p>
             <div class="features">
                 <div class="feature">
-                    <img src="Icons/Icon-rutina.svg" alt="Rutina">
+                    <div class="icon-container">
+                        <img src="Icons/Icon-rutina.svg" alt="Rutina">
+                    </div>
                     <h3>Rutina</h3>
                     <p>Crea tu propia rutina personalizada a medida que avanzas hacia tus objetivos.</p>
                 </div>
                 <div class="feature">
-                    <img src="Icons/Icon-motivacion.svg" alt="Progreso">
+                    <div class="icon-container">
+                        <img src="Icons/Icon-progreso.svg" alt="Progreso">
+                    </div>
                     <h3>Progreso</h3>
                     <p>Registra cada avance y compara los cambios en tu cuerpo a medida que progresas.</p>
                 </div>
                 <div class="feature">
-                    <img src="Icons/Icon-rutina.svg" alt="Motivación">
+                    <div class="icon-container">
+                        <img src="Icons/Icon-motivacion.svg" alt="Motivación">
+                    </div>
                     <h3>Motivación</h3>
                     <p>Únete a una comunidad de personas con objetivos similares, comparte tus experiencias y encuentra motivación en el progreso de otros.</p>
                 </div>
             </div>
         </section>
+        
+
 
         <section class="gallery-section">
             <h2>Vive Gym Fitness Plus: un ambiente de entrenamiento único con equipos modernos y las mejores instalaciones</h2>
@@ -123,6 +115,12 @@
         </section>
 
     </div>
+
+    <section class="cta-section">
+        <button class="cta-button">COMIENZA AHORA</button>
+    </section>
+
+
 
     <script>
         let currentIndex = 0;

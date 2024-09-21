@@ -103,31 +103,24 @@ h1, h2 {
     margin: 20px 0;
 }
 
-/*
-.image-slider {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
 
-.image-slider img {
-    width: 100%;
-    border-radius: 10px;
-} */
+
+
+
+
 
 .image-slider {
     position: relative;
     width: 100%;
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 25px auto;
     overflow: hidden; /* Oculta las imágenes que no están visibles */
     border-radius: 10px;
 }
 
 .slides-container {
     display: flex;
-    transition: transform 0.8s ease-in-out; /* Suaviza la transición entre imágenes */
+    transition: transform 1s ease-in-out; /* Suaviza la transición entre imágenes */
 }
 
 .slide {
@@ -160,39 +153,40 @@ h1, h2 {
 
 
 
+
 .welcome-text {
     display: flex;
     align-items: center; /* Centra la imagen y el texto verticalmente */
     justify-content: space-between; /* Espacia la imagen y el texto */
-    gap: 5px; /* Añade espacio entre la imagen y el texto */
+    gap: 12px; /* Añade espacio entre la imagen y el texto */
     margin-bottom: 40px;
     flex-wrap: wrap; /* Mantén todo en la misma línea */
 }
 
 .welcome-text img {
-    width: 50%; /* La imagen ocupará el 50% del ancho del contenedor */
+    width: 49%; /* La imagen ocupará el 50% del ancho del contenedor */
     height: auto; /* Mantiene las proporciones de la imagen */
     border-radius: 10px; /* Añade bordes redondeados */
 }
 
 .welcome-text div {
-    width: 43%; /* El ancho del texto para alinearlo con la imagen */
+    width: 50%; /* El ancho del texto para alinearlo con la imagen */
     text-align: left; /* Alinea el texto a la izquierda */
 }
 
 .welcome-message {
     text-align: left;
-    width: 50%; /* El texto ocupará el 50% del contenedor */
+    width: 60%; /* El texto ocupará el 50% del contenedor */
 }
 
 .small-text {
-    font-size: 15px;
+    font-size: 17px;
     color: #D1D1D1; /* Color gris claro */
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .welcome-message h1 {
-    font-size: 45px;
+    font-size: 55px;
     color: white;
     line-height: 1.4;
     margin-bottom: 20px;
@@ -209,6 +203,10 @@ h1, h2 {
 }
 
 
+
+
+
+
 /* Features Section */
 .features-section {
     padding: 50px;
@@ -217,13 +215,16 @@ h1, h2 {
 
 .features-section h2 {
     color: white;
-    font-size: 30px;
+    font-size: 65px;
     margin-bottom: 20px;
 }
 
-.features-section p {
+.features-section p { 
     color: #D1D1D1;
-    margin-bottom: 40px;
+    font-size: 20px;
+    max-width: 800px; /* Ajusta el ancho máximo según lo necesites */
+    margin: 0 auto 70px; /* Centra el texto y añade margen inferior */
+    text-align: center; /* Asegúrate de que el texto esté centrado */
 }
 
 .features {
@@ -233,26 +234,46 @@ h1, h2 {
 }
 
 .feature {
-    width: 30%;
-    background-color: #0AA3E7;
-    padding: 20px;
-    border-radius: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra todo en el eje horizontal */
+    margin: 20px; /* Espacio entre las características */
+}
+
+
+.icon-container {
+    width: 250px; /* Ajusta el tamaño del círculo según sea necesario */
+    height: 250px; /* Ajusta el tamaño del círculo según sea necesario */
+    background-color: #28DEC5; /* Color de fondo del círculo */
+    border-radius: 50%; /* Hace que sea un círculo */
+    display: flex;
+    align-items: center; /* Centra el icono verticalmente */
+    justify-content: center; /* Centra el icono horizontalmente */
+    margin-bottom: 15px; /* Espacio entre el círculo y el texto */
+}
+
+.feature img {
+    max-width: 70%; /* Asegúrate de que el icono quepa en el círculo */
+    height: auto;
 }
 
 .feature h3 {
     color: white;
     font-size: 22px;
-    margin: 15px 0;
+    margin: 10px 0 5px; /* Margen ajustado */
 }
 
 .feature p {
     color: #D1D1D1;
+    font-size: 18px;
+    text-align: center; /* Centra el texto dentro del círculo */
+    max-width: 500px;
+    margin: 10px; /* Margen ajustado */
 }
 
-.feature i {
-    font-size: 50px;
-    color: #FFF;
-}
+
+
 
 /* Gallery Section */
 .gallery-section {
@@ -263,11 +284,13 @@ h1, h2 {
 .gallery {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 40px;
+    gap: 25px;
 }
 
 .gallery-item {
     text-align: center;
+   
 }
 
 .gallery-item img {
@@ -276,26 +299,40 @@ h1, h2 {
 
 .gallery-item p {
     margin-top: 10px;
-    color: #0AA3E7;
+    color: #FFFFFF;
     font-weight: bold;
 }
 
-/* Call to Action Section */
+.gallery-section h2 {
+    color: #0CC4EA; /* Cambia el color a lo que desees */
+    font-size: 38px; /* Cambia el tamaño de fuente a lo que necesites */
+    text-align: center; /* Asegura que el texto esté centrado */
+    margin-bottom: 20px; /* Margen inferior opcional */
+
+       
+}
+
+/* Estilos para la sección del botón */
 .cta-section {
-    padding: 40px;
-    background-color: #1C1C1C;
+    text-align: center; /* Asegura que el botón esté centrado */
+    margin-top: 30px; /* Espacio superior opcional */
 }
 
+/* Estilos del botón */
 .cta-button {
-    background-color: #0947CE;
-    color: white;
-    padding: 15px 40px;
-    border: none;
-    border-radius: 30px;
-    font-size: 20px;
-    cursor: pointer;
+    background-color: #0B80E9; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    padding: 15px 40px; /* Tamaño del botón */
+    border: none; /* Sin bordes */
+    border-radius: 30px; /* Bordes redondeados */
+    font-size: 20px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave al hacer hover */
 }
 
+/* Efecto hover (cuando el usuario pasa el mouse sobre el botón) */
 .cta-button:hover {
-    background-color: #072ca1;
+    background-color: #072ca1; /* Cambia el color del fondo cuando el mouse está sobre el botón */
 }
+
+
