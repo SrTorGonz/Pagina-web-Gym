@@ -99,8 +99,108 @@ h1 {
     background-color: #6e6e6e;
 }
 
+.elemento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.image-holder{
+    position: relative;
+    width: 187px;
+    height: 187px;
+    border-radius: 19px;
+    overflow: hidden;
+}
+
 .ImagenEjercicios{
-    
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 187px;
     width: 187px;
 }
+
+.ImagenEjercicios2{
+    height: 187px;
+    width: 187px;
+}
+
+.contenedor{
+    display: flex;
+    gap: 21px;
+}
+
+.caracterisicas-ejercicio{
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-end;
+
+}
+
+h2{
+    margin: 0;
+    width: 100%;
+    font-family: "Baloo 2",sans-serif;
+    color: #0CC4EA;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+h3{
+    margin: 0;
+    font-family: "Baloo 2",sans-serif;
+    color: #0CC4EA;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+h4{
+    margin: 0;
+    color: #D9D9D9;
+    font-family: "Baloo 2", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.contenedor-parrafo{
+    width: 190px;
+}
+
+.parrafo{
+    color: #D9D9D9;
+    margin: 0;
+    text-align: justify;
+    font-family: "Baloo 2";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+   
+    word-wrap: break-word; /* Permite que las palabras largas se partan si es necesario */
+    white-space: normal; /* Asegura que el texto haga saltos de línea */
+}
+
+.add-button {
+    font-family: "Baloo 2", sans-serif;
+    background-color: #0AA3E7;
+    outline:none;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    border-radius: 11px;
+    width: 100%;
+    height: 46px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,19 +12,20 @@
     <!-- Estilo css-->
     <link rel="stylesheet" href="Style-creacionRutina.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Crea tu Rutina</h1>
-        
+
         <div class="routine-name">
             <span>Nombre Rutina</span>
-            <img class = "ICON" src="Icons/ICON-edit.svg" alt="ICON-edit">  
+            <img class="ICON" src="Icons/ICON-edit.svg" alt="ICON-edit">
         </div>
 
         <button class="save-button">GUARDAR</button>
 
         <div class="search-container">
-            <img class = "ICON" src="Icons/ICON-search.svg" alt="ICON-search">
+            <img class="ICON" src="Icons/ICON-search.svg" alt="ICON-search">
             <input type="text" placeholder="Buscar ejercicio" class="search-input">
         </div>
 
@@ -38,15 +40,30 @@
             <button class="category">Abdomen</button>
         </div>
         <div class="elemento">
-            <img class = "ImagenEjercicios" src="Images/lat pulldown1.jpg" alt="lat pulldown1">
-            <img class = "ImagenEjercicios" src="Images/lat pulldown2.jpg" alt="Hlat pulldown2">
-            <h2>Nombre Ejercicio</h2>
-            <h3>Nivel</h3>
-            <h4>categoria</h4>
-            <p>Descripción</p>
+            <div class="contenedor-titulo">
+                <h2>Press de pierna inclinado</h2>      
+            </div>
+            
+            <div class="contenedor">
+                <div class="image-holder">
+                    <img class="ImagenEjercicios" src="Images/lat pulldown1.jpg" alt="lat pulldown1">
+                    <img class="ImagenEjercicios2" src="Images/lat pulldown2.jpg" alt="Hlat pulldown2">
+                </div>
+
+                <div class="caracterisicas-ejercicio">
+                    
+                    <h3>Principiante</h3>
+                    <h4>Pierna</h4>
+                    <div class="contenedor-parrafo">  
+                        <p class="parrafo">El press de pierna en prensa inclinada es un ejercicio que trabaja cuádriceps, glúteos e isquiotibiales. Se realiza empujando un peso desde una posición semi-reclinada, extendiendo las piernas en una prensa con ángulo inclinado.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="add-button"><img src="Icons/ICON-add.svg">AGREGAR</button>
         </div>
     </div>
 
-   
+
 </body>
+
 </html>
