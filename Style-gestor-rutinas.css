@@ -83,17 +83,30 @@ p {
 }
 
 .routine-info {
-    padding: 15px;
+    padding-bottom: 21px;
+    padding-left: 21px;
+    display: flex;
     position:absolute;
     bottom:0;
-    left: -65px;
+    left: 0;
     width: 100%;
+    flex-direction: column;
+
 }
 
 .routine-info h3 {
 
+    width: 145px;
+    height: 41px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    box-sizing: border-box;
     font-size: 30px;
+    text-align: center;
     margin-bottom: 10px;
+    background-color: #0947CE;
+    border-radius: 20px;
 }
 
 .routine-info button {
@@ -104,7 +117,7 @@ p {
     height: 49px;
     color: white;
     border-radius: 20px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     font-size: 30px;
     font-weight: bold;
     transition: background-color 0.3s;
