@@ -49,10 +49,15 @@ footer {
 .footer-info h3,
 .footer-apps h3 {
     color: black; /* Cambiado el color del título a negro */
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    max-width: 300px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    line-height: 1.1;
 }
+
 
 .footer-info p,
 .footer-apps p {
@@ -62,6 +67,11 @@ footer {
 
 .footer-info a {
     color: white;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
     text-decoration: none;
 }
 
@@ -70,12 +80,10 @@ footer {
 }
 
 /* Estilos para las imágenes de las apps */
-.footer-apps {
-    text-align: right;
-}
+
 
 .footer-apps a img {
-    width: 160px;
+    width: 200px;
     margin: 10px 0;
 }
 
