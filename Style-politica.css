@@ -1,3 +1,13 @@
+/* Fondo y color general */
+body {
+    background-color: #1E1E1E; /* Fondo oscuro */
+    color: #FFFFFF; /* Texto blanco */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilo para el encabezado */
 header {
     display: flex;
     justify-content: space-between;
@@ -36,42 +46,19 @@ header {
     align-items: center;
 }
 
-.logo-title {
-    color: black;
-    font-size: 27px;
-    font-family: 'Baloo Bhai', sans-serif;
-    font-weight: 400;
-    line-height: 12px;
-}
-
-.logo-subtitle {
-    color: black;
-    font-size: 15px;
-    font-family: 'Baloo Bhai', sans-serif;
-    font-weight: 400;
-    line-height: 12px;
-}
-
+.logo-title,
+.logo-subtitle,
 .logo-plus {
     color: black;
-    font-size: 16px;
     font-family: 'Baloo Bhai', sans-serif;
-    font-weight: 400;
-    line-height: 12px;
-}
-
-/* Estilos para el botón de login */
-.login-container {
-    display: flex;
-    align-items: center;
 }
 
 .login-button {
-    background-color: #000; /* Color de fondo negro */
+    background-color: #000; /* Fondo negro */
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 20px; /* Bordes redondeados */
+    border-radius: 20px;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -79,4 +66,26 @@ header {
 
 .login-button:hover {
     background-color: #333; /* Color al pasar el ratón */
+}
+
+/* Estilo de los títulos */
+h1, h2, h3 {
+    color: #0CC4EA; /* Color de los títulos */
+    margin-bottom: 10px;
+}
+
+/* Estilo de los párrafos */
+p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Estilo de listas */
+ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
 }
