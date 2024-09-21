@@ -6,68 +6,72 @@ body {
     color: white;
     text-align: center;
 }
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #0052cc; /* Color de fondo azul */
-    padding: 10px 20px;
-    height: 70px;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.logo-background {
-    width: 87px;
-    height: 52px;
-    background: #D9D9D9;
-    border-radius: 31px;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-.logo-text {
-    width: 57px;
-    height: 43px;
-    padding-top: 4px;
-    z-index: 1;
-    text-align: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+header{
+    width: 100%;
+    background-color: #0052cc; /* Fondo azul */
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
 
-.logo-title {
+/* Estilos para el logo y el texto */
+.contenido{
+    font-family: "Baloo 2", sans-serif;
+    font-style: normal;
+    width: 1216px;
+    height: 40px;
+    margin: 0px;
+    padding: 11px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0052cc; /* Fondo azul */  
+}
+
+.logo {
+    width: 87px;
+    height: 52px;
+    background: #D9D9D9;
+    border-radius: 31px;
+    display: inline-flex;
+    align-items: flex-start;
+}
+
+.logo-text{
     color: black;
-    font-size: 27px;
-    font-family: 'Baloo Bhai', sans-serif;
-    font-weight: 400;
+    padding: 6px 15px;
+    padding-top: 10px;
+    font-weight: 800;
     line-height: 12px;
+    text-align: start;
+}
+
+.logo-title {
+    font-size: 27px;
 }
 
 .logo-subtitle {
-    color: black;
     font-size: 15px;
-    font-family: 'Baloo Bhai', sans-serif;
-    font-weight: 400;
-    line-height: 12px;
 }
 
-.logo-plus {
-    color: black;
-    font-size: 16px;
-    font-family: 'Baloo Bhai', sans-serif;
-    font-weight: 400;
-    line-height: 12px;
+nav ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    display: flex;
+    gap: 50px;
 }
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    font-weight: bold;
+}
+
 
 /* Estilos para el botón de login */
 .login-container {
@@ -98,6 +102,7 @@ header {
 h1 {
     color: #0CC4EA;
     text-align: center;
+    margin: 60px;
     font-size: 40px;
 }
 
