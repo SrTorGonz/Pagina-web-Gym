@@ -1,49 +1,50 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1c1c1c; /* Fondo oscuro */
+    font-family: "Baloo 2", sans-serif;
+    background-color: #040911; /* Fondo oscuro */
     color: white;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
     margin: 0;
 }
 
 .container {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 25px;
 }
 
 h1 {
-    font-size: 36px;
+    margin: 0;
+    font-size: 64px;
     font-weight: bold;
 }
 
 .routine-name {
-    font-size: 24px;
-    margin: 20px 0;
+    font-size: 40px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .routine-name span {
     margin-right: 10px;
 }
 
-.routine-name svg {
-    fill: white;
-}
-
 .save-button {
+    font-family: "Baloo 2", sans-serif;
     background-color: #0052cc;
+    font-weight: bold;
     color: white;
-    padding: 15px 40px;
+    width: 199px;
+    height: 87px;
     border: none;
-    border-radius: 30px;
-    font-size: 18px;
+    border-radius: 53px;
+    font-size: 20px;
     cursor: pointer;
-    margin-bottom: 20px;
 }
 
 .save-button:hover {
@@ -52,41 +53,46 @@ h1 {
 
 .search-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
 }
 
-.search-input {
-    padding: 15px;
+.search-container input {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 20px;
+    height: 58px;
+    width: 812px;
+    padding-left: 60px;
     border: none;
     border-radius: 30px;
-    width: 60%;
-    background-color: #8e8e8e;
-    color: white;
+    background-color: #9DB4F0;
+    color: #697699;
     outline: none;
+    box-sizing: border-box;
 }
 
-.search-container svg {
-    margin-left: -40px;
-    fill: white;
+.search-container img{
+    position:absolute;
+    margin-left: 20px;
 }
 
 .categories {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
 }
 
 .category {
-    background-color: #8e8e8e;
-    color: white;
-    padding: 10px 20px;
+    width: 84px;
+    height: 27px;
+    font-family: "Baloo 2", sans-serif;
+    background-color: #D9D9D9;
+    color: #697699;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .category:hover {
