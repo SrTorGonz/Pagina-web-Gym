@@ -28,7 +28,7 @@ footer {
 
 /* Estilo del logo */
 
-.logo-container {
+.log-container {
     flex-basis: 30%;
     display: flex;
     justify-content: flex-start;
@@ -36,7 +36,7 @@ footer {
     text-align: left;
 }
 
-.logo-title{
+.log-title{
     color: black; /* Cambiado el color del logo a negro */
     font-size: 120px;
     font-weight: 400;
@@ -48,7 +48,7 @@ footer {
 
 }
 
-.logo-subtitle {
+.log-subtitle {
     color: black; /* Cambiado el color del logo a negro */
     font-size: 60px;
     font-weight: 400;
