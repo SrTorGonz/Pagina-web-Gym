@@ -315,14 +315,17 @@ h1, h2 {
 /* Estilos para la sección del botón */
 .cta-section {
     text-align: center; /* Asegura que el botón esté centrado */
-    margin-top: 30px; /* Espacio superior opcional */
+    margin-top: 60px; /* Espacio superior opcional */
+    margin-bottom: 250px; /* Espacio inferior opcional */
+    font-family: 'Baloo 2', sans-serif;
+
 }
 
 /* Estilos del botón */
 .cta-button {
     background-color: #0B80E9; /* Color de fondo del botón */
     color: white; /* Color del texto */
-    padding: 15px 40px; /* Tamaño del botón */
+    padding: 20px 45px; /* Tamaño del botón */
     border: none; /* Sin bordes */
     border-radius: 30px; /* Bordes redondeados */
     font-size: 20px; /* Tamaño de la fuente */
