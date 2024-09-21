@@ -336,3 +336,120 @@ h1, h2 {
 }
 
 
+
+
+
+/* Estilos para el footer */
+
+/* Estilos para el body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', sans-serif;
+    background-color: #1C1C1C;
+    color: white;
+    text-align: center;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #0052cc;
+    color: white;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centrar verticalmente */
+}
+
+/* Estilo del logo */
+
+.log-container {
+    flex-basis: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+}
+
+.log-title{
+    color: black; /* Cambiado el color del logo a negro */
+    font-size: 120px;
+    font-weight: 400;
+    line-height: 5px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 0.5;
+
+
+}
+
+.log-subtitle {
+    color: black; /* Cambiado el color del logo a negro */
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 12px;
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    line-height: 0.7;
+}
+
+
+
+/* Estilos para las secciones de texto */
+.footer-info h3,
+.footer-apps h3 {
+    color: black; /* Cambiado el color del título a negro */
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    max-width: 400px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    line-height: 1.1;
+}
+
+
+.footer-info p,
+.footer-apps p {
+    font-size: 25px;
+    line-height: 1.5;
+}
+
+.footer-info a {
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+.footer-info a:hover {
+    text-decoration: underline;
+}
+
+
+
+.footer-apps a img {
+    width: 200px;
+    margin: 10px 0;
+}
+
+.footer-apps a {
+    display: block;
+}
+
+.footer-apps a:not(:last-child) {
+    margin-bottom: 10px;
+}
+
