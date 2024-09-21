@@ -10,6 +10,7 @@ body {
 }
 
 .container {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -52,11 +53,16 @@ h1 {
 }
 
 .search-container {
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .search-container input {
+    margin-left: 20px;
+    margin-right: 20px;
     font-family: "Baloo 2", sans-serif;
     font-size: 20px;
     height: 58px;
@@ -68,14 +74,23 @@ h1 {
     color: #697699;
     outline: none;
     box-sizing: border-box;
+    position: relative;
+}
+.search-icon-container {
+    z-index: 1;
+    position: relative; 
+    display: flex;
+    align-items: center;
 }
 
 .search-container img{
+
     position:absolute;
-    margin-left: 20px;
+    margin-left: 35px;
 }
 
 .categories {
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -96,7 +111,7 @@ h1 {
 }
 
 .category:hover {
-    background-color: #6e6e6e;
+    background-color: #9DB4F0;
 }
 
 
