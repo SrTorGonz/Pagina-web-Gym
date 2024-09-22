@@ -1,0 +1,378 @@
+/* Estilos generales */
+body {
+    font-family: "Baloo 2", sans-serif;
+    background-color: #040911; /* Fondo oscuro */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 25px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 64px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.routine-name {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.routine-name span {
+    margin-right: 10px;
+}
+
+.save-button {
+    font-family: "Baloo 2", sans-serif;
+    background-color: #0052cc;
+    font-weight: bold;
+    color: white;
+    width: 199px;
+    height: 87px;
+    border: none;
+    border-radius: 53px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background-color: #003ea8; /* Cambio de color al hacer hover */
+}
+
+.search-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.search-container input {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Baloo 2", sans-serif;
+    font-size: 20px;
+    height: 58px;
+    width: 812px;
+    padding-left: 60px;
+    border: none;
+    border-radius: 30px;
+    background-color: #9DB4F0;
+    color: #697699;
+    outline: none;
+    box-sizing: border-box;
+    position: relative;
+}
+.search-icon-container {
+    z-index: 1;
+    position: relative; 
+    display: flex;
+    align-items: center;
+}
+
+.search-container img{
+
+    position:absolute;
+    margin-left: 35px;
+}
+
+.categories {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.category {
+    width: 84px;
+    height: 27px;
+    font-family: "Baloo 2", sans-serif;
+    background-color: #D9D9D9;
+    color: #697699;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.category:hover {
+    background-color: #9DB4F0;
+}
+
+
+
+.ejercicios{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:49px 236px
+}
+.elemento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+
+.image-holder{
+    position: relative;
+    width: 187px;
+    height: 187px;
+    border-radius: 19px;
+    overflow: hidden;
+}
+
+.imagen-superior, .imagen-inferior {
+    position: absolute; /* Ambas imágenes se superponen */
+    top: 0;
+    left: 0;
+    height: 187px;
+    width: 187px;
+    transition: opacity 0.5s ease; /* Transición suave para el efecto */
+}
+.imagen-superior {
+    z-index: 2; /* Asegura que la imagen superior esté por encima */
+    opacity: 1; /* Inicialmente completamente visible */
+}
+
+.imagen-inferior {
+    z-index: 1; /* La imagen inferior está debajo */
+}
+
+.image-holder:hover .imagen-superior {
+    opacity: 0; /* Al hacer hover, la imagen superior desaparece */
+}
+
+.ImagenEjercicios{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 187px;
+    width: 187px;
+    opacity: 1; /* Inicialmente completamente visible */
+}
+
+.ImagenEjercicios2{
+    height: 187px;
+    width: 187px;
+}
+
+.contenedor-imagenes:hover .imagenEjercicios {
+    opacity: 0; /* Al hacer hover, la imagen superior desaparece */
+}
+
+.contenedor{
+    display: flex;
+    gap: 21px;
+}
+
+.caracterisicas-ejercicio{
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-end;
+
+}
+
+h2{
+    margin: 0;
+    width: 100%;
+    font-family: "Baloo 2",sans-serif;
+    color: #0CC4EA;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+h3{
+    margin: 0;
+    font-family: "Baloo 2",sans-serif;
+    color: #0CC4EA;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+h4{
+    margin: 0;
+    color: #D9D9D9;
+    font-family: "Baloo 2", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.contenedor-parrafo{
+    width: 190px;
+}
+
+.parrafo{
+    color: #D9D9D9;
+    margin: 0;
+    text-align: justify;
+    font-family: "Baloo 2";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+   
+    word-wrap: break-word; /* Permite que las palabras largas se partan si es necesario */
+    white-space: normal; /* Asegura que el texto haga saltos de línea */
+}
+
+.contenedor-titulo{
+    width: 397px;
+    height: 102px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: flex-end;
+}
+
+.titulo{
+    word-wrap: break-word; /* Permite que las palabras largas se partan si es necesario */
+    white-space: normal; /* Asegura que el texto haga saltos de línea */
+    
+}
+.add-button {
+    font-family: "Baloo 2", sans-serif;
+    background-color: #0AA3E7;
+    outline:none;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    border-radius: 11px;
+    width: 100%;
+    height: 46px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-series-repes{
+    display: flex;
+    gap: 61px;
+}
+.series-repes{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-series-repes{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #D9D9D9;
+    line-height: 30px;
+}
+/* quitar las flechas botones del input en navegadores webkit(Chrome,Safari)*/
+.input-numero::-webkit-inner-spin-button,
+.input-numero::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-numero{
+    font-family: "Baloo 2", sans-serif;
+    display: flex;
+    width: 72px;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
+    background-color: #9DB4F0;
+    color: #697699;
+    border-radius: 31px;
+    border:none;
+    outline: none;
+
+    text-align: center;
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.edit-button {
+    font-family: "Baloo 2", sans-serif;
+    background-color: #28DEC5;
+    outline:none;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    border-radius: 11px;
+    width: 100%;
+    height: 46px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-button{
+    width: 16px;
+    height: 19px;
+}
+
+.elemento-series-repes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 37px;
+}
+
+.boton-mixto{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.boton-mixto button{
+    font-family: "Baloo 2", sans-serif;
+    outline:none;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    width: 50%;
+    height: 46px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-button-half{
+    background-color: #28DEC5;
+    border-radius: 11px 0px 0px 11px;
+}
+
+.remove-button{
+    background-color: #DE2828;
+    border-radius: 0px 11px 11px 0px;
+}
+
+
+
+
