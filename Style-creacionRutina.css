@@ -330,7 +330,7 @@ h4{
     justify-content: center;
     align-items: center;
 }
-.edit-button img{
+.icon-button{
     width: 16px;
     height: 19px;
 }
@@ -341,6 +341,38 @@ h4{
     align-items: center;
     gap: 37px;
 }
+
+.boton-mixto{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.boton-mixto button{
+    font-family: "Baloo 2", sans-serif;
+    outline:none;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    width: 50%;
+    height: 46px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-button-half{
+    background-color: #28DEC5;
+    border-radius: 11px 0px 0px 11px;
+}
+
+.remove-button{
+    background-color: #DE2828;
+    border-radius: 0px 11px 11px 0px;
+}
+
 
 
 
