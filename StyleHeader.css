@@ -5,6 +5,7 @@ header{
     display: flex; 
     justify-content: center;
     align-items: center;
+    position: fixed;
 }
 /* Estilos para el logo y el texto */
 .contenido{
