@@ -287,18 +287,27 @@ h4{
     font-size: 24px;
     font-weight: 700;
     color: #D9D9D9;
+    line-height: 30px;
 }
+/* quitar las flechas botones del input en navegadores webkit(Chrome,Safari)*/
+.input-numero::-webkit-inner-spin-button,
+.input-numero::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .input-numero{
     font-family: "Baloo 2", sans-serif;
     display: flex;
-    width: 76px;
-    height: 58px;
+    width: 72px;
+    height: 56px;
     justify-content: center;
     align-items: center;
     background-color: #9DB4F0;
     color: #697699;
     border-radius: 31px;
     border:none;
+    outline: none;
 
     text-align: center;
     font-size: 36px;
