@@ -9,6 +9,9 @@ body {
     height: 100vh;
     margin: 0;
 }
+header{
+    position: relative;
+}
 
 .container {
     height: 588px;

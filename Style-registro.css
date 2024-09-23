@@ -10,6 +10,10 @@ body {
     margin: 0;
 }
 
+header{
+    position: relative;
+}
+
 section {
     width: 399px;
     height: 588px;
