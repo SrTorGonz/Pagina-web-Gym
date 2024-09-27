@@ -23,7 +23,7 @@ span{
     margin-bottom: 46px;
 }
 
-h1 {
+.container h1 {
     width: 100%;
     margin: 0;
     font-size: 64px;
@@ -34,7 +34,7 @@ h1 {
     margin-bottom: 46px;
 }
 
-h3{
+.container h3{
     width: 100%;
     margin: 0;
     color: white;
@@ -122,7 +122,7 @@ hr{
     justify-content: center;
     align-items: flex-end;
 }
-h2{
+.componente h2{
     margin: 0;
     font-size: 16px;
     font-style: normal;
@@ -130,7 +130,7 @@ h2{
     line-height: normal;
     text-align: center;
 }
-img{
+.componente img{
     width: 187px;
     height: 187px;
     border-radius: 19px;
