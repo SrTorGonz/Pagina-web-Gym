@@ -1,0 +1,279 @@
+/* General */
+body {
+    margin: 0;
+    font-family: "Baloo 2", sans-serif;
+    background-color: #040911;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+span{
+    margin: 0;
+    font-weight: bold;
+}
+.container {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 127px;
+    margin-bottom: 46px;
+}
+
+h1 {
+    width: 100%;
+    margin: 0;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 46px;
+}
+
+h3{
+    width: 100%;
+    margin: 0;
+    color: white;
+    text-align: left;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 46px;
+}
+
+/* Tabs */
+.tabs {
+    max-width: 1024px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 13px;
+    align-self: stretch;
+}
+
+.tab {
+    display: flex;
+    font-family: "Baloo 2", sans-serif;
+    color: white;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    outline: none;
+    background-color: #055274;
+    cursor: pointer;
+    width: 135px;
+    height: 77px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px 18px 0px 0px;
+}
+
+.tab.active {
+    background-color: #0AA3E7;
+    font-weight: 700;
+}
+
+.exercise-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0aa3e7;
+    border-radius: 0px 0px 20px 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.componente{
+    width: 815px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:39px;
+    padding-bottom: 42px;
+}
+
+
+hr{
+    border: 3px solid #055274;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.title-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap:9px;
+}
+.exercise-title{
+    display: flex;
+    width: 187px;
+    height: 52px;
+    justify-content: center;
+    align-items: flex-end;
+}
+h2{
+    margin: 0;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    text-align: center;
+}
+img{
+    width: 187px;
+    height: 187px;
+    border-radius: 19px;
+}
+
+
+.exercise-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 19px;
+}
+
+
+.exercise-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap:13px;
+}
+
+span{
+    margin:0;
+}
+
+
+.sets-reps{
+    color: #055274;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:15px;
+}
+
+.stat p {
+    margin: 0;
+    text-align: center;
+    line-height: normal;
+}
+
+.peso-previo{
+    color: #055274;
+    text-align: center;
+    font-weight: 700;
+}
+
+
+.table-title{
+    color: white;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+}
+
+.ultimo-registro{
+    color: #055274;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+}
+input {
+    margin: 0;
+    padding: 0;
+    font-family: "Baloo 2", sans-serif;
+    font-weight: bold;
+    color: #697699;
+    background-color: #D9D9D9;
+    outline: none;
+    border: none;
+    border-radius: 31px;
+    width: 84px;
+    height: 28px;
+    text-align: center;
+}
+.repes{
+    width: 67px;
+    height: 30px;
+}
+
+.ultimo-peso{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 30px 9px;
+}
+
+th, td {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.section-fecha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+.submit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+label{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.input-fecha{
+    width: 127px;
+    height: 45px;
+}
+.save-button {
+    font-family: "baloo 2", sans-serif;
+    background-color: #0947ce;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    width: 199px;
+    height: 87px;
+    font-weight: bold;
+}
+
+.save-button:hover {
+    background-color: #072ca1;
+}
