@@ -121,7 +121,7 @@ h1 {
 
 .ejercicios{
     margin-top: 30px;
-    width: 100%;
+    max-width: 1076px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
