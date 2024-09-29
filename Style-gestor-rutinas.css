@@ -121,7 +121,11 @@ p {
     flex-direction: column;
 
 }
-
+.routine-info a{
+    width: 220px;
+    height: 49px;
+    z-index: 3;
+}
 .routine-info h3 {
 
     width: 145px;
