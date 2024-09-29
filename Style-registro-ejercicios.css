@@ -276,3 +276,32 @@ label{
 .save-button:hover {
     background-color: #072ca1;
 }
+
+.image-holder{
+    position: relative;
+    width: 187px;
+    height: 187px;
+    border-radius: 19px;
+    overflow: hidden;
+}
+
+.imagen-superior, .imagen-inferior {
+    position: absolute; /* Ambas imágenes se superponen */
+    top: 0;
+    left: 0;
+    height: 187px;
+    width: 187px;
+    transition: opacity 0.5s ease; /* Transición suave para el efecto */
+}
+.imagen-superior {
+    z-index: 2; /* Asegura que la imagen superior esté por encima */
+    opacity: 1; /* Inicialmente completamente visible */
+}
+
+.imagen-inferior {
+    z-index: 1; /* La imagen inferior está debajo */
+}
+
+.image-holder:hover .imagen-superior {
+    opacity: 0; /* Al hacer hover, la imagen superior desaparece */
+}
