@@ -181,28 +181,39 @@ body {
 .training-summary button:hover {
     background-color: #00A5E3;
 }
-
-.exercise-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #0AA3E7;
-    border-radius: 10px;
+.container-table {
+    display: flex;
+    justify-content: center;
+    background-color: #0B80E9;
+    width: 935px;
+    height: 420px;
+    border-radius: 30px;
     overflow: hidden;
 }
+.exercise-table {
+    
+    margin: 10px;
+    border-collapse: separate;
+    border-spacing: 50px 5px;
+}
+
 
 .exercise-table th,
 .exercise-table td {
-    padding: 10px;
+    margin:0;
     text-align: center;
 }
+ td:first-child {
 
-.exercise-table th {
-    background-color: #055274;
+    text-align: left;
+    margin:0;
 }
-
-.exercise-table td {
-    background-color: #00A5E3;
+span{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    justify-content: left;
+    white-space: nowrap;
 }
 
 /* Sección Perfil */
