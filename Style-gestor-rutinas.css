@@ -36,35 +36,60 @@ p {
 }
 
 .routines-grid {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    max-width: 876px;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    gap: 63px 56px;
 }
 
 .routine-item {
 
+    position: relative;
     width: 374px;
     height: 374px;
     border-radius: 10px;
-    overflow: hidden;
     transition: transform 0.3s;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 0px;
-    position: relative; 
+    overflow: hidden; 
 }
+.routine-img {
+    position: relative;
+    width: 187px;
+    height: 187px;
+    overflow: hidden;
+}	
+.image-front, .image-back {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    height: 187px;
+    width: 187px;
+    transition: opacity 0.5s ease; 
+}
+
 
 .routine-item:hover {
     transform: scale(1.05);
 }
 
-.routine-item img {
-    width: 100%;
-    height: auto;
+.image-front {
+    z-index: 2; /* La imagen frontal tiene una capa más alta por defecto */
+    opacity: 1; /* Totalmente visible */
 }
+.image-back{
+    z-index: 1; /* Imagen de fondo */
+}
+.routine-img:hover .image-front {
+    opacity: 0; /* Al hacer hover, la imagen superior desaparece */
+}
+
+
+
 .routine-first {
     width: 374px;
     height: 374px;
@@ -107,6 +132,7 @@ p {
     margin-bottom: 10px;
     background-color: #0947CE;
     border-radius: 20px;
+    z-index: 3;
 }
 
 .routine-info button {
@@ -121,6 +147,7 @@ p {
     font-size: 30px;
     font-weight: bold;
     transition: background-color 0.3s;
+    z-index: 3;
 }
 .routine-info button:hover {
     background-color: #007AB8;
