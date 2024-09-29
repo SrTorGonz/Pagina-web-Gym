@@ -277,6 +277,10 @@ label{
     background-color: #072ca1;
 }
 
+input:hover{
+    background-color: #B6B6B6
+}
+
 .image-holder{
     position: relative;
     width: 187px;
