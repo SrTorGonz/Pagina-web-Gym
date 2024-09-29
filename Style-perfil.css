@@ -8,6 +8,7 @@ body {
     font-family: 'Baloo 2', sans-serif;
     background-color: #040911;
     color: white;
+    justify-content: center;
     padding: 20px;
 }
 
@@ -25,29 +26,87 @@ body {
 
 .progress-content {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
+    width: 327px;
+    height: 602px;
     background-color: #0AA3E7;
-    border-radius: 15px;
+    border-radius: 20px 0 0 20px;
     padding: 20px;
 }
 
 .exercise-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
 }
 
-.exercise-list input,
-.exercise-list button {
-    font-family: "Baloo 2", sans-serif;
-    background-color: #055274;
-    border: none;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
+.search-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
+
+.search-container input {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Baloo 2", sans-serif;
+    font-size: 16px;
+    height: 51px;
+    width: 266px;
+    padding-left: 60px;
+    border: none;
+    border-radius: 30px;
+    background-color: #9DB4F0;
+    color: #697699;
+    outline: none;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.search-icon-container {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-container img {
+
+    position: absolute;
+    margin-left: 35px;
+}
+
+.button {
+
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+.button button {
+    width: 195px;
+    height: 37px;
+    font-family: "Baloo 2", sans-serif;
+    background-color: #9DB4F0;
+    border: none;
+    color: #697699;
+    font-size: 16px;
+    border-radius: 26px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 20px;
+    outline: none;
+}
+
+
 
 .graph {
     width: 50%;
@@ -179,5 +238,6 @@ button {
 }
 
 button:hover {
-    background-color: #0832A2;
+    background-color: #0B80E9;
+    color: white;
 }
