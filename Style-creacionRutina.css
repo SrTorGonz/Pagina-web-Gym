@@ -25,6 +25,7 @@ h1 {
     font-size: 64px;
     font-weight: bold;
     text-align: center;
+    line-height: 70px;
 }
 
 .routine-name {
@@ -403,6 +404,11 @@ h4{
     }
     .ejercicios{
         gap: 100px;
+    }
+
+    .save-button{
+        width: 179px;
+        height: 67px;
     }
 }
 
