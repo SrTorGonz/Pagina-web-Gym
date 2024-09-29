@@ -47,6 +47,8 @@ header {
     line-height: 0.9;
     align-items: center;
     justify-content: center;
+    margin-top: 5px; /* Añade margen superior para mover el texto hacia abajo */
+    margin-left: 12px; /* Añade margen izquierdo para mover el texto a la derecha */
 }
 
 .logo-title {
@@ -228,6 +230,7 @@ footer {
     text-transform: uppercase;
     font-weight: bolder;
     line-height: 1.1;
+    text-align: center;
 }
 
 
@@ -235,6 +238,7 @@ footer {
 .footer-apps p {
     font-size: 25px;
     line-height: 1.5;
+     text-align: center;
 }
 
 .footer-info a {
@@ -245,6 +249,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
     text-decoration: none;
+    text-align: center;
 }
 
 .footer-info a:hover {
