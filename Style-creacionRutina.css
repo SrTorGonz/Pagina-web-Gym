@@ -358,5 +358,27 @@ h4{
 }
 
 
+.add-button:hover{
+    background-color: #3fc5ff;
+}
+
+.add button:hover{
+    background-color: #3fc5ff;
+}
+.add-button-half:hover{
+    background-color: #28f3d8;
+}
+.edit-button:hover{
+    background-color: #28f3d8;
+}   
+.remove-button:hover{
+    background-color: #ff4343;
+}
+
+.input-numero:hover{
+    background-color: #b3bcd6;
+}
+
+
 
 
