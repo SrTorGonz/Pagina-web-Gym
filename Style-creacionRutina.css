@@ -380,5 +380,30 @@ h4{
 }
 
 
+@media (max-width: 461px){
+    .contenedor{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .contenedor-titulo{
+        width: 187px;
+        height: 76px;
+    }
+    .titulo{
+        font-size: 24px;
+    }
+    .add-button, 
+    .edit-button,
+    .boton-mixto button{
+        font-size: 16px;
+    }
+    .contenedor-series-repes{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .ejercicios{
+        gap: 100px;
+    }
+}
 
 
