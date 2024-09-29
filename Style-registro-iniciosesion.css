@@ -14,16 +14,14 @@ header{
 }
 
 .container {
+    width: 100%;
     height: 588px;
     display: flex;
-    justify-content: space-between;
-    border-radius: 18px;
-    overflow: hidden;
-    width: 800px;
+    justify-content: center;
 }
 
 section {
-    width: 50%;
+    width: 411px;
     background-color: #0B80E9; /* Azul oscuro */
     color: white;
     display: flex;
@@ -31,10 +29,17 @@ section {
     justify-content: center;
     align-items: center;
     gap: 31px;
+    border-radius: 0 18px 18px 0;   
 }
 
 .register-section {
     background-color: #0947CE; /* Color azul más oscuro para el registro */
+    border-radius: 18px 0 0 18px;
+    margin-left: 20px;
+}
+
+.login-section {
+    margin-right: 20px;
 }
 
 h2 {
@@ -129,3 +134,38 @@ footer{
     font-size: 14px;
 }
 
+
+@media (max-width: 615px) {
+    .container {
+        width: 100%;
+        height: 792px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+          
+    }
+
+    section {
+        width: 90%;
+        background-color: #0B80E9; /* Azul oscuro */
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 31px;
+        border-radius: 0 0 18px 18px;   
+    }
+    .register-section {
+        
+        height: 338px;
+        border-radius: 18px 18px 0 0;
+        margin:0;
+    }
+    
+    .login-section {
+        height: 454px;
+        margin: 0;
+    }
+    
+}
