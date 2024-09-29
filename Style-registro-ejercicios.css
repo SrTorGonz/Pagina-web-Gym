@@ -14,7 +14,7 @@ span{
     font-weight: bold;
 }
 .container {
-    max-width: 100%;
+    max-width: 93%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -91,7 +91,7 @@ span{
     padding-bottom: 40px;
 }
 .componente{
-    width: 815px;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,9 +139,14 @@ hr{
 .exercise-content {
     display: flex;
     justify-content: space-between;
-    gap: 19px;
 }
 
+.columna-peso{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+}
 
 .exercise-stats {
     display: flex;
@@ -308,4 +313,21 @@ input:hover{
 
 .image-holder:hover .imagen-superior {
     opacity: 0; /* Al hacer hover, la imagen superior desaparece */
+}
+
+@media(max-width:800px){
+ .exercise-content{
+        flex-direction: column;
+        gap: 20px;
+ }
+ .container h1{
+     font-size: 40px;
+ }
+ .tab{
+    font-size: 12px;
+ }
+ .container h2{
+        font-size: 10px;
+ }
+
 }
