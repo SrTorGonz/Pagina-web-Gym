@@ -13,11 +13,16 @@ body {
 header{
     position: relative;
 }
+.register-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
-section {
+.container{
+    background-color: #0947CE; /* Color azul más oscuro para el registro */
     width: 399px;
     height: 588px;
-    background-color: #0B80E9; /* Azul oscuro */
     color: white;
     display: flex;
     border-radius: 18px;
@@ -25,10 +30,8 @@ section {
     justify-content: center;
     align-items: center;
     gap: 18px;
-}
-
-.register-section {
-    background-color: #0947CE; /* Color azul más oscuro para el registro */
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 h2 {

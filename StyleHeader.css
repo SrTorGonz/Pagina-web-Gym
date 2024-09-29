@@ -99,4 +99,7 @@ nav ul li a:hover {
     .menu{
         display:none;
     }
+    .contenido{
+        padding: 11px 20px;
+    }
 }
