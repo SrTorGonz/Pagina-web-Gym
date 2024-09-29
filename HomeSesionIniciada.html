@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Fitness Plus</title>
+    <link rel="stylesheet" href="Style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    
+    <header>
+        <div class="contenido">
+            <div class="logo">
+                <div class="logo-text">
+                    <span class="logo-title">GYM</span>
+                    <span class="logo-subtitle">FITNESS</span>
+                    <span class="logo-subtitle">PLUS +</span>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#rutina">Rutina</a></li>
+                    <li><a href="#ejercicios">Ejercicios</a></li>
+                    <li><a href="#miPerfil">Mi Perfil</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="image-slider">
+            <img src="Icons/Icon-arrow left.svg" alt="Flecha izquierda" class="prev-arrow" onclick="prevImage()">
+            
+            <div class="slides-container">
+                <img src="Images/Imagen banner 1.png" class="slide" alt="Gym Image 1">
+                <img src="Images/Imagen banner 2.png" class="slide" alt="Gym Image 2">
+                <img src="Images/Imagen banner 3.png" class="slide" alt="Gym Image 3">
+            </div>
+        
+            <img src="Icons/Icon-arrow right.svg" alt="Flecha derecha" class="next-arrow" onclick="nextImage()">
+        </div> 
+        
+    
+        <div class="welcome-text">
+            <img src="Images/Imagen pesas bienvenda.png" alt="imagen pesas bienvenida">
+            <div class="welcome-message">
+                <p class="small-text">
+                    En nuestro gimnasio, te ayudamos a mejorar tu salud física y mental con un enfoque integral. Crea tu propia rutina personalizada y registra cada avance, permitiéndote comparar los cambios en tu cuerpo a medida que progresas.
+                </p>
+                <h1>¡BIENVENIDO A GYM FITNESS PLUS! 
+                    <span class="highlight-experimenta">EXPERIMENTA</span> 
+                    EL MEJOR ENTRENAMIENTO Y DESBLOQUEA TU MÁXIMO 
+                    <span class="highlight-potencial">POTENCIAL</span>.
+                </h1>
+            </div>
+        </div>
+
+        <section class="features-section">
+            <h2>Los medios para lograr tus objetivos</h2>
+            <p>Sea cual sea tu meta, ya sea perder peso, tonificarte o mejorar tu estado físico en general, te ofrecemos las herramientas necesarias para conseguirlo.</p>
+            <div class="features">
+                <div class="feature">
+                    <div class="icon-container">
+                        <img src="Icons/Icon-rutina.svg" alt="Rutina">
+                    </div>
+                    <h3>Rutina</h3>
+                    <p>Crea tu propia rutina personalizada a medida que avanzas hacia tus objetivos.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon-container">
+                        <img src="Icons/Icon-progreso.svg" alt="Progreso">
+                    </div>
+                    <h3>Progreso</h3>
+                    <p>Registra cada avance y compara los cambios en tu cuerpo a medida que progresas.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon-container">
+                        <img src="Icons/Icon-motivacion.svg" alt="Motivación">
+                    </div>
+                    <h3>Motivación</h3>
+                    <p>Únete a una comunidad de personas con objetivos similares, comparte tus experiencias y encuentra motivación en el progreso de otros.</p>
+                </div>
+            </div>
+        </section>
+        
+
+
+        <section class="gallery-section">
+            <h2>Vive Gym Fitness Plus: un ambiente de entrenamiento único con equipos modernos y las mejores instalaciones</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="Images/Imagen-zona de musculacion.png" alt="Zona de musculación">
+                    <p>ZONA DE MUSCULACIÓN</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/Imagen - cardio.png" alt="Cardio">
+                    <p>CARDIO</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/Imagen-zona amplia.png" alt="Zonas amplias">
+                    <p>ZONAS AMPLIAS</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/Imagen - seguridad.png" alt="Seguridad">
+                    <p>SEGURIDAD</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <section class="cta-section">
+        <button class="cta-button">COMIENZA AHORA</button>
+    </section>
+
+
+
+    <script>
+        let currentIndex = 0;
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentIndex) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextImage() {
+            const slides = document.querySelectorAll('.slide');
+            currentIndex = (currentIndex + 1) % slides.length; // Avanza a la siguiente imagen
+            showSlides();
+        }
+
+        function prevImage() {
+            const slides = document.querySelectorAll('.slide');
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length; // Retrocede a la imagen anterior
+            showSlides();
+        }
+
+        // Cambia de imagen automáticamente cada 5 segundos
+        setInterval(nextImage, 5000);
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            showSlides(); // Muestra la primera imagen al cargar
+        });
+    </script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="log-container">
+                <div class="logo-text">
+                    <span class="log-title">GYM</span><br/>
+                    <span class="log-subtitle">FITNESS</span>
+                    <span class="log-subtitle">PLUS+</span>
+                </div>
+            </div>
+        
+            <div class="footer-info">
+                <h3>HORARIOS SERVICIO AL CLIENTE</h3>
+                <p>LUNES A SABADO:<br>8:00AM – 7:00PM</p>
+                <h3>TÉRMINOS Y CONDICIONES</h3>
+                <p><a href="#">POLÍTICA DE PRIVACIDAD</a></p>
+            </div>
+            <div class="footer-apps">
+                <h3>DISPONIBLE EN</h3>
+                <a href="#">
+                    <img src="Images/imagen-googleplay.png" alt="Google Play">
+                </a>
+                <a href="#">
+                    <img src="Images/Imagen-appstore.png" alt="App Store">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
