@@ -68,6 +68,41 @@ h1, h2 {
     right: 10px;
 }
 
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+
+
+    .image-slider {
+        width: 90%; /* Ajusta el ancho del banner en dispositivos móviles */
+        margin: 50px auto 0; /* Aumenta solo el margen superior a 50px */
+        padding-bottom: 75%; /* Mantiene una relación de aspecto de 4:3 */
+        position: relative; /* Para que el padding-bottom funcione correctamente */
+    }
+
+    .slides-container {
+        position: absolute; /* Permite que las imágenes se superpongan al padding */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; /* Llenar el contenedor */
+    }
+
+    .prev-arrow, .next-arrow {
+        display: none; /* Oculta las flechas en dispositivos móviles */
+    }
+
+    .slide {
+        width: 100%; /* Mantiene el ancho de la imagen dentro del contenedor */
+        height: 100%; /* Asegura que la imagen ocupe todo el contenedor */
+    }
+
+    .container{
+        margin-top: 5%;
+    }
+
+
+
+}
 
 
 
@@ -119,6 +154,96 @@ h1, h2 {
     color: #0AA3E7; /* Color para "POTENCIAL" */
     font-weight: bold;
 }
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .welcome-text {
+        display: flex;
+        flex-direction: column; /* Cambia la dirección a columna */
+        align-items: center; /* Centra horizontalmente */
+        justify-content: center; /* Centra verticalmente */
+        height: auto; /* Permite que la altura se ajuste al contenido */
+        text-align: center; /* Centra el texto */
+    }
+
+    .welcome-message {
+        order: 1; /* Hace que el texto aparezca primero */
+        margin-bottom: 20px; /* Ajusta el margen inferior para separar del siguiente elemento */
+        width: 100%; /* Aumenta el ancho del contenedor de texto */
+        margin: 0 auto; /* Centra el contenedor horizontalmente */
+    }
+
+    .welcome-message .small-text {
+        font-size: 11px; /* Tamaño de fuente más pequeño para el texto descriptivo */
+        width: 100%; /* Aumenta el ancho del contenedor de texto */
+        text-align: center; /* Centra el texto */
+        font-size: calc(2vw + 1px); /* Ajusta el tamaño del texto de bienvenida para móviles, disminuyendo gradualmente */
+       
+    }
+
+  
+    .welcome-message h1 {
+       
+       
+        order: 3; /* Cambia el orden para que aparezca al final */
+        font-size: 18px; /* Ajusta el tamaño del texto de bienvenida para móviles */
+        width: 55%; /* Ajusta el ancho del contenedor de texto */
+        margin-top: 70px; /* Ajusta la separación desde la parte superior */
+        text-align: center; /* Centra el texto */
+        position: absolute; /* Cambia a posición absoluta */
+        z-index: 2; /* Asegura que el texto esté por encima de la imagen */
+        font-size: calc(5vw + 5px); /* Ajusta el tamaño del texto de bienvenida para móviles, disminuyendo gradualmente */
+        margin-top: calc(75px - 5vw); /* Ajusta el margen superior para que suba gradualmente */
+    }
+
+    .welcome-text img {
+        
+        
+        order: 2; /* Hace que la imagen aparezca después del texto de bienvenida */
+        width: 80%; /* Ajusta el tamaño de la imagen */
+        max-width: 500px; /* Tamaño máximo de la imagen */
+        margin: 0 auto; /* Centra el contenedor horizontalmente */
+        filter: brightness(0.3); /* Ajusta el brillo de la imagen */
+        
+        position: relative; /* Asegura que la imagen esté en la misma posición relativa */
+        z-index: 1; /* Asegura que la imagen esté detrás del texto */
+        margin-bottom: 5px; /* Reduce el margen inferior */
+    }
+}
+
+@media (max-width: 425px) {
+    .welcome-message h1 {
+        font-size: 19px; /* Ajusta el tamaño del texto para que no sea más pequeño que 18px */
+        text-align: center; /* Centra el texto */
+        position: absolute; /* Cambia a posición absoluta */
+        
+    }
+
+    .welcome-message .small-text {
+        font-size: 9px; /* Tamaño de fuente más pequeño para el texto descriptivo */
+        width: 100%; /* Aumenta el ancho del contenedor de texto */
+        text-align: center; /* Centra el texto */
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 1024px) {
+    .welcome-message .small-text {
+        font-size: 12px; /* Ajusta el tamaño del texto descriptivo */
+    }
+
+    .welcome-message h1 {
+        font-size: 47px; /* Ajusta el tamaño del título */
+    }
+
+    .welcome-text img {
+        width: 48%; /* La imagen ocupará el 50% del ancho del contenedor */
+        height: auto; /* Mantiene las proporciones de la imagen */
+    }
+}
+
+
+
+
 
 
 
@@ -190,6 +315,40 @@ h1, h2 {
 }
 
 
+@media (max-width: 768px) {
+    .features {
+        display: block; /* Cambia de flex a block */
+        margin-bottom: calc(20px - 5vw);
+        margin-top: calc(20px - 5vw); /* Ajusta el margen superior para que disminuya gradualmente */
+    }
+
+    .feature {
+        margin-bottom: 30px; /* Añade un margen inferior entre los elementos */
+    }
+}
+
+@media (max-width: 768px) {
+    .features-section h2 {
+        font-size: 20px; /* Reduce el tamaño del título para dispositivos móviles */
+    }
+
+    .features-section p {
+        font-size: 14px; /* Reduce el tamaño del párrafo para dispositivos móviles */
+    }
+
+    .feature h3 {
+        font-size: 20px; /* Reduce el tamaño del texto del título de cada feature */
+    }
+
+    .feature p {
+        font-size: 13px; /* Reduce el tamaño del texto descriptivo de cada feature */
+    }
+}
+
+
+
+
+
 
 
 /* Gallery Section */
@@ -258,8 +417,34 @@ h1, h2 {
 }
 
 
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+    .cta-button {
+        padding: 15px 30px; /* Ajusta el tamaño del botón */
+        font-size: 16px; /* Disminuye el tamaño de la fuente */
+    }
+}
 
+@media (max-width: 425px) {
+    .cta-button {
+        padding: 10px 20px; /* Ajusta aún más el tamaño del botón */
+        font-size: 14px; /* Disminuye aún más el tamaño de la fuente */
+    }
+}
 
+@media (max-width: 768px) {
+    .gallery {
+        display: block; /* Cambia de flex a block */
+        margin-top: 5px; /* Ajusta el margen superior */
+    }
 
+    .gallery-item {
+        margin-bottom: 20px; /* Añade un margen inferior entre los elementos */
+    }
+}
 
-/* Estilos para el footer *
+@media (max-width: 768px) {
+    .gallery-section h2 {
+        font-size: 15px; /* Reduce el tamaño de la fuente para dispositivos móviles */
+    }
+}
