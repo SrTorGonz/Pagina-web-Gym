@@ -47,7 +47,7 @@ header {
     line-height: 0.9;
     align-items: center;
     justify-content: center;
-    margin-top: 5px; /* Añade margen superior para mover el texto hacia abajo */
+    margin-top: 5px;
     margin-left: 12px; /* Añade margen izquierdo para mover el texto a la derecha */
 }
 
@@ -155,25 +155,16 @@ ul li {
     margin-right: auto;
 }
 
-/*footer*/
-/* Estilos para el body */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Baloo 2', sans-serif;
-    background-color: #1C1C1C;
-    color: white;
-    text-align: center;
-}
-
 /* Estilos para el footer */
 footer {
-    background-color: #0052cc;
+    width: 100%;
+    background-color: #0947CE;
     color: white;
     padding: 40px 0;
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .footer-container {
@@ -199,7 +190,7 @@ footer {
     font-size: 120px;
     font-weight: 400;
     line-height: 5px;
-    font-weight: bold;
+    font-weight: 800;
     text-align: left;
     line-height: 0.5;
 
@@ -212,9 +203,10 @@ footer {
     font-weight: 400;
     line-height: 12px;
     display: block;
-    font-weight: bold;
+    font-weight: 800;
     text-align: left;
     line-height: 0.7;
+    
 }
 
 
@@ -224,13 +216,14 @@ footer {
 .footer-apps h3 {
     color: black; /* Cambiado el color del título a negro */
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 800;
     margin-bottom: 5px;
     max-width: 400px;
     text-transform: uppercase;
     font-weight: bolder;
     line-height: 1.1;
     text-align: center;
+    
 }
 
 
@@ -238,7 +231,7 @@ footer {
 .footer-apps p {
     font-size: 25px;
     line-height: 1.5;
-     text-align: center;
+    text-align: center;
 }
 
 .footer-info a {
@@ -269,4 +262,15 @@ footer {
 
 .footer-apps a:not(:last-child) {
     margin-bottom: 10px;
+}
+
+@media (max-width: 900px){
+    .footer-container {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center; /* Centrar verticalmente */
+        gap: 50px;
+    }
 }
