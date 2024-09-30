@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Progreso - Mis Entrenamientos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
+
+    <!-- Estilo css header-->
+    <link rel="stylesheet" href="StyleHeader.css">
+    <!-- Estilo css-->
+    <link rel="stylesheet" href="Style-perfil.css">
+     <!-- Estilo css footer-->
+     <link rel="stylesheet" href="Style-footer.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="contenido">
+            <a href="home.html">
+                <div class="logo">
+                    <div class="logo-text">
+                        <span class="logo-title">GYM</span>
+                        <span class="logo-subtitle">FITNESS</span>
+                        <span class="logo-subtitle">PLUS +</span>
+                    </div>
+                </div>
+            </a>
+            
+            <img class="ICON-menu" src="Icons/ICON-menu.svg" alt="ICON-menu">
+            <nav class="menu">
+                <ul>
+                    <li><a href="gestor-rutinas.html">Rutina</a></li>
+                    <li><a href="registro-ejercicios.html">Ejercicios</a></li>
+                    <li><a href="perfil.html">Mi Perfil</a></li>
+                </ul>
+            </nav>
+    
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Mi Progreso -->
+        <h2>MI PROGRESO</h2>
+        <section class="progress">
+            <div class="progress-content">
+                <div class="exercise-list">
+                    <div class="search-container">
+                        <div class="search-icon-container">
+                            <img class="ICON" src="Icons/ICON-search.svg" alt="ICON-search">
+                        </div>
+                        <input type="text" placeholder="Buscar ejercicio" class="search-input">
+                    </div>
+                    <div class="button">
+                        <button>Press Banca</button>
+                        <button>Sentadilla</button>
+                        <button>Peso Muerto</button>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="progress-graph">
+                <div class="graph">
+                    <img src="Images/Grafico1.png" alt="Gráfico">
+                </div>
+            </div>
+        </section>
+
+        <!-- Mis Entrenamientos -->
+        <section class="trainings">
+            <h2>MIS ENTRENAMIENTOS</h2>
+            <div class="calendar-section">
+                <div class="calendar">
+                    <div class="titulo-calendario">
+                        <h3> Enero de 2024 </h3>
+                        <div class="iconos">
+                            <img src="Icons/ICON-arrowback.svg" alt="img">
+                            <img src="Icons/ICON-arrowforward.svg" alt="img">
+                        </div>
+                    </div>
+                    
+                    <div class="table-holder">
+                        <table class="exercise-calendar">
+                            <thead>
+                                <tr>
+                                    <th><span>DO</span></th>
+                                    <th><span>LU</span></th>
+                                    <th><span>MA</span></th>
+                                    <th><span>MI</span></th>
+                                    <th><span>JU</span></th>
+                                    <th><span>VI</span></th>
+                                    <th><span>SA</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span></span></td>
+                                    <td><span>1</span></td>
+                                    <td><span>2</span></td>
+                                    <td><span>3</span></td>
+                                    <td><span>4</span></td>
+                                    <td><span>5</span></td>
+                                    <td><span>6</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>7</span></td>
+                                    <td><span>8</span></td>
+                                    <td><span>9</span></td>
+                                    <td><span>10</span></td>
+                                    <td><span>11</span></td>
+                                    <td><span>12</span></td>
+                                    <td><span>13</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>14</span></td>
+                                    <td><span>15</span></td>
+                                    <td><span>16</span></td>
+                                    <td><span>17</span></td>
+                                    <td><span>18</span></td>
+                                    <td><span>19</span></td>
+                                    <td><span>20</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>21</span></td>
+                                    <td><span>22</span></td>
+                                    <td><span>23</span></td>
+                                    <td><span>24</span></td>
+                                    <td><span>25</span></td>
+                                    <td><span>26</span></td>
+                                    <td><span>27</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>28</span></td>
+                                    <td><span>29</span></td>
+                                    <td><span>30</span></td>
+                                    <td><span>31</span></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="training-summary">
+
+                    <button>
+                        <div class="boton-info">
+                            <div class="container-fecha">
+                                <span class="fecha">21</span>
+                                <span class="fecha">Enero</span>
+                            </div>
+                            <span class="nombre">Sin registro</span>
+                        </div>
+
+                    </button>
+                    <button>
+                        <div class="boton-info">
+                            <div class="container-fecha">
+                                <span class="fecha">22</span>
+                                <span class="fecha">Enero</span>
+                            </div>
+                            <span class="nombre">Pull 2</span>
+                        </div>
+
+                    </button>
+                    <button>
+                        <div class="boton-info">
+                            <div class="container-fecha">
+                                <span class="fecha">23</span>
+                                <span class="fecha">Enero</span>
+                            </div>
+                            <span class="nombre">Leg 1</span>
+                        </div>
+
+                    </button>
+                    <button>
+                        <div class="boton-info">
+                            <div class="container-fecha">
+                                <span class="fecha">24</span>
+                                <span class="fecha">Enero</span>
+                            </div>
+                            <span class="nombre">Push1</span>
+                        </div>
+
+                    </button>
+                    <button>
+                        <div class="boton-info">
+                            <div class="container-fecha">
+                                <span class="fecha">25</span>
+                                <span class="fecha">Enero</span>
+                            </div>
+                            <span class="nombre">Pull 1</span>
+                        </div>
+
+                    </button>
+                    <button>
+                        <div class="boton-info">
+                            <div class="container-fecha">
+                                <span class="fecha">26</span>
+                                <span class="fecha">Enero</span>
+                            </div>
+                            <span class="nombre">Sin Registro</span>
+                        </div>
+
+                    </button>
+                    <button>
+                        <div class="boton-info">
+                            <div class="container-fecha">
+                                <span class="fecha">27</span>
+                                <span class="fecha">Enero</span>
+                            </div>
+                            <span class="nombre">Push 2</span>
+                        </div>
+
+                    </button>
+
+                </div>
+            </div>
+            <div class="container-table">
+                <table class="exercise-table">
+                    <thead>
+                        <tr>
+                            <th><span>Ejercicio</span></th>
+                            <th><span>Peso</span></th>
+                            <th><span>Serie 1</span></th>
+                            <th><span>Serie 2</span></th>
+                            <th><span>Serie 3</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>Press plano 3x8</span></td>
+                            <td><span>2x10</span></td>
+                            <td><span>8</span></td>
+                            <td><span>8</span></td>
+                            <td><span>8</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Standing Arnold Press</span></td>
+                            <td><span>7.5</span></td>
+                            <td><span>12</span></td>
+                            <td><span>10</span></td>
+                            <td><span>9.5</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Pec deck 3x10 - 12</span></td>
+                            <td><span>60</span></td>
+                            <td><span>13</span></td>
+                            <td><span>13</span></td>
+                            <td><span>15</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Cross body cable</span></td>
+                            <td><span>2.5</span></td>
+                            <td><span>9</span></td>
+                            <td><span>11</span></td>
+                            <td><span>9</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Tricep cable press down</span></td>
+                            <td><span>10</span></td>
+                            <td><span>12</span></td>
+                            <td><span>12</span></td>
+                            <td><span>12</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Overhead cable tricep extension</span></td>
+                            <td><span>60</span></td>
+                            <td><span>11</span></td>
+                            <td><span>12</span></td>
+                            <td><span>12</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- Mi Perfil -->
+        <section class="profile">
+            <h2>MI PERFIL</h2>
+            <div class="profile-content">
+                <form>
+                    <h2> Nombre</h2>
+                    <div class="formulario"> 
+                        <label for="email">Correo Electrónico</label>
+                        <input  type="email" id="email" placeholder="correo@ejemplo.com">
+                    </div>
+                    <div class="formulario">
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" id="telefono" placeholder="3117985432">
+                    </div>
+                    <div class="formulario">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" placeholder="Contraseña">
+                    </div>
+                    
+                    <button type="submit">GUARDAR PERFIL</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="log-container">
+                <div class="logo-text">
+                    <span class="log-title">GYM</span><br/>
+                    <span class="log-subtitle">FITNESS</span>
+                    <span class="log-subtitle">PLUS+</span>
+                </div>
+            </div>
+            <div class="footer-info">
+                <h3>HORARIOS SERVICIO AL CLIENTE</h3>
+                <p>LUNES A SABADO:<br>8:00AM – 7:00PM</p>
+                <h3>TÉRMINOS Y CONDICIONES</h3>
+                <p><a href="politica.html">POLÍTICA DE PRIVACIDAD</a></p>
+            </div>
+            <div class="footer-apps">
+                <h3>DISPONIBLE EN</h3>
+                <a href="https://play.google.com/store/apps?hl=es" target="_blank">
+                    <img src="Images/imagen-googleplay.png" alt="Google Play">
+                </a>
+                <a href="https://www.apple.com/co/app-store/" target="_blank">
+                    <img src="Images/Imagen-appstore.png" alt="App Store">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
