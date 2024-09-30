@@ -2,106 +2,20 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Baloo 2', sans-serif;
-    background-color: #1C1C1C;
+    background-color: #040911;
     color: white;
     text-align: center;
-}
-
-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #0052cc; /* Fondo azul */
-    padding: 10px 20px;
-
-    
+    flex-direction: column;
 }
 
-.logo-container {
-    width: 87px;
-    height: 52px;
-    position: relative;
-    display: inline-flex;
-   
+.contenedor{
+    margin-top: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-.logo-background {
-    width: 87px;
-    height: 52px;
-    background: #D9D9D9;
-    border-radius: 31px;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    display: flex;
-   
-    
-}
-
-.logo-text {
-    width: 57px;
-    height: 43px;
-    padding-top: 4px;
-    z-index: 1; /* Asegura que el texto esté delante del fondo */
-    position: relative;
-    line-height: 0.9;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5px;
-    margin-left: 12px; /* Añade margen izquierdo para mover el texto a la derecha */
-}
-
-.logo-title {
-    color: black;
-    font-size: 27px;
-    font-weight: 400;
-    line-height: 10px;
-    text-align: left;
-    font-weight: bold;
-    align-items: center;
-
-}
-
-.logo-subtitle {
-    color: black;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 12px;
-    display: block;
-    text-align: left;
-    font-weight: bold;
-    line-height: 0.7;
-}
-
-
-
-/* Estilos para el botón de login */
-.login-container {
-    display: flex;
-    align-items: center;
-}
-
-.login-button {
-    background-color: #000; /* Color de fondo negro */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px; /* Bordes redondeados */
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login-button:hover {
-    background-color: #333; /* Color al pasar el ratón */
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-h1 {
+.contenedor h1 {
     color: #0CC4EA;
     text-align: center;
     margin: 60px;
@@ -109,7 +23,7 @@ h1 {
 }
 
 
-h1, h2 {
+.contenedor h1, .contenedor h2 {
     margin: 40px 0;
     max-width: 600px;
     margin-left: auto;
@@ -117,7 +31,7 @@ h1, h2 {
 }
 
 /* Estilo de los títulos */
-h2, h3 {
+.contenedor h2, .contenedor h3 {
     
     margin-bottom: 10px;
     text-align: left;
@@ -128,7 +42,7 @@ h2, h3 {
 }
 
 /* Estilo de los párrafos */
-p {
+.contenedor p {
     line-height: 1.6;
     margin-bottom: 20px;
     text-align: left;
@@ -155,122 +69,3 @@ ul li {
     margin-right: auto;
 }
 
-/* Estilos para el footer */
-footer {
-    width: 100%;
-    background-color: #0947CE;
-    color: white;
-    padding: 40px 0;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.footer-container {
-    width: 90%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Centrar verticalmente */
-}
-
-/* Estilo del logo */
-
-.log-container {
-    flex-basis: 30%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: left;
-}
-
-.log-title{
-    color: black; /* Cambiado el color del logo a negro */
-    font-size: 120px;
-    font-weight: 400;
-    line-height: 5px;
-    font-weight: 800;
-    text-align: left;
-    line-height: 0.5;
-
-
-}
-
-.log-subtitle {
-    color: black; /* Cambiado el color del logo a negro */
-    font-size: 60px;
-    font-weight: 400;
-    line-height: 12px;
-    display: block;
-    font-weight: 800;
-    text-align: left;
-    line-height: 0.7;
-    
-}
-
-
-
-/* Estilos para las secciones de texto */
-.footer-info h3,
-.footer-apps h3 {
-    color: black; /* Cambiado el color del título a negro */
-    font-size: 40px;
-    font-weight: 800;
-    margin-bottom: 5px;
-    max-width: 400px;
-    text-transform: uppercase;
-    font-weight: bolder;
-    line-height: 1.1;
-    text-align: center;
-    
-}
-
-
-.footer-info p,
-.footer-apps p {
-    font-size: 25px;
-    line-height: 1.5;
-    text-align: center;
-}
-
-.footer-info a {
-    color: white;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    text-align: center;
-}
-
-.footer-info a:hover {
-    text-decoration: underline;
-}
-
-
-
-.footer-apps a img {
-    width: 200px;
-    margin: 10px 0;
-}
-
-.footer-apps a {
-    display: block;
-}
-
-.footer-apps a:not(:last-child) {
-    margin-bottom: 10px;
-}
-
-@media (max-width: 900px){
-    .footer-container {
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center; /* Centrar verticalmente */
-        gap: 50px;
-    }
-}
