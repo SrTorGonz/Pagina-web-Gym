@@ -1,0 +1,385 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Baloo 2', sans-serif;
+    background-color: #040911;
+    color: white;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    margin: 0;
+}
+
+/* Sección Progreso */
+.container h2 {
+    justify-content: center;
+    text-align: center;
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 327px;
+    height: 602px;
+    background-color: #0AA3E7;
+    border-radius: 20px 0 0 20px;
+}
+
+.exercise-list {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.search-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.search-container input {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Baloo 2", sans-serif;
+    font-size: 16px;
+    height: 51px;
+    width: 266px;
+    padding-left: 60px;
+    border: none;
+    border-radius: 30px;
+    background-color: #9DB4F0;
+    color: #697699;
+    outline: none;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.search-icon-container {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-container img {
+
+    position: absolute;
+    margin-left: 35px;
+}
+
+.button {
+
+    margin-top: 20px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+.button button {
+    width: 195px;
+    height: 37px;
+    font-family: "Baloo 2", sans-serif;
+    background-color: #9DB4F0;
+    border: none;
+    color: #697699;
+    font-size: 16px;
+    border-radius: 26px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 20px;
+    outline: none;
+}
+
+.calendar-section {
+
+    width: 935px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.progress-graph {
+
+    display: flex;
+    width: 696px;
+    height: 602px;
+    background-color: #0B80E9;
+    border-radius: 0 26px 26px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.trainings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.titulo-calendario {
+
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.titulo-calendario h3 {
+
+    text-align: left;
+    font-size: 30px;
+}
+
+.calendar {
+    display: flex;
+    width: 465px;
+    height: 465px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0CC4EA;
+    padding: 20px;
+    border-radius: 30px;
+    text-align: left;
+    gap: 25px;
+}
+
+.table-holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 13px;
+}
+
+.exercise-calendar {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 30px 12px;
+}
+
+.graph {
+    width: 622px;
+    height: 530px;
+}
+
+.graph img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Sección Entrenamientos */
+.trainings h2 {
+    text-align: center;
+    font-size: 64px;
+    margin: 40px 0;
+}
+
+
+
+
+.training-summary {
+
+    width: 384px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.training-summary button {
+
+    width: 175px;
+    height: 82px;
+    background-color: #9DB4F0;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.boton-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+}
+
+.container-fecha {
+    display: flex;
+    flex-direction: column;
+}
+
+.fecha {
+    font-size: 14px;
+    box-sizing: border-box;
+    line-height: 12px;
+}
+
+.nombre {
+    font-size: 25px;
+}
+
+
+.training-summary button:hover {
+    background-color: #3057BD;
+}
+
+.container-table {
+    display: flex;
+    justify-content: center;
+    background-color: #0B80E9;
+    width: 935px;
+    height: 420px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.exercise-table {
+
+    margin: 10px;
+    border-collapse: separate;
+    border-spacing: 50px 5px;
+}
+
+
+.exercise-table th,
+.exercise-table td {
+    margin: 0;
+    text-align: center;
+}
+
+td:first-child {
+
+    text-align: left;
+    margin: 0;
+}
+
+span {
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    justify-content: left;
+    white-space: nowrap;
+}
+
+/* Sección Perfil */
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile h2 {
+    text-align: center;
+    font-size: 64px;
+    margin: 40px 0;
+}
+
+.profile-content {
+
+    display: flex;
+    width: 814px;
+    height: 539px;
+    justify-content: center;
+    align-items: center;
+    background-color: #0B80E9;
+    border-radius: 30px;
+    
+
+}
+
+.profile-content h2 {
+
+    font-size: 24px;
+    margin:0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:32px;
+}
+
+.formulario {
+
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+.formulario input {
+
+    font-family: "Baloo 2", sans-serif;
+    font-weight: bold;
+    width: 616px;
+    height: 44px;
+    border-radius: 30px;
+    font-size: 16px;
+    border: none;
+    background-color: #9DB4F0;
+    padding-left: 25px;
+    color: #697699;
+    outline: none;
+}
+
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+button {
+
+    font-family: "Baloo 2", sans-serif;
+    font-weight: bold;
+    background-color: #0947CE;
+    color: white;
+    padding: 10px;
+    width: 222px;
+    height: 59px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #0B80E9;
+    color: white;
+}
