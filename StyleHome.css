@@ -5,6 +5,10 @@ body {
     background-color: #1C1C1C;
     color: white;
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 header{
     width: 100%;
@@ -113,7 +117,7 @@ h1, h2 {
     position: relative;
     width: 100%;
     max-width: 1200px;
-    margin: 25px auto;
+    margin: 80px auto;
     overflow: hidden; /* Oculta las imágenes que no están visibles */
     border-radius: 10px;
 }
@@ -151,7 +155,21 @@ h1, h2 {
     right: 10px;
 }
 
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .image-slider {
+        width: 90%; /* Ajusta el ancho del banner en dispositivos móviles */
+        margin: 50px auto 0; /* Aumenta solo el margen superior a 50px */
+    }
 
+    .prev-arrow, .next-arrow {
+        display: none; /* Oculta las flechas en dispositivos móviles */
+    }
+
+    .slide {
+        width: 100%; /* Mantiene el ancho de la imagen dentro del contenedor */
+    }
+}
 
 
 .welcome-text {
@@ -216,7 +234,7 @@ h1, h2 {
     .welcome-message {
         order: 1; /* Hace que el texto aparezca primero */
         margin-bottom: 20px; /* Ajusta el margen inferior para separar del siguiente elemento */
-        width: 90%; /* Aumenta el ancho del contenedor de texto */
+        width: 100%; /* Aumenta el ancho del contenedor de texto */
         margin: 0 auto; /* Centra el contenedor horizontalmente */
     }
 
