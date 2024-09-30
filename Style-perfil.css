@@ -4,16 +4,19 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-family: 'Baloo 2', sans-serif;
     background-color: #040911;
     color: white;
-    justify-content: center;
-    padding: 20px;
+    gap:34px;
+    
 }
 
 .container {
     width: 100%;
-    margin: 0;
+    margin-top: 123px;
 }
 
 /* Sección Progreso */
@@ -380,6 +383,6 @@ button {
 }
 
 button:hover {
-    background-color: #0B80E9;
+    background-color: #6391F6;
     color: white;
 }
