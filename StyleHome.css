@@ -221,25 +221,36 @@ h1, h2 {
     }
 
     .welcome-message .small-text {
-        font-size: 14px; /* Tamaño de fuente más pequeño para el texto descriptivo */
+        font-size: 11px; /* Tamaño de fuente más pequeño para el texto descriptivo */
         width: 100%; /* Aumenta el ancho del contenedor de texto */
         text-align: center; /* Centra el texto */
+       
     }
 
+  
     .welcome-message h1 {
-        order: 2; /* Hace que el h1 aparezca después del texto pequeño */
-        font-size: 16px; /* Ajusta el tamaño del texto de bienvenida para móviles */
-        width: 100%; /* Aumenta el ancho del contenedor de texto */
-        margin-top: 20px; /* Margen superior para mayor separación */
+       
+       
+        order: 3; /* Cambia el orden para que aparezca al final */
+        font-size: 18px; /* Ajusta el tamaño del texto de bienvenida para móviles */
+        width: 55%; /* Ajusta el ancho del contenedor de texto */
+        margin-top: 70px; /* Ajusta la separación desde la parte superior */
         text-align: center; /* Centra el texto */
+        position: absolute; /* Cambia a posición absoluta */
+        z-index: 2; /* Asegura que el texto esté por encima de la imagen */
     }
 
     .welcome-text img {
-        order: 3; /* Hace que la imagen aparezca al final */
+        
+        
+        order: 2; /* Hace que la imagen aparezca después del texto de bienvenida */
         width: 80%; /* Ajusta el tamaño de la imagen */
         max-width: 400px; /* Tamaño máximo de la imagen */
-        opacity: 0.6; /* Ajusta la opacidad de la imagen en móviles */
+    
+        filter: brightness(0.3); /* Ajusta el brillo de la imagen */
         margin-top: 20px; /* Añade espacio superior entre el texto y la imagen */
+        position: relative; /* Asegura que la imagen esté en la misma posición relativa */
+        z-index: 1; /* Asegura que la imagen esté detrás del texto */
     }
 }
 
