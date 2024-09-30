@@ -6,7 +6,7 @@ header{
     justify-content: center;
     align-items: center;
     position: fixed;
-    z-index: 5;
+    z-index: 20;
 }
 /* Estilos para el logo y el texto */
 .contenido{
