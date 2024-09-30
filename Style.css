@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Baloo 2', sans-serif;
-    background-color: #1C1C1C;
+    background-color: #040911;
     color: white;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@ body {
 
 
 .container {
-    max-width: 1200px;
+    max-width: 1232px;
     margin-top: 60px;
 }
 
@@ -29,7 +29,7 @@ h1, h2 {
 .image-slider {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1232px;
     margin: 25px auto;
     overflow: hidden; /* Oculta las imágenes que no están visibles */
     border-radius: 10px;
@@ -128,7 +128,6 @@ h1, h2 {
 /* Features Section */
 .features-section {
     padding: 50px;
-    background-color: #1C1C1C;
 }
 
 .features-section h2 {
@@ -196,7 +195,6 @@ h1, h2 {
 /* Gallery Section */
 .gallery-section {
     padding: 50px;
-    background-color: #1C1C1C;
 }
 
 .gallery {
@@ -241,12 +239,15 @@ h1, h2 {
 
 /* Estilos del botón */
 .cta-button {
+    font-family: "Baloo 2", sans-serif; /* Fuente del botón */
     background-color: #0B80E9; /* Color de fondo del botón */
     color: white; /* Color del texto */
-    padding: 20px 45px; /* Tamaño del botón */
+    width: 502px;
+    height: 111px; /* Tamaño del botón */
     border: none; /* Sin bordes */
-    border-radius: 30px; /* Bordes redondeados */
-    font-size: 20px; /* Tamaño de la fuente */
+    border-radius: 68px; /* Bordes redondeados */
+    font-weight: bold;
+    font-size: 36px; /* Tamaño de la fuente */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     transition: background-color 0.3s ease; /* Transición suave al hacer hover */
 }
