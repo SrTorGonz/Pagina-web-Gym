@@ -1,0 +1,457 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', sans-serif;
+    background-color: #1C1C1C;
+    color: white;
+    text-align: center;
+}
+header{
+    width: 100%;
+    background-color: #0052cc; /* Fondo azul */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para el logo y el texto */
+.contenido{
+    font-family: "Baloo 2", sans-serif;
+    font-style: normal;
+    width: 1216px;
+    height: 40px;
+    margin: 0px;
+    padding: 11px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0052cc; /* Fondo azul */  
+}
+
+.logo {
+    width: 87px;
+    height: 52px;
+    background: #D9D9D9;
+    border-radius: 31px;
+    display: inline-flex;
+    align-items: flex-start;
+}
+
+.logo-text{
+    color: black;
+    padding: 6px 15px;
+    padding-top: 10px;
+    font-weight: 800;
+    line-height: 12px;
+    text-align: start;
+}
+
+.logo-title {
+    font-size: 27px;
+}
+
+.logo-subtitle {
+    font-size: 15px;
+}
+
+nav ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    font-weight: bold;
+}
+
+
+/* Estilos para el botón de login */
+.login-container {
+    display: flex;
+    align-items: center;
+}
+
+.login-button {
+    background-color: #000; /* Color de fondo negro */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Bordes redondeados */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #333; /* Color al pasar el ratón */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    margin: 20px 0;
+}
+
+
+
+
+
+
+
+.image-slider {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 25px auto;
+    overflow: hidden; /* Oculta las imágenes que no están visibles */
+    border-radius: 10px;
+}
+
+.slides-container {
+    display: flex;
+    transition: transform 1s ease-in-out; /* Suaviza la transición entre imágenes */
+}
+
+.slide {
+    width: 100%;
+    display: none; /* Oculta todas las imágenes inicialmente */
+}
+
+.slide.active {
+    display: block; /* Muestra solo la imagen activa */
+}
+
+/* Estilo para las flechas */
+.prev-arrow, .next-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev-arrow {
+    left: 10px;
+}
+
+.next-arrow {
+    right: 10px;
+}
+
+
+
+
+.welcome-text {
+    display: flex;
+    align-items: center; /* Centra la imagen y el texto verticalmente */
+    justify-content: space-between; /* Espacia la imagen y el texto */
+    gap: 12px; /* Añade espacio entre la imagen y el texto */
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Mantén todo en la misma línea */
+}
+
+.welcome-text img {
+    width: 49%; /* La imagen ocupará el 50% del ancho del contenedor */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    border-radius: 10px; /* Añade bordes redondeados */
+}
+
+.welcome-text div {
+    width: 50%; /* El ancho del texto para alinearlo con la imagen */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.welcome-message {
+    text-align: left;
+    width: 60%; /* El texto ocupará el 50% del contenedor */
+}
+
+.small-text {
+    font-size: 17px;
+    color: #D1D1D1; /* Color gris claro */
+    margin-bottom: 15px;
+}
+
+.welcome-message h1 {
+    font-size: 55px;
+    color: white;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.highlight-experimenta { 
+    color: #28DEC5; /* Color para "EXPERIMENTA" */
+    font-weight: bold;
+}
+
+.highlight-potencial {
+    color: #0AA3E7; /* Color para "POTENCIAL" */
+    font-weight: bold;
+}
+
+
+
+
+
+
+/* Features Section */
+.features-section {
+    padding: 50px;
+    background-color: #1C1C1C;
+}
+
+.features-section h2 {
+    color: white;
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.features-section p { 
+    color: #D1D1D1;
+    font-size: 20px;
+    max-width: 800px; /* Ajusta el ancho máximo según lo necesites */
+    margin: 0 auto 70px; /* Centra el texto y añade margen inferior */
+    text-align: center; /* Asegúrate de que el texto esté centrado */
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.feature {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra todo en el eje horizontal */
+    margin: 20px; /* Espacio entre las características */
+}
+
+
+.icon-container {
+    width: 250px; /* Ajusta el tamaño del círculo según sea necesario */
+    height: 250px; /* Ajusta el tamaño del círculo según sea necesario */
+    background-color: #28DEC5; /* Color de fondo del círculo */
+    border-radius: 50%; /* Hace que sea un círculo */
+    display: flex;
+    align-items: center; /* Centra el icono verticalmente */
+    justify-content: center; /* Centra el icono horizontalmente */
+    margin-bottom: 15px; /* Espacio entre el círculo y el texto */
+}
+
+.feature img {
+    max-width: 70%; /* Asegúrate de que el icono quepa en el círculo */
+    height: auto;
+}
+
+.feature h3 {
+    color: white;
+    font-size: 22px;
+    margin: 10px 0 5px; /* Margen ajustado */
+}
+
+.feature p {
+    color: #D1D1D1;
+    font-size: 18px;
+    text-align: center; /* Centra el texto dentro del círculo */
+    max-width: 500px;
+    margin: 10px; /* Margen ajustado */
+}
+
+
+
+
+/* Gallery Section */
+.gallery-section {
+    padding: 50px;
+    background-color: #1C1C1C;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    gap: 25px;
+}
+
+.gallery-item {
+    text-align: center;
+   
+}
+
+.gallery-item img {
+    border-radius: 10px;
+}
+
+.gallery-item p {
+    margin-top: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.gallery-section h2 {
+    color: #0CC4EA; /* Cambia el color a lo que desees */
+    font-size: 38px; /* Cambia el tamaño de fuente a lo que necesites */
+    text-align: center; /* Asegura que el texto esté centrado */
+    margin-bottom: 20px; /* Margen inferior opcional */
+
+       
+}
+
+/* Estilos para la sección del botón */
+.cta-section {
+    text-align: center; /* Asegura que el botón esté centrado */
+    margin-top: 60px; /* Espacio superior opcional */
+    margin-bottom: 250px; /* Espacio inferior opcional */
+    font-family: 'Baloo 2', sans-serif;
+
+}
+
+/* Estilos del botón */
+.cta-button {
+    background-color: #0B80E9; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    padding: 20px 45px; /* Tamaño del botón */
+    border: none; /* Sin bordes */
+    border-radius: 30px; /* Bordes redondeados */
+    font-size: 20px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave al hacer hover */
+}
+
+/* Efecto hover (cuando el usuario pasa el mouse sobre el botón) */
+.cta-button:hover {
+    background-color: #072ca1; /* Cambia el color del fondo cuando el mouse está sobre el botón */
+}
+
+
+
+
+
+/* Estilos para el footer */
+
+/* Estilos para el body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', sans-serif;
+    background-color: #1C1C1C;
+    color: white;
+    text-align: center;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #0052cc;
+    color: white;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centrar verticalmente */
+}
+
+/* Estilo del logo */
+
+.log-container {
+    flex-basis: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+}
+
+.log-title{
+    color: black; /* Cambiado el color del logo a negro */
+    font-size: 120px;
+    font-weight: 400;
+    line-height: 5px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 0.5;
+
+
+}
+
+.log-subtitle {
+    color: black; /* Cambiado el color del logo a negro */
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 12px;
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    line-height: 0.7;
+}
+
+
+
+/* Estilos para las secciones de texto */
+.footer-info h3,
+.footer-apps h3 {
+    color: black; /* Cambiado el color del título a negro */
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    max-width: 400px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    line-height: 1.1;
+}
+
+
+.footer-info p,
+.footer-apps p {
+    font-size: 25px;
+    line-height: 1.5;
+}
+
+.footer-info a {
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+.footer-info a:hover {
+    text-decoration: underline;
+}
+
+
+
+.footer-apps a img {
+    width: 200px;
+    margin: 10px 0;
+}
+
+.footer-apps a {
+    display: block;
+}
+
+.footer-apps a:not(:last-child) {
+    margin-bottom: 10px;
+}
