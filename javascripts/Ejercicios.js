@@ -26,7 +26,10 @@ function mostrarEjercicios(ejercicios) {
   const contenedor = document.getElementById("element");
   contenedor.innerHTML = ""; // Limpia el contenedor antes de mostrar los ejercicios
 
-  ejercicios.forEach((ejercicio, index) => {
+  // Ordena los ejercicios alfabéticamente por el nombre
+  const ejerciciosOrdenados = ejercicios.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+  ejerciciosOrdenados.forEach((ejercicio, index) => {
     const ejercicioDiv = document.createElement("div");
     ejercicioDiv.classList.add("elemento");
     ejercicioDiv.dataset.grupoMuscular = ejercicio.grupo_muscular; // Añade el grupo muscular como data attribute
@@ -91,7 +94,6 @@ function mostrarEjercicios(ejercicios) {
     contenedor.appendChild(ejercicioDiv);
   });
 }
-
 // Función para configurar los filtros
 function configurarFiltros() {
   const botonesFiltro = document.querySelectorAll(".category");
