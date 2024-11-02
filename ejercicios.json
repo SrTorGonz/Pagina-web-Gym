@@ -1,0 +1,94 @@
+
+    [
+      {
+        "nombre": "Press de Pierna Inclinado",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pierna",
+        "descripcion": "El press de pierna en prensa inclinada es un ejercicio que trabaja cuádriceps, glúteos e isquiotibiales. Se realiza empujando un peso desde una posición semi-reclinada, extendiendo las piernas en una prensa con ángulo inclinado.",
+        "imagenes": {
+          "inicial": "/Images/Ejercicios/Press de pierna inclinado 1.jpg",
+          "final": "/Images/Ejercicios/Press de pierna inclinado 2.jpg"
+        }
+      },
+      {
+        "nombre": "Gemelos en Prensa Inclinada",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pierna",
+        "descripcion": "El ejercicio de pantorrillas en prensa trabaja los músculos de las pantorrillas (gastrocnemio y sóleo). Se realiza en la prensa, colocando la punta de los pies en la plataforma y extendiendo los tobillos para levantar el peso.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Gemelos en prensa inclinada 1.jpg",
+          "final": "Images/Ejercicios/Gemelos en prensa inclinada 2.jpg"
+        }
+      },
+      {
+        "nombre": "Gemelos en Prensa Horizontal",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pierna",
+        "descripcion": "El ejercicio de pantorrillas en prensa horizontal se enfoca en los músculos de las pantorrillas (gastrocnemio y sóleo). Se realiza en una prensa horizontal, colocando la punta de los pies en la plataforma y extendiendo los tobillos para levantar el peso.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Gemelos en prensa horizontal 1.jpg",
+          "final": "Images/Ejercicios/Gemelos en prensa horizontal 2.jpg"
+        }
+      },
+      {
+        "nombre": "Press de Pierna Horizontal",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pierna",
+        "descripcion": "El press de pierna en prensa horizontal es un ejercicio de fuerza que se enfoca en cuádriceps, glúteos e isquiotibiales. Se realiza empujando un peso desde una posición acostada, extendiendo las piernas en una prensa horizontal.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Press de pierna horizontal 1.jpg",
+          "final": "Images/Ejercicios/Press de pierna horizontal 2.jpg"
+        }
+      },
+      {
+        "nombre": "Sentadilla Hack Squat",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pierna",
+        "descripcion": "La sentadilla Hack Squat es un ejercicio que se enfoca en cuádriceps, glúteos e isquiotibiales. Se realiza en una máquina específica, donde empujas el peso hacia arriba mientras te deslizas en un ángulo inclinado, simulando una sentadilla profunda.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Sentadilla hack squat 1.jpg",
+          "final": "Images/Ejercicios/Sentadilla hack squat 2.jpg"
+        }
+      },
+      {
+        "nombre": "Peso Muerto con Barra",
+        "nivel": "Avanzado",
+        "grupo_muscular": "Pierna",
+        "descripcion": "El peso muerto con barra es un ejercicio compuesto que trabaja principalmente los músculos de la espalda baja, glúteos, isquiotibiales y core. Se realiza levantando una barra cargada desde el suelo hasta la cadera, manteniendo la espalda recta.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Peso muerto 1.jpg",
+          "final": "Images/Ejercicios/Peso muerto 2.jpg"
+        }
+      },
+      {
+        "nombre": "Peso Muerto Rumano con Barra",
+        "nivel": "Intermedio",
+        "grupo_muscular": "Pierna",
+        "descripcion": "El peso muerto rumano con barra se enfoca en isquiotibiales y glúteos. Se realiza bajando una barra cargada desde la cadera hacia los pies, manteniendo las piernas casi rectas y la espalda alineada, sin que la barra toque el suelo.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Peso muerto rumano 1.jpg",
+          "final": "Images/Ejercicios/Peso muerto rumano 2.jpg"
+        }
+      },
+      {
+        "nombre": "Sentadilla Libre con Barra",
+        "nivel": "Intermedio",
+        "grupo_muscular": "Pierna",
+        "descripcion": "La sentadilla libre con barra es un ejercicio fundamental que trabaja cuádriceps, glúteos y core. Se realiza colocando una barra en la parte superior de la espalda y bajando el cuerpo en cuclillas, manteniendo el torso recto y las rodillas alineadas.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Sentadilla con barra libre 1.jpg",
+          "final": "Images/Ejercicios/Sentadilla con barra libre 2.jpg"
+        }
+      },
+      {
+        "nombre": "Hip Trust",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pierna",
+        "descripcion": "El hip thrust es un ejercicio enfocado en los glúteos y el core. Se realiza apoyando la parte superior de la espalda en un banco, con una barra sobre las caderas, y elevando la pelvis hacia el techo, contrayendo los glúteos al máximo.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Hip trust 1.jpg",
+          "final": "Images/Ejercicios/Hip trust 2.jpg"
+        }
+      }
+
+    ]
