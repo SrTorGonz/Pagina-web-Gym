@@ -89,6 +89,76 @@
           "inicial": "Images/Ejercicios/Hip trust 1.jpg",
           "final": "Images/Ejercicios/Hip trust 2.jpg"
         }
+      },
+      {
+        "nombre": "Aductores en Máquina",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pierna",
+        "descripcion": "El ejercicio de aductores en máquina se enfoca en los músculos aductores de la parte interna de los muslos. Se realiza sentándose en la máquina y juntando las piernas contra la resistencia, trabajando específicamente los músculos aductores.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Aductores en maquina 1.jpg",
+          "final": "Images/Ejercicios/Aductores en maquina 2.jpg"
+        }
+      },
+      {
+        "nombre": "Abductores en Máquina",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pierna",
+        "descripcion": "El ejercicio de abductores en máquina se enfoca en los músculos abductores de la cadera. Se realiza sentándose en la máquina y separando las piernas contra la resistencia, fortaleciendo los músculos que estabilizan y abren las caderas.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Abductores en maquina 1.jpg",
+          "final": "Images/Ejercicios/Abductores en maquina 2.jpg"
+        }
+      },
+      {
+        "nombre": "Zancadas",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pierna",
+        "descripcion": "Las zancadas son un ejercicio que trabaja cuádriceps, glúteos e isquiotibiales. Se realizan dando un paso hacia adelante y bajando el cuerpo hasta que ambas rodillas formen un ángulo de 90 grados, alternando piernas con cada repetición.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Zancadas 1.jpg",
+          "final": "Images/Ejercicios/Zancadas 2.jpg"
+        }
+      },
+      {
+        "nombre": "Sentadilla Bulgara",
+        "nivel": "Intermedio",
+        "grupo_muscular": "Pierna",
+        "descripcion": "La sentadilla búlgara es un ejercicio unilateral que se enfoca en cuádriceps, glúteos e isquiotibiales. Se realiza colocando un pie en un banco elevado detrás del cuerpo y bajando en una sentadilla con la pierna delantera, manteniendo el equilibrio.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Sentadilla Bulgara 1.jpg",
+          "final": "Images/Ejercicios/Sentadilla Bulgara 2.jpg"
+        }
+      },
+      {
+        "nombre": "Sentadilla con Mancuerna",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pierna",
+        "descripcion": "La sentadilla con mancuerna es un ejercicio que trabaja cuádriceps, glúteos y core. Se realiza sosteniendo una mancuerna frente al pecho con ambas manos y bajando en una sentadilla profunda, manteniendo el torso erguido y los codos hacia adentro.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Sentadilla con mancuerna 1.jpg",
+          "final": "Images/Ejercicios/Sentadilla con mancuerna 2.jpg"
+        }
+      },
+      {
+        "nombre": "Press de Banca Inclinado con Barra",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pecho",
+        "descripcion": "El press inclinado con barra es un ejercicio de fuerza que se enfoca en la parte superior del pecho, los hombros y los tríceps. Se realiza acostado en un banco inclinado, empujando una barra cargada hacia arriba desde el pecho hasta extender los brazos.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Press de banca inclinado con barra 1.jpg",
+          "final": "Images/Ejercicios/Press de banca inclinado con barra 2.jpg"
+        }
+      },
+      {
+        "nombre": "Press de Banca con Barra",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pecho",
+        "descripcion": "El press de banca con barra es un ejercicio básico de fuerza que trabaja el pecho, los hombros y los tríceps. Se realiza acostado en un banco plano, empujando una barra cargada desde el pecho hacia arriba hasta extender completamente los brazos.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Press de banca con barra 1.jpg",
+          "final": "Images/Ejercicios/Press de banca con barra 2.jpg"
+        }
       }
 
     ]
