@@ -98,7 +98,21 @@ function configurarFiltros() {
   botonesFiltro.forEach((boton) => {
     boton.addEventListener("click", (e) => {
       const grupoMuscular = e.target.dataset.group;
-      filtrarEjercicios(grupoMuscular);
+
+      // Si el botón ya está activo, elimina la clase y muestra todos los ejercicios
+      if (e.target.classList.contains("active")) {
+        e.target.classList.remove("active");
+        mostrarEjercicios(ejerciciosGlobal); // Muestra todos los ejercicios
+      } else {
+        // Elimina la clase 'active' de todos los botones
+        botonesFiltro.forEach(btn => btn.classList.remove("active"));
+
+        // Añade la clase 'active' solo al botón clicado
+        e.target.classList.add("active");
+
+        // Filtra los ejercicios por grupo muscular
+        filtrarEjercicios(grupoMuscular);
+      }
     });
   });
 }

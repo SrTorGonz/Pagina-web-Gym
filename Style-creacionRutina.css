@@ -118,6 +118,10 @@ h1 {
     background-color: #9DB4F0;
 }
 
+.category.active{
+    background-color: #9DB4F0;
+}
+
 
 
 .ejercicios{
