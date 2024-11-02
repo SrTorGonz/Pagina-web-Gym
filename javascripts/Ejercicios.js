@@ -1,4 +1,5 @@
-let ejerciciosGlobal = []; // Variable global para almacenar los ejercicios
+let ejerciciosGlobal = []; // Variable global para almacenar todos los ejercicios
+let filtroActivo = "todos"; // Mantiene el estado del filtro de grupo muscular activo
 
 function cargarEjercicios() {
   const xhr = new XMLHttpRequest();
@@ -11,6 +12,7 @@ function cargarEjercicios() {
         ejerciciosGlobal = ejercicios; // Guarda los ejercicios en una variable global
         mostrarEjercicios(ejercicios);
         configurarFiltros();
+        configurarBusqueda(); // Configura la búsqueda una vez cargados los ejercicios
       } catch (error) {
         console.error("Error al parsear JSON:", error);
       }
@@ -32,7 +34,7 @@ function mostrarEjercicios(ejercicios) {
   ejerciciosOrdenados.forEach((ejercicio, index) => {
     const ejercicioDiv = document.createElement("div");
     ejercicioDiv.classList.add("elemento");
-    ejercicioDiv.dataset.grupoMuscular = ejercicio.grupo_muscular; // Añade el grupo muscular como data attribute
+    ejercicioDiv.dataset.grupoMuscular = ejercicio.grupo_muscular;
 
     const tituloDiv = document.createElement("div");
     tituloDiv.classList.add("contenedor-titulo");
@@ -94,7 +96,20 @@ function mostrarEjercicios(ejercicios) {
     contenedor.appendChild(ejercicioDiv);
   });
 }
-// Función para configurar los filtros
+
+// Función para configurar la búsqueda
+function configurarBusqueda() {
+  const searchInput = document.querySelector(".search-input");
+  
+  searchInput.addEventListener("input", (e) => {
+    const searchText = normalizarTexto(e.target.value); // Normaliza el texto de búsqueda
+    
+    // Aplica el filtro activo junto con la búsqueda
+    aplicarFiltros(filtroActivo, searchText);
+  });
+}
+
+// Función para configurar los filtros de grupo muscular
 function configurarFiltros() {
   const botonesFiltro = document.querySelectorAll(".category");
   botonesFiltro.forEach((boton) => {
@@ -104,27 +119,48 @@ function configurarFiltros() {
       // Si el botón ya está activo, elimina la clase y muestra todos los ejercicios
       if (e.target.classList.contains("active")) {
         e.target.classList.remove("active");
-        mostrarEjercicios(ejerciciosGlobal); // Muestra todos los ejercicios
+        filtroActivo = "todos"; // Resetea el filtro
       } else {
         // Elimina la clase 'active' de todos los botones
         botonesFiltro.forEach(btn => btn.classList.remove("active"));
 
         // Añade la clase 'active' solo al botón clicado
         e.target.classList.add("active");
-
-        // Filtra los ejercicios por grupo muscular
-        filtrarEjercicios(grupoMuscular);
+        filtroActivo = grupoMuscular; // Actualiza el filtro activo
       }
+
+      // Aplica el filtro con el texto actual de búsqueda
+      const searchText = normalizarTexto(document.querySelector(".search-input").value);
+      aplicarFiltros(filtroActivo, searchText);
     });
   });
 }
 
-// Función para filtrar ejercicios por grupo muscular
-function filtrarEjercicios(grupoMuscular) {
-  const ejerciciosFiltrados = grupoMuscular === "todos" 
-    ? ejerciciosGlobal 
-    : ejerciciosGlobal.filter(ejercicio => ejercicio.grupo_muscular === grupoMuscular);
+// Función para aplicar los filtros de grupo muscular y búsqueda
+function aplicarFiltros(grupoMuscular, searchText) {
+  let ejerciciosFiltrados = ejerciciosGlobal;
+
+  // Aplica el filtro de grupo muscular si no es 'todos'
+  if (grupoMuscular !== "todos") {
+    ejerciciosFiltrados = ejerciciosFiltrados.filter(ejercicio =>
+      ejercicio.grupo_muscular === grupoMuscular
+    );
+  }
+
+  // Aplica el filtro de búsqueda si hay texto en la barra de búsqueda
+  if (searchText) {
+    ejerciciosFiltrados = ejerciciosFiltrados.filter(ejercicio =>
+      normalizarTexto(ejercicio.nombre).includes(searchText)
+    );
+  }
+
+  // Muestra los ejercicios filtrados
   mostrarEjercicios(ejerciciosFiltrados);
+}
+
+// Función para normalizar texto eliminando tildes y mayúsculas
+function normalizarTexto(texto) {
+  return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
 // Función para cambiar la clase al hacer clic en "AGREGAR"
