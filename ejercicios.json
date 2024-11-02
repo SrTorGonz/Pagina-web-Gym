@@ -159,6 +159,250 @@
           "inicial": "Images/Ejercicios/Press de banca con barra 1.jpg",
           "final": "Images/Ejercicios/Press de banca con barra 2.jpg"
         }
+      },
+      {
+        "nombre": "Press de Banca Inclinado con Mancuernas",
+        "nivel": "Intermedio",
+        "grupo_muscular": "Pecho",
+        "descripcion": "El press inclinado con mancuernas es un ejercicio que se enfoca en la parte superior del pecho, hombros y tríceps. Se realiza acostado en un banco inclinado, empujando dos mancuernas desde el pecho hacia arriba.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Press de banca inclinado con mancuernas 1.jpg",
+          "final": "Images/Ejercicios/Press de banca inclinado con mancuernas 2.jpg"
+        }
+      },
+      {
+        "nombre": "Aperturas Pec Deck",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pecho",
+        "descripcion": "Las aperturas en pec deck son un ejercicio que se enfoca en los músculos del pectoral mayor. Se realizan en una máquina pec deck, donde se juntan los brazos en un movimiento semicircular, manteniendo los codos ligeramente flexionados para activar el pecho.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Aperturas pec dec 1.jpg",
+          "final": "Images/Ejercicios/Aperturas pec dec 2.jpg"
+        }
+      },
+      {
+        "nombre": "Aperturas en Polea",
+        "nivel": "Intermedio",
+        "grupo_muscular": "Pecho",
+        "descripcion": "Las aperturas en poleas son un ejercicio que trabaja el pecho, especialmente el pectoral mayor. Se realizan de pie entre dos poleas altas, tirando de las asas hacia adelante en un movimiento semicircular, juntando las manos frente al cuerpo.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Aperturas en polea 1.jpg",
+          "final": "Images/Ejercicios/Aperturas en polea 2.jpg"
+        }
+      },
+      {
+        "nombre": "Jalón al Pecho con Agarre Abierto",
+        "nivel": "Principiante",
+        "grupo_muscular": "Espalda",
+        "descripcion": "El jalón al pecho con agarre abierto es un ejercicio que trabaja la espalda, especialmente el dorsal ancho. Se realiza en una máquina de polea alta, tirando de la barra hacia el pecho con un agarre ancho, manteniendo los codos hacia los lados.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Jalon al pecho con agarre abierto 1.jpg",
+          "final": "Images/Ejercicios/Jalon al pecho con agarre abierto 2.jpg"
+        }
+      },
+      {
+        "nombre": "Jalón al Pecho con Agarre Cerrado",
+        "nivel": "Principiante",
+        "grupo_muscular": "Espalda",
+        "descripcion": "El jalón al pecho con agarre cerrado trabaja la espalda, especialmente dorsal ancho y los músculos del medio de la espalda. Se realiza tirando de una barra hacia el pecho con agarre estrecho, manteniendo los codos cerca del cuerpo.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Jalon al pecho con agarre cerrado 1.jpg",
+          "final": "Images/Ejercicios/Jalon al pecho con agarre cerrado 2.jpg"
+        }
+      },
+      {
+        "nombre": "Remo Sentado en Polea",
+        "nivel": "Principiante",
+        "grupo_muscular": "Espalda",
+        "descripcion": "El remo sentado en polea es un ejercicio que trabaja la espalda, especialmente dorsal ancho y romboides. Se realiza tirando de una barra o asas hacia el abdomen desde una posición sentada, manteniendo el torso recto.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Remo sentado en polea 1.jpg",
+          "final": "Images/Ejercicios/Remo sentado en polea 2.jpg"
+        }
+      },
+      {
+        "nombre": "Remo con Pecho Apoyado",
+        "nivel": "Principiante",
+        "grupo_muscular": "Espalda",
+        "descripcion": "El remo con pecho apoyado es un ejercicio que trabaja la espalda, especialmente los romboides y dorsales. Se realiza en una máquina o banco inclinado, tirando de las mancuernas o barra hacia el torso mientras el pecho permanece apoyado.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Remo con pecho apoyado 1.jpg",
+          "final": "Images/Ejercicios/Remo con pecho apoyado 2.jpg"
+        }
+      },
+      {
+        "nombre": "Remo con Barra",
+        "nivel": "Intermedio",
+        "grupo_muscular": "Espalda",
+        "descripcion": "El remo con barra es un ejercicio que trabaja la espalda, especialmente los dorsales, romboides y trapecios. Se realiza inclinando el torso hacia adelante y tirando de una barra cargada hacia el abdomen, manteniendo la espalda recta.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Remo con barra 1.jpg",
+          "final": "Images/Ejercicios/Remo con barra 2.jpg"
+        }
+      },
+      {
+        "nombre": "Dominadas",
+        "nivel": "Intermedio",
+        "grupo_muscular": "Espalda",
+        "descripcion": "Las dominadas son un ejercicio de peso corporal que trabaja la espalda, especialmente los dorsales, además de los bíceps y el core. Se realizan colgándose de una barra y levantando el cuerpo hasta que la barbilla supere la barra.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Dominadas 1.jpg",
+          "final": "Images/Ejercicios/Dominadas 2.jpg"
+        }
+      },
+      {
+        "nombre": "Remo a la Cara",
+        "nivel": "Principiante",
+        "grupo_muscular": "Espalda",
+        "descripcion": "El remo a la cara es un ejercicio que se enfoca en los deltoides posteriores, trapecios y romboides. Se realiza utilizando una polea alta, tirando de la cuerda hacia la cara con los codos elevados, manteniendo una postura recta.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Remo a la cara 1.jpg",
+          "final": "Images/Ejercicios/Remo a la cara 2.jpg"
+        }
+      },
+      {
+        "nombre": "Flexión de Pecho",
+        "nivel": "Principiante",
+        "grupo_muscular": "Pecho",
+        "descripcion": "La flexión de pecho es un ejercicio de peso corporal que trabaja el pecho, los hombros y los tríceps. Se realiza en posición de plancha, bajando el cuerpo hasta que el pecho casi toque el suelo y luego empujando hacia arriba hasta extender los brazos.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Flexion de pecho 1.jpg",
+          "final": "Images/Ejercicios/Flexion de pecho 2.jpg"
+        }
+      },
+      {
+        "nombre": "Aperturas Invertidas en Máquina",
+        "nivel": "Principiante",
+        "grupo_muscular": "Espalda",
+        "descripcion": "Las aperturas invertidas en pec deck se enfocan en los deltoides posteriores y los músculos de la parte superior de la espalda. Se realizan tirando de las asas hacia atrás en un movimiento de apertura, manteniendo los brazos ligeramente flexionados.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Aperturas invertidas en maquina 1.jpg",
+          "final": "Images/Ejercicios/Aperturas invertidas en maquina 2.jpg"
+        }
+      },
+      {
+        "nombre": "Elevaciones Laterales con Polea Baja",
+        "nivel": "Principiante",
+        "grupo_muscular": "Hombro",
+        "descripcion": "Las elevaciones laterales con polea baja son un ejercicio que se enfoca en los deltoides laterales. Se realizan de pie, sujetando la polea baja con un brazo y levantando el brazo lateralmente hasta la altura del hombro, manteniendo una ligera flexión en el codo.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Elevaciones laterales con polea baja 1.jpg",
+          "final": "Images/Ejercicios/Elevaciones laterales con polea baja 2.jpg"
+        }
+      },
+      {
+        "nombre": "Elevaciones Frontales con Mancuernas",
+        "nivel": "Principiante",
+        "grupo_muscular": "Hombro",
+        "descripcion": "Las elevaciones frontales con mancuerna son un ejercicio que se enfoca en los deltoides frontales. Se realizan de pie, levantando una mancuerna con el brazo extendido hacia el frente hasta la altura del hombro.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Elevaciones frontales con mancuernas 1.jpg",
+          "final": "Images/Ejercicios/Elevaciones frontales con mancuernas 2.jpg"
+        }
+      },
+      {
+        "nombre": "Elevaciones Laterales con Mancuernas",
+        "nivel": "Principiante",
+        "grupo_muscular": "Hombro",
+        "descripcion": "Las elevaciones laterales con mancuerna se enfocan en los deltoides laterales. Se realizan de pie, levantando ambas mancuernas lateralmente hasta la altura de los hombros, manteniendo los codos ligeramente flexionados y el control en cada repetición.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Elevaciones laterales con mancuernas 1.jpg",
+          "final": "Images/Ejercicios/Elevaciones laterales con mancuernas 2.jpg"
+        }
+      },
+      {
+        "nombre": "Fondos",
+        "nivel": "Principiante",
+        "grupo_muscular": "Hombro",
+        "descripcion": "Los fondos son un ejercicio de peso corporal que trabaja los tríceps, pecho y hombros. Se realizan apoyando las manos en barras paralelas y bajando el cuerpo hasta que los codos formen un ángulo de 90 grados, luego empujando hacia arriba hasta extender los brazos.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Fondos 1.jpg",
+          "final": "Images/Ejercicios/Fondos 2.jpg"
+        }
+      },
+      {
+        "nombre": "Extensión de Tríceps Sobre la Cabeza",
+        "nivel": "Principiante",
+        "grupo_muscular": "Tríceps",
+        "descripcion": "La extensión de tríceps sobre la cabeza en polea se enfoca en los tríceps. Se realiza de pie, sujetando la cuerda o barra de una polea baja y extendiendo los brazos hacia arriba por detrás de la cabeza, manteniendo los codos apuntando hacia adelante.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Extension de triceps sobre la cabeza 1.jpg",
+          "final": "Images/Ejercicios/Extension de triceps sobre la cabeza 2.jpg"
+        }
+      },
+      {
+        "nombre": "Extensión de Tríceps en Polea",
+        "nivel": "Principiante",
+        "grupo_muscular": "Tríceps",
+        "descripcion": "La extensión de tríceps en polea es un ejercicio que se enfoca en los tríceps. Se realiza de pie, tirando de la cuerda o barra hacia abajo desde una polea alta, extendiendo los brazos completamente mientras se mantienen los codos cerca del cuerpo.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Extension de triceps en polea 1.jpg",
+          "final": "Images/Ejercicios/Extension de triceps en polea 2.jpg"
+        }
+      },
+      {
+        "nombre": "Press Militar",
+        "nivel": "Principiante",
+        "grupo_muscular": "Hombro",
+        "descripcion": "El press militar con mancuernas trabaja hombros, especialmente los deltoides y tríceps. Se realiza empujando las mancuernas desde los hombros hacia arriba, extendiendo los brazos completamente.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Press militar 1.jpg",
+          "final": "Images/Ejercicios/Press militar 2.jpg"
+        }
+      },
+      {
+        "nombre": "Curl Predicador",
+        "nivel": "Principiante",
+        "grupo_muscular": "Bíceps",
+        "descripcion": "El curl predicador es un ejercicio que se enfoca en los bíceps. Se realiza sentado en un banco predicador, levantando una barra o mancuerna desde una posición de brazos extendidos hasta flexionar completamente los codos.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Curl predicador 1.jpg",
+          "final": "Images/Ejercicios/Curl predicador 2.jpg"
+        }
+      },
+      {
+        "nombre": "Curl de Bíceps Inclinado",
+        "nivel": "Principiante",
+        "grupo_muscular": "Bíceps",
+        "descripcion": "El curl de bíceps inclinado se enfoca en los bíceps. Se realiza sentado en un banco inclinado, levantando mancuernas desde una posición de brazos extendidos hasta flexionar los codos.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Curl de biceps inclinado 1.jpg",
+          "final": "Images/Ejercicios/Curl de biceps inclinado 2.jpg"
+        }
+      },
+      {
+        "nombre": "Elevación de Tronco en Banco Declinado",
+        "nivel": "Principiante",
+        "grupo_muscular": "Abdomen",
+        "descripcion": "Los abdominales en banco declinado se enfocan en los músculos abdominales. Se realizan acostado en un banco declinado, levantando el torso hacia las rodillas en un movimiento controlado, manteniendo la tensión en los abdominales durante todo el ejercicio.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Elevacion de tronco en banco declinado 1.jpg",
+          "final": "Images/Ejercicios/Elevacion de tronco en banco declinado 2.jpg"
+        }
+      },
+      {
+        "nombre": "Elevación de Piernas",
+        "nivel": "Principiante",
+        "grupo_muscular": "Abdomen",
+        "descripcion": "La elevación de piernas  se enfoca en los abdominales inferiores. Se realiza suspendido en una máquina paralela, levantando las piernas rectas hacia el pecho mientras mantienes el torso estable y controlas el movimiento.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Elevacion de piernas 1.jpg",
+          "final": "Images/Ejercicios/Elevacion de piernas 2.jpg"
+        }
+      },
+      {
+        "nombre": "Abdominales",
+        "nivel": "Principiante",
+        "grupo_muscular": "Abdomen",
+        "descripcion": "Los abdominales son un ejercicio básico que se enfoca en fortalecer el core. Se realizan acostado boca arriba, levantando el torso hacia las rodillas en un movimiento controlado, activando principalmente los músculos rectos abdominales.",
+        "imagenes": {
+          "inicial": "Images/Ejercicios/Abdominales 1.jpg",
+          "final": "Images/Ejercicios/Abdominales 2.jpg"
+        }
       }
+
+
+
+
 
     ]
