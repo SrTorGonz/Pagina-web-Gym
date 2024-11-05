@@ -2,26 +2,23 @@ let ejerciciosGlobal = []; // Variable global para almacenar todos los ejercicio
 let filtroActivo = "todos"; // Mantiene el estado del filtro de grupo muscular activo
 
 function cargarEjercicios() {
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", "ejercicios.json", true);
-
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      try {
-        const ejercicios = JSON.parse(xhr.responseText);
-        ejerciciosGlobal = ejercicios; // Guarda los ejercicios en una variable global
-        mostrarEjercicios(ejercicios);
-        configurarFiltros();
-        configurarBusqueda(); // Configura la búsqueda una vez cargados los ejercicios
-      } catch (error) {
-        console.error("Error al parsear JSON:", error);
+  console.log("cargarEjercicios se está llamando"); // Mensaje de verificación inicial
+  
+  fetch("obtener_ejercicios.php") // Llama al archivo PHP
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Error al cargar los ejercicios desde la base de datos");
       }
-    } else {
-      console.error("Error al cargar el archivo JSON.");
-    }
-  };
-
-  xhr.send();
+      return response.json();
+    })
+    .then(ejercicios => {
+      console.log("Ejercicios recibidos:", ejercicios); // Verifica los datos en la consola
+      ejerciciosGlobal = ejercicios; // Guarda los ejercicios en una variable global
+      mostrarEjercicios(ejercicios);
+      configurarFiltros();
+      configurarBusqueda(); // Configura la búsqueda una vez cargados los ejercicios
+    })
+    .catch(error => console.error("Error:", error));
 }
 
 function mostrarEjercicios(ejercicios) {
