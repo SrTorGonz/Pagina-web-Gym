@@ -65,12 +65,15 @@ hr {
     height: 52px;
     width: 232px;
     padding-left: 60px;
+    padding-right: 20px;
     border: none;
     outline: none;
     border-radius: 31px;
     background-color: #9DB4F0; /* Color gris de los campos de entrada */
     color: #697699;
     box-sizing: border-box;
+    white-space: nowrap;         /* Evita que el texto se ajuste a otra línea */
+    overflow: hidden;            /* Oculta el texto que sobrepasa el tamaño del input */
 }
 
 .input-group img {
