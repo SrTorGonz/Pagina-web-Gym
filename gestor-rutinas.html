@@ -16,7 +16,8 @@
     <!-- Estilo css-->
     <link rel="stylesheet" href="Style-gestor-rutinas.css">
     <!-- Estilo css header-->
-    <link rel="stylesheet" href="StyleHeader.css">                                              
+    <link rel="stylesheet" href="StyleHeader.css">   
+    <script src="javascripts/rutinas.js"></script>                                          
 </head>
 
 <body>
@@ -48,9 +49,11 @@
         <h1>GESTOR DE RUTINAS</h1>
         <p>Hola, bienvenido al espacio en dónde crearas tu rutina.</p>
         <p>¿Te gustaría editar las rutinas actuales o crear una nueva rutina?</p>
+        <p>Puedes crear hasta un máximo de 7 rutinas</p>
 
-        <section class="routines-grid">
-            <div class="routine-first">
+
+        <section class="routines-grid" id="routinesGrid">
+            <div class="routine-first" id="createRoutine">
                 <img src="Images/Imagen-rutina-vacia.png" alt="Vacio">
                 <div class="routine-info">
                     <h3>Vacío</h3>
@@ -59,7 +62,7 @@
                     </a>
                 </div>
             </div>
-
+            <!-- 
             <div class="routine-item">
                 <div class="routine-img">
                     <img src="Images/Ejercicios/Press de pierna inclinado 1.jpg" alt="Push 1" class="image-front">
@@ -217,7 +220,7 @@
                         <button>Editar Rutina</button>
                     </a>      
                 </div>
-            </div>
+            </div> -->
         </section>
     </div>
     <!-- Footer -->
