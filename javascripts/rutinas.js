@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     cargarRutinas();
 });
 
@@ -52,14 +52,11 @@ function cargarRutinas() {
                 routineName.textContent = rutina.nombre;
                 routineInfo.appendChild(routineName);
 
-                const editLink = document.createElement("a");
-                editLink.href = "Creacion-rutina.html";
-
                 const editButton = document.createElement("button");
                 editButton.textContent = "Editar Rutina";
-                editLink.appendChild(editButton);
+                editButton.addEventListener("click", () => redirigirARutina(rutina.id_rutina)); // Redirige con idRutina
 
-                routineInfo.appendChild(editLink);
+                routineInfo.appendChild(editButton);
                 routineItem.appendChild(routineInfo);
 
                 // Agrega la rutina al contenedor principal
@@ -67,4 +64,11 @@ function cargarRutinas() {
             });
         })
         .catch(error => console.error("Error en la solicitud:", error));
+}
+
+// Función para redirigir a la página de creación de rutina con el idRutina en localStorage
+function redirigirARutina(idRutina) {
+    console.log("Guardando en localStorage el ID de la rutina:", idRutina); // Depuración
+    localStorage.setItem("idRutina", idRutina);
+    window.location.href = "Creacion-rutina.html";
 }

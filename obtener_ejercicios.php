@@ -5,12 +5,41 @@ error_reporting(E_ALL);
 
 include 'conexion.php';
 
-$sql = "SELECT id_ejercicio, nombre, nivel, grupo_muscular, descripcion, imagen_inicial, imagen_final FROM Ejercicios";
-$result = $conn->query($sql);
+// Validar y asignar los parámetros GET
+$id_usuario = isset($_GET['id_usuario']) ? intval($_GET['id_usuario']) : 0;
+$id_rutina = isset($_GET['id_rutina']) ? intval($_GET['id_rutina']) : 0;
+
+if ($id_usuario === 0 || $id_rutina === 0) {
+    echo json_encode(["error" => "Faltan parámetros necesarios"]);
+    exit;
+}
+
+// Consulta SQL ajustada para asegurar que todos los ejercicios se incluyan
+$sql = "
+    SELECT 
+        e.id_ejercicio, 
+        e.nombre, 
+        e.nivel, 
+        e.grupo_muscular, 
+        e.descripcion, 
+        e.imagen_inicial, 
+        e.imagen_final,
+        re.id_rutina 
+    FROM Ejercicios e
+    LEFT JOIN Rutina_Ejercicio re 
+        ON e.id_ejercicio = re.id_ejercicio 
+        AND re.id_rutina = ?
+";
+
+// Preparar la consulta y ejecutar
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id_rutina);
+$stmt->execute();
+$result = $stmt->get_result();
 
 $ejercicios = [];
 
-if ($result->num_rows > 0) {
+if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $ejercicios[] = [
             'id_ejercicio' => $row['id_ejercicio'],
@@ -21,7 +50,8 @@ if ($result->num_rows > 0) {
             'imagenes' => [
                 'inicial' => $row['imagen_inicial'],
                 'final' => $row['imagen_final']
-            ]
+            ],
+            'id_rutina' => $row['id_rutina'] // Será NULL si no está en la rutina
         ];
     }
 }
@@ -29,7 +59,7 @@ if ($result->num_rows > 0) {
 // Configura el encabezado para devolver JSON
 header('Content-Type: application/json');
 
-// Imprime el JSON o un array vacío
+// Imprime el JSON o un mensaje de error si no hay datos
 echo json_encode($ejercicios);
 
 $conn->close();

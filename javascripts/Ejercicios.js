@@ -1,10 +1,10 @@
 let ejerciciosGlobal = []; // Variable global para almacenar todos los ejercicios
 let filtroActivo = "todos"; // Mantiene el estado del filtro de grupo muscular activo
 
-function cargarEjercicios() {
-  console.log("cargarEjercicios se está llamando"); // Mensaje de verificación inicial
+function cargarEjercicios(idUsuario, idRutina) {
+  console.log("Cargando ejercicios para usuario y rutina:", idUsuario, idRutina);
   
-  fetch("obtener_ejercicios.php") // Llama al archivo PHP
+  fetch(`obtener_ejercicios.php?id_usuario=${idUsuario}&id_rutina=${idRutina}`) // Llama al archivo PHP
     .then(response => {
       if (!response.ok) {
         throw new Error("Error al cargar los ejercicios desde la base de datos");
@@ -28,7 +28,7 @@ function mostrarEjercicios(ejercicios) {
   // Ordena los ejercicios alfabéticamente por el nombre
   const ejerciciosOrdenados = ejercicios.sort((a, b) => a.nombre.localeCompare(b.nombre));
 
-  ejerciciosOrdenados.forEach((ejercicio, index) => {
+  ejerciciosOrdenados.forEach((ejercicio) => {
     const ejercicioDiv = document.createElement("div");
     ejercicioDiv.classList.add("elemento");
     ejercicioDiv.dataset.grupoMuscular = ejercicio.grupo_muscular;
@@ -83,12 +83,32 @@ function mostrarEjercicios(ejercicios) {
     contenedorDiv.appendChild(caracteristicasDiv);
     ejercicioDiv.appendChild(contenedorDiv);
 
-    const addButton = document.createElement("button");
-    addButton.classList.add("add-button");
-    addButton.innerHTML = '<img src="Icons/ICON-add.svg">AGREGAR';
-    addButton.dataset.index = index;
-    addButton.addEventListener("click", () => cambiarClase(ejercicioDiv, ejercicio.nombre));
-    ejercicioDiv.appendChild(addButton);
+    if (ejercicio.id_rutina !== null) {
+      // Si el ejercicio ya está en la rutina, muestra botones de editar y remover
+      const botonMixto = document.createElement("div");
+      botonMixto.classList.add("boton-mixto");
+
+      const editButton = document.createElement("button");
+      editButton.classList.add("add-button-half");
+      editButton.innerHTML = '<img src="Icons/ICON-add.svg">EDITAR';
+      editButton.addEventListener("click", () => editarEjercicio(ejercicio.id_ejercicio));
+
+      const removeButton = document.createElement("button");
+      removeButton.classList.add("remove-button");
+      removeButton.innerHTML = '<img src="Icons/ICON-remover.svg">REMOVER';
+      removeButton.addEventListener("click", () => removerEjercicio(ejercicio.id_ejercicio));
+
+      botonMixto.appendChild(editButton);
+      botonMixto.appendChild(removeButton);
+      ejercicioDiv.appendChild(botonMixto);
+    } else {
+      // Si no está en la rutina, muestra el botón de agregar
+      const addButton = document.createElement("button");
+      addButton.classList.add("add-button");
+      addButton.innerHTML = '<img src="Icons/ICON-add.svg">AGREGAR';
+      addButton.addEventListener("click", () => agregarEjercicio(ejercicio.id_ejercicio));
+      ejercicioDiv.appendChild(addButton);
+    }
 
     contenedor.appendChild(ejercicioDiv);
   });
@@ -160,28 +180,24 @@ function normalizarTexto(texto) {
   return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
-// Función para cambiar la clase al hacer clic en "AGREGAR"
-function cambiarClase(ejercicioDiv, nombreEjercicio) {
-  ejercicioDiv.classList.remove("elemento");
-  ejercicioDiv.classList.add("elemento-series-repes");
-
-  ejercicioDiv.innerHTML = `
-    <div class="contenedor-titulo">
-        <h2 class="titulo">${nombreEjercicio}</h2>
-    </div>
-    <div class="contenedor-series-repes">
-        <div class="series-repes">
-            <span class="titulo-series-repes">Número de <br>series</span>
-            <input type="number" class="input-numero" placeholder="0">
-        </div>
-        <div class="series-repes">
-            <span class="titulo-series-repes">Número de <br>repeticiones</span>
-            <input type="number" class="input-numero" placeholder="0">
-        </div>
-    </div>
-    <button class="add-button"><img src="Icons/ICON-add.svg">GUARDAR</button>
-  `;
+function editarEjercicio(idEjercicio) {
+  console.log("Editar ejercicio:", idEjercicio);
+  // Aquí puedes implementar la lógica para editar el ejercicio
 }
 
-// Llama a la función para cargar ejercicios
-cargarEjercicios();
+function removerEjercicio(idEjercicio) {
+  console.log("Remover ejercicio:", idEjercicio);
+  // Aquí puedes implementar la lógica para remover el ejercicio
+}
+
+function agregarEjercicio(idEjercicio) {
+  console.log("Agregar ejercicio:", idEjercicio);
+  // Aquí puedes implementar la lógica para agregar el ejercicio
+}
+
+
+// Llama a cargarEjercicios con los datos del usuario y rutina
+const idUsuario = 1; // Reemplaza con el ID del usuario en sesión
+const idRutina = localStorage.getItem("idRutina");
+console.log("ID de la rutina:", idRutina); // Reemplaza con el ID de la rutina seleccionada
+cargarEjercicios(idUsuario, idRutina);
