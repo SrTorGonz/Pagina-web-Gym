@@ -1,32 +1,31 @@
 <?php
+include 'conexion.php';
+// Obtener el ID del usuario desde la sesión
 session_start();
-require 'conexion.php';
-header("Content-Type: application/json");
+$id_usuario = $_SESSION['user_id']; // Asegúrate de tener el ID del usuario en la sesión
 
-if (!isset($_SESSION['user_email'])) {
-    echo json_encode(["success" => false, "message" => "No se ha iniciado sesión."]);
-    exit;
+// Consultar los datos del perfil
+$sql = "SELECT correo, nombre, telefono FROM Usuarios WHERE id_usuario = $id_usuario";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Recuperar el resultado y devolverlo como JSON
+    $row = $result->fetch_assoc();
+    echo json_encode([
+        "success" => true,
+        "data" => [
+            "correo" => $row["correo"],
+            "nombre" => $row["nombre"],
+            "telefono" => $row["telefono"]
+        ]
+    ]);
+} else {
+    echo json_encode([
+        "success" => false,
+        "message" => "No se encontraron datos del perfil."
+    ]);
 }
 
-$email = $_SESSION['user_email'];
-
-try {
-    $sql = "SELECT correo, telefono, nombre FROM Usuarios WHERE correo = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows === 1) {
-        $user = $result->fetch_assoc();
-        echo json_encode(["success" => true, "data" => $user]);
-    } else {
-        echo json_encode(["success" => false, "message" => "Usuario no encontrado."]);
-    }
-
-    $stmt->close();
-    $conn->close();
-} catch (Exception $e) {
-    echo json_encode(["success" => false, "message" => "Error del servidor: " . $e->getMessage()]);
-}
+$conn->close();
 ?>
+

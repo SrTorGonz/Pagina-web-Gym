@@ -1,43 +1,48 @@
 <?php
-session_start();
-require 'conexion.php';
-header("Content-Type: application/json");
+include 'conexion.php';
 
-if (!isset($_SESSION['user_email'])) {
-    echo json_encode(["success" => false, "message" => "No se ha iniciado sesión."]);
-    exit;
-}
 
+// Obtener los datos JSON enviados
 $data = json_decode(file_get_contents("php://input"), true);
 
-$email = $_SESSION['user_email'];
-$newEmail = $data['email'] ?? null;
-$telefono = $data['telefono'] ?? null;
-$password = $data['password'] ?? null;
+// Verificar que los datos estén presentes
+if (isset($data['correo']) || isset($data['telefono']) || isset($data['contrasena'])) {
+    // Se asume que la sesión ya está iniciada y el ID del usuario está disponible
+    session_start();
+    $id_usuario = $_SESSION['user_id']; // Asume que el ID del usuario está en la sesión
 
-if (!$newEmail || !$telefono || !$password) {
-    echo json_encode(["success" => false, "message" => "Faltan datos."]);
-    exit;
-}
-
-try {
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-    $sql = "UPDATE Usuarios SET correo = ?, telefono = ?, contraseña = ? WHERE correo = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $newEmail, $telefono, $hashedPassword, $email);
-    $stmt->execute();
-
-    if ($stmt->affected_rows > 0) {
-        $_SESSION['user_email'] = $newEmail; // Actualizar el correo en la sesión
-        echo json_encode(["success" => true, "message" => "Perfil actualizado correctamente."]);
-    } else {
-        echo json_encode(["success" => false, "message" => "No se realizaron cambios."]);
+    // Crear una cadena SQL dinámica para actualizar solo los campos que se envíen
+    $updateFields = [];
+    if (isset($data['correo'])) {
+        $correo = $conn->real_escape_string($data['correo']);
+        $updateFields[] = "correo = '$correo'";
+    }
+    if (isset($data['telefono'])) {
+        $telefono = $conn->real_escape_string($data['telefono']);
+        $updateFields[] = "telefono = '$telefono'";
+    }
+    if (isset($data['contrasena'])) {
+        $contrasena = password_hash($conn->real_escape_string($data['contrasena']), PASSWORD_BCRYPT);
+        $updateFields[] = "contraseña = '$contrasena'";
     }
 
-    $stmt->close();
+    // Si hay campos para actualizar
+    if (!empty($updateFields)) {
+        $updateQuery = "UPDATE Usuarios SET " . implode(", ", $updateFields) . " WHERE id_usuario = $id_usuario";
+        
+        if ($conn->query($updateQuery) === TRUE) {
+            echo json_encode(["success" => true, "message" => "Perfil actualizado correctamente."]);
+        } else {
+            echo json_encode(["success" => false, "message" => "Error al actualizar el perfil: " . $conn->error]);
+        }
+    } else {
+        echo json_encode(["success" => false, "message" => "No se recibieron datos para actualizar."]);
+    }
+
     $conn->close();
-} catch (Exception $e) {
-    echo json_encode(["success" => false, "message" => "Error del servidor: " . $e->getMessage()]);
+} else {
+    echo json_encode(["success" => false, "message" => "No se enviaron datos válidos."]);
 }
 ?>
+
+
