@@ -1,10 +1,10 @@
 let ejerciciosGlobal = []; // Variable global para almacenar todos los ejercicios
 let filtroActivo = "todos"; // Mantiene el estado del filtro de grupo muscular activo
 
-function cargarEjercicios(idUsuario, idRutina) {
-  console.log("Cargando ejercicios para usuario y rutina:", idUsuario, idRutina);
+function cargarEjercicios(idRutina) {
+  console.log("Cargando ejercicios para usuario y rutina:",idRutina);
   
-  fetch(`obtener_ejercicios.php?id_usuario=${idUsuario}&id_rutina=${idRutina}`) // Llama al archivo PHP
+  fetch(`obtener_ejercicios.php?id_rutina=${idRutina}`) // Llama al archivo PHP
     .then(response => {
       if (!response.ok) {
         throw new Error("Error al cargar los ejercicios desde la base de datos");
@@ -277,7 +277,7 @@ function guardarEjercicio(idEjercicio) {
       console.log("Respuesta del servidor:", data);
       if (data.success) {
         console.log("Ejercicio guardado exitosamente");
-        cargarEjercicios(idUsuario, localStorage.getItem("idRutina"));
+        cargarEjercicios(localStorage.getItem("idRutina"));
       } else {
         console.error("Error al guardar el ejercicio en el servidor");
       }
@@ -287,6 +287,5 @@ function guardarEjercicio(idEjercicio) {
 
 
 
-const idUsuario = 1; // Reemplaza con el ID del usuario en sesión
 const idRutina = localStorage.getItem("idRutina");
-cargarEjercicios(idUsuario, idRutina);
+cargarEjercicios(idRutina);

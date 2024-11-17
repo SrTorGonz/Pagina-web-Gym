@@ -4,9 +4,14 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include 'conexion.php';
+// Verifica si el usuario está autenticado
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    echo json_encode(['error' => 'Usuario no autenticado']);
+    exit;
+}
 
-// Simula el ID del usuario con sesión iniciada (reemplaza con tu lógica de sesión)
-$id_usuario = 1; // Aquí deberías usar el ID del usuario con sesión iniciada
+$id_usuario = $_SESSION['user_id']; // Obteniendo el ID del usuario autenticado
 
 // Verifica si se envió un nombre (aunque usaremos un valor por defecto)
 $data = json_decode(file_get_contents("php://input"), true);
