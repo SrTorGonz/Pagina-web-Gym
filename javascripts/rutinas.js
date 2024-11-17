@@ -66,6 +66,34 @@ function cargarRutinas() {
         .catch(error => console.error("Error en la solicitud:", error));
 }
 
+function crearRutina() {
+    // Llama al PHP para crear la rutina y obtener su ID
+    fetch("crear_rutina.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nombre: "Mi Rutina" // Nombre por defecto
+        }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error("Error al crear la rutina:", data.error);
+                return;
+            }
+
+            const idRutina = data.id_rutina;
+            console.log("ID de la rutina creada:", idRutina);
+
+            // Guarda el id_rutina en localStorage y redirige
+            localStorage.setItem("idRutina", idRutina);
+            window.location.href = "Creacion-rutina.html";
+        })
+        .catch(error => console.error("Error en la solicitud:", error));
+}
+
 // Función para redirigir a la página de creación de rutina con el idRutina en localStorage
 function redirigirARutina(idRutina) {
     console.log("Guardando en localStorage el ID de la rutina:", idRutina); // Depuración
