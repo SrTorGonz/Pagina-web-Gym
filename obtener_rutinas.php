@@ -3,14 +3,14 @@
 include 'conexion.php';
 
 // Verifica si el usuario está autenticado
-// session_start();
-// if (!isset($_SESSION['id_usuario'])) {
-//     echo json_encode(['error' => 'Usuario no autenticado']);
-//     exit;
-// }
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    echo json_encode(['error' => 'Usuario no autenticado']);
+    exit;
+}
 
-// $id_usuario = $_SESSION['id_usuario']; // Obteniendo el ID del usuario autenticado
-$id_usuario = 1;
+$id_usuario = $_SESSION['user_id']; // Obteniendo el ID del usuario autenticado
+
 
 // Consulta para obtener las rutinas del usuario
 $sql_rutinas = "SELECT id_rutina, nombre FROM Rutinas WHERE id_usuario = ?";

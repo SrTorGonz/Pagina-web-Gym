@@ -6,13 +6,17 @@ error_reporting(E_ALL);
 include 'conexion.php';
 
 // Validar y asignar los parámetros GET
-$id_usuario = isset($_GET['id_usuario']) ? intval($_GET['id_usuario']) : 0;
-$id_rutina = isset($_GET['id_rutina']) ? intval($_GET['id_rutina']) : 0;
-
-if ($id_usuario === 0 || $id_rutina === 0) {
-    echo json_encode(["error" => "Faltan parámetros necesarios"]);
+// Verifica si el usuario está autenticado
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    echo json_encode(['error' => 'Usuario no autenticado']);
     exit;
 }
+
+$id_usuario = $_SESSION['user_id']; // Obteniendo el ID del usuario autenticado
+
+$id_rutina = isset($_GET['id_rutina']) ? intval($_GET['id_rutina']) : 0;
+
 
 // Consulta SQL ajustada para asegurar que todos los ejercicios se incluyan
 $sql = "
