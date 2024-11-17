@@ -157,8 +157,11 @@ function configurarFiltros() {
 function aplicarFiltros(grupoMuscular, searchText) {
   let ejerciciosFiltrados = ejerciciosGlobal;
 
-  // Aplica el filtro de grupo muscular si no es 'todos'
-  if (grupoMuscular !== "todos") {
+  // Aplica el filtro de "ejercicios agregados"
+  if (grupoMuscular === "agregados") {
+    ejerciciosFiltrados = ejerciciosFiltrados.filter(ejercicio => ejercicio.id_rutina !== null);
+  } else if (grupoMuscular !== "todos") {
+    // Aplica el filtro de grupo muscular si no es 'todos'
     ejerciciosFiltrados = ejerciciosFiltrados.filter(ejercicio =>
       ejercicio.grupo_muscular === grupoMuscular
     );
@@ -182,22 +185,16 @@ function normalizarTexto(texto) {
 
 function editarEjercicio(idEjercicio) {
   console.log("Editar ejercicio:", idEjercicio);
-  // Aquí puedes implementar la lógica para editar el ejercicio
 }
 
 function removerEjercicio(idEjercicio) {
   console.log("Remover ejercicio:", idEjercicio);
-  // Aquí puedes implementar la lógica para remover el ejercicio
 }
 
 function agregarEjercicio(idEjercicio) {
   console.log("Agregar ejercicio:", idEjercicio);
-  // Aquí puedes implementar la lógica para agregar el ejercicio
 }
 
-
-// Llama a cargarEjercicios con los datos del usuario y rutina
 const idUsuario = 1; // Reemplaza con el ID del usuario en sesión
 const idRutina = localStorage.getItem("idRutina");
-console.log("ID de la rutina:", idRutina); // Reemplaza con el ID de la rutina seleccionada
 cargarEjercicios(idUsuario, idRutina);
