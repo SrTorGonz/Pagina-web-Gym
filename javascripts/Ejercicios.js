@@ -31,6 +31,7 @@ function mostrarEjercicios(ejercicios) {
   ejerciciosOrdenados.forEach((ejercicio) => {
     const ejercicioDiv = document.createElement("div");
     ejercicioDiv.classList.add("elemento");
+    ejercicioDiv.setAttribute("data-id", ejercicio.id_ejercicio); // Agrega el atributo data-id
     ejercicioDiv.dataset.grupoMuscular = ejercicio.grupo_muscular;
 
     const tituloDiv = document.createElement("div");
@@ -84,7 +85,6 @@ function mostrarEjercicios(ejercicios) {
     ejercicioDiv.appendChild(contenedorDiv);
 
     if (ejercicio.id_rutina !== null) {
-      // Si el ejercicio ya está en la rutina, muestra botones de editar y remover
       const botonMixto = document.createElement("div");
       botonMixto.classList.add("boton-mixto");
 
@@ -102,7 +102,6 @@ function mostrarEjercicios(ejercicios) {
       botonMixto.appendChild(removeButton);
       ejercicioDiv.appendChild(botonMixto);
     } else {
-      // Si no está en la rutina, muestra el botón de agregar
       const addButton = document.createElement("button");
       addButton.classList.add("add-button");
       addButton.innerHTML = '<img src="Icons/ICON-add.svg">AGREGAR';
@@ -193,7 +192,100 @@ function removerEjercicio(idEjercicio) {
 
 function agregarEjercicio(idEjercicio) {
   console.log("Agregar ejercicio:", idEjercicio);
+
+  // Busca el elemento del ejercicio correspondiente
+  const ejercicioDiv = document.querySelector(`.elemento[data-id="${idEjercicio}"]`);
+
+  if (!ejercicioDiv) {
+    console.error("No se encontró el elemento del ejercicio con id:", idEjercicio);
+    return;
+  }
+
+  // Cambia la clase del div
+  ejercicioDiv.classList.remove("elemento");
+  ejercicioDiv.classList.add("elemento-series-repes");
+
+  // Reemplaza el contenido del div con la nueva estructura
+  ejercicioDiv.innerHTML = `
+    <div class="contenedor-titulo">
+        <h2 class="titulo">${ejerciciosGlobal.find(e => e.id_ejercicio === idEjercicio).nombre}</h2>
+    </div>
+    <div class="contenedor-series-repes">
+        <div class="series-repes">
+            <span class="titulo-series-repes">Número de <br>series</span>
+            <input type="number" id="series-${idEjercicio}" class="input-numero" placeholder="0">
+        </div>
+        <div class="series-repes">
+            <span class="titulo-series-repes">Número de <br>repeticiones</span>
+            <input type="number" id="repeticiones-${idEjercicio}" class="input-numero" placeholder="0">
+        </div>
+    </div>
+    <button class="add-button">
+        <img src="Icons/ICON-add.svg">GUARDAR
+    </button>
+  `;
+
+  const guardarButton = ejercicioDiv.querySelector(".add-button");
+  guardarButton.addEventListener("click", () => guardarEjercicio(idEjercicio));
 }
+
+function guardarEjercicio(idEjercicio) {
+  console.log("Guardando ejercicio con id:", idEjercicio);
+
+  // Selecciona los inputs basados en sus IDs únicos
+  const inputSeries = document.getElementById(`series-${idEjercicio}`);
+  const inputRepeticiones = document.getElementById(`repeticiones-${idEjercicio}`);
+
+  // Verifica que ambos inputs existan
+  if (!inputSeries || !inputRepeticiones) {
+    console.error("No se encontraron los inputs de series o repeticiones");
+    return;
+  }
+
+  // Obtiene los valores de los inputs
+  const series = inputSeries.value;
+  const repeticiones = inputRepeticiones.value;
+
+  // Verifica que los valores no estén vacíos
+  if (!series || !repeticiones) {
+    console.error("Los valores de series o repeticiones están vacíos");
+    return;
+  }
+
+  console.log(`Ejercicio ${idEjercicio}: ${series} series, ${repeticiones} repeticiones`);
+
+  // Enviar los datos al servidor
+  fetch("agregar_ejercicio.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      id_ejercicio: idEjercicio,
+      series: parseInt(series, 10),
+      repeticiones: parseInt(repeticiones, 10),
+      id_rutina: localStorage.getItem("idRutina"),
+    }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al guardar el ejercicio");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Respuesta del servidor:", data);
+      if (data.success) {
+        console.log("Ejercicio guardado exitosamente");
+        cargarEjercicios(idUsuario, localStorage.getItem("idRutina"));
+      } else {
+        console.error("Error al guardar el ejercicio en el servidor");
+      }
+    })
+    .catch((error) => console.error("Error en la solicitud:", error));
+}
+
+
 
 const idUsuario = 1; // Reemplaza con el ID del usuario en sesión
 const idRutina = localStorage.getItem("idRutina");
