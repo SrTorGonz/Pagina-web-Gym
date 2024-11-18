@@ -3,6 +3,7 @@
 require 'conexion.php';
 
 header("Content-Type: application/json");
+session_start(); // Iniciar la sesión
 
 try {
     // Leer los datos enviados en formato JSON
@@ -34,7 +35,17 @@ try {
     $stmt->bind_param("ssss", $email, $name, $phone, $hashedPassword);
 
     if ($stmt->execute()) {
-        echo json_encode(["success" => true, "message" => "Usuario registrado con éxito."]);
+        // Obtener el ID del usuario recién creado
+        $userId = $conn->insert_id;
+
+        // Crear una sesión con el ID del usuario
+        $_SESSION['user_id'] = $userId;
+
+        echo json_encode([
+            "success" => true,
+            "message" => "Usuario registrado con éxito.",
+            "user_id" => $userId
+        ]);
     }
 } catch (mysqli_sql_exception $e) {
     // Verificar si el error es de duplicado
