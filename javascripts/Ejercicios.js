@@ -302,6 +302,85 @@ function guardarCambiosEjercicio(idEjercicio) {
 
 function removerEjercicio(idEjercicio) {
   console.log("Remover ejercicio:", idEjercicio);
+
+  fetch("remover_ejercicio.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      id_ejercicio: idEjercicio,
+      id_rutina: localStorage.getItem("idRutina"),
+    }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al eliminar el ejercicio");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Respuesta del servidor:", data);
+      if (data.success) {
+        console.log("Ejercicio eliminado exitosamente");
+        
+        // Elimina el ejercicio de la variable global
+        ejerciciosGlobal = ejerciciosGlobal.map(e => 
+          e.id_ejercicio === idEjercicio ? { ...e, id_rutina: null } : e
+        );
+
+        // Actualiza el div del ejercicio eliminado
+        actualizarDivEjercicioARestaurar(idEjercicio);
+      } else {
+        console.error("Error al eliminar el ejercicio en el servidor");
+      }
+    })
+    .catch((error) => console.error("Error en la solicitud:", error));
+}
+
+function actualizarDivEjercicioARestaurar(idEjercicio) {
+  const ejercicio = ejerciciosGlobal.find(e => e.id_ejercicio === idEjercicio);
+
+  if (!ejercicio) {
+    console.error("No se encontró el ejercicio con id:", idEjercicio);
+    return;
+  }
+
+  const ejercicioDiv = document.querySelector(`.elemento[data-id="${idEjercicio}"]`);
+
+  if (!ejercicioDiv) {
+    console.error("No se encontró el div del ejercicio con id:", idEjercicio);
+    return;
+  }
+
+  // Cambia la clase del div
+  ejercicioDiv.className = "elemento";
+
+  // Reemplaza el contenido del div con la nueva estructura
+  ejercicioDiv.innerHTML = `
+    <div class="contenedor-titulo">
+        <h2 class="titulo">${ejercicio.nombre}</h2>
+    </div>
+
+    <div class="contenedor">
+        <div class="image-holder">
+            <img class="imagen-superior" src="${ejercicio.imagenes.inicial}" alt="${ejercicio.nombre} - Posición inicial">
+            <img class="imagen-inferior" src="${ejercicio.imagenes.final}" alt="${ejercicio.nombre} - Posición final">
+        </div>
+
+        <div class="caracterisicas-ejercicio">
+            <h3>${ejercicio.nivel}</h3>
+            <h4>${ejercicio.grupo_muscular}</h4>
+            <div class="contenedor-parrafo">
+                <p class="parrafo">${ejercicio.descripcion}</p>
+            </div>
+        </div>
+    </div>
+    <button class="add-button"><img src="Icons/ICON-add.svg">AGREGAR</button>
+  `;
+
+  const addButton = ejercicioDiv.querySelector(".add-button");
+  addButton.addEventListener("click", () => agregarEjercicio(idEjercicio));
 }
 
 
