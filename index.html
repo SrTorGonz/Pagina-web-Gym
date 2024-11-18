@@ -117,46 +117,16 @@
             </div>
         </section>
 
+        <section class="cta-section">
+            <button class="cta-button">COMIENZA   AHORA</button>
+        </section>
+    
     </div>
 
-    <section class="cta-section">
-        <button class="cta-button">COMIENZA   AHORA</button>
-    </section>
+  
 
 
-
-    <script>
-        let currentIndex = 0;
-
-        function showSlides() {
-            const slides = document.querySelectorAll('.slide');
-            slides.forEach((slide, index) => {
-                slide.classList.remove('active');
-                if (index === currentIndex) {
-                    slide.classList.add('active');
-                }
-            });
-        }
-
-        function nextImage() {
-            const slides = document.querySelectorAll('.slide');
-            currentIndex = (currentIndex + 1) % slides.length; // Avanza a la siguiente imagen
-            showSlides();
-        }
-
-        function prevImage() {
-            const slides = document.querySelectorAll('.slide');
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length; // Retrocede a la imagen anterior
-            showSlides();
-        }
-
-        // Cambia de imagen automáticamente cada 5 segundos
-        setInterval(nextImage, 5000);
-        
-        document.addEventListener("DOMContentLoaded", function() {
-            showSlides(); // Muestra la primera imagen al cargar
-        });
-    </script>
+    
 
 <footer>
     <div class="footer-container">
@@ -185,7 +155,38 @@
         </div>
     </div>
 </footer>
+<script>
+    let currentIndex = 0;
 
+    function showSlides() {
+        const slides = document.querySelectorAll('.slide');
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            if (index === currentIndex) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    function nextImage() {
+        const slides = document.querySelectorAll('.slide');
+        currentIndex = (currentIndex + 1) % slides.length; // Avanza a la siguiente imagen
+        showSlides();
+    }
+
+    function prevImage() {
+        const slides = document.querySelectorAll('.slide');
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length; // Retrocede a la imagen anterior
+        showSlides();
+    }
+
+    // Cambia de imagen automáticamente cada 5 segundos
+    setInterval(nextImage, 5000);
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        showSlides(); // Muestra la primera imagen al cargar
+    });
+</script>
     
 </body>
 </html>
