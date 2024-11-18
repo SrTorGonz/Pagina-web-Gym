@@ -189,11 +189,122 @@ function normalizarTexto(texto) {
 
 function editarEjercicio(idEjercicio) {
   console.log("Editar ejercicio:", idEjercicio);
+
+  // Obtener la rutina actual del localStorage
+  const idRutina = localStorage.getItem("idRutina");
+
+  if (!idRutina) {
+    console.error("ID de rutina no encontrado en el localStorage");
+    return;
+  }
+
+  // Llamar al backend para obtener series y repeticiones
+  fetch(`obtener_series_repes.php?id_ejercicio=${idEjercicio}&id_rutina=${idRutina}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Error al obtener las series y repeticiones.");
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (!data.success) {
+        console.error(data.message || "Error al obtener los datos.");
+        return;
+      }
+
+      // Obtener el elemento correspondiente
+      const ejercicioDiv = document.querySelector(`.elemento[data-id="${idEjercicio}"]`);
+
+      if (!ejercicioDiv) {
+        console.error("No se encontró el div del ejercicio con id:", idEjercicio);
+        return;
+      }
+
+      // Cambiar la clase del div
+      ejercicioDiv.className = "elemento-series-repes";
+
+      // Reemplazar el contenido del div
+      ejercicioDiv.innerHTML = `
+        <div class="contenedor-titulo">
+          <h2 class="titulo">${ejerciciosGlobal.find(e => e.id_ejercicio === idEjercicio).nombre}</h2>
+        </div>
+        <div class="contenedor-series-repes">
+          <div class="series-repes">
+            <span class="titulo-series-repes">Número de <br>series</span>
+            <input type="number" id="series-${idEjercicio}" class="input-numero" value="${data.series}" placeholder="0">
+          </div>
+          <div class="series-repes">
+            <span class="titulo-series-repes">Número de <br>repeticiones</span>
+            <input type="number" id="repeticiones-${idEjercicio}" class="input-numero" value="${data.repeticiones}" placeholder="0">
+          </div>
+        </div>
+        <button class="edit-button">
+          <img class="icon-button" src="Icons/ICON-edit.svg">GUARDAR
+        </button>
+      `;
+
+      // Agregar el evento para guardar cambios
+      const guardarButton = ejercicioDiv.querySelector(".edit-button");
+      guardarButton.addEventListener("click", () => guardarCambiosEjercicio(idEjercicio));
+    })
+    .catch(error => console.error("Error en la solicitud:", error));
 }
+
+function guardarCambiosEjercicio(idEjercicio) {
+  console.log("Guardando cambios para el ejercicio:", idEjercicio);
+
+  const inputSeries = document.getElementById(`series-${idEjercicio}`);
+  const inputRepeticiones = document.getElementById(`repeticiones-${idEjercicio}`);
+
+  if (!inputSeries || !inputRepeticiones) {
+    console.error("No se encontraron los inputs de series o repeticiones");
+    return;
+  }
+
+  const series = parseInt(inputSeries.value, 10);
+  const repeticiones = parseInt(inputRepeticiones.value, 10);
+
+  if (!series || !repeticiones) {
+    console.error("Los valores de series o repeticiones no son válidos");
+    return;
+  }
+
+  fetch("actualizar_series_repes.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      id_ejercicio: idEjercicio,
+      id_rutina: localStorage.getItem("idRutina"),
+      series: series,
+      repeticiones: repeticiones,
+    }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al actualizar los datos");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Respuesta del servidor:", data);
+      if (data.success) {
+        console.log("Datos actualizados exitosamente");
+        actualizarDivEjercicio(idEjercicio);
+      } else {
+        console.error("Error al actualizar los datos en el servidor");
+      }
+    })
+    .catch((error) => console.error("Error en la solicitud:", error));
+}
+
 
 function removerEjercicio(idEjercicio) {
   console.log("Remover ejercicio:", idEjercicio);
 }
+
+
 
 function agregarEjercicio(idEjercicio) {
   console.log("Agregar ejercicio:", idEjercicio);
@@ -286,7 +397,7 @@ function guardarEjercicio(idEjercicio) {
     .catch((error) => console.error("Error en la solicitud:", error));
 }
 
-function actualizarDivEjercicio(idEjercicio, series, repeticiones) {
+function actualizarDivEjercicio(idEjercicio) {
   const ejercicio = ejerciciosGlobal.find(e => e.id_ejercicio === idEjercicio);
 
   if (!ejercicio) {
@@ -295,8 +406,6 @@ function actualizarDivEjercicio(idEjercicio, series, repeticiones) {
   }
 
   // Actualizar los datos en ejerciciosGlobal
-  ejercicio.series = series;
-  ejercicio.repeticiones = repeticiones;
   ejercicio.id_rutina = localStorage.getItem("idRutina");
 
   // Busca el elemento del ejercicio correspondiente
