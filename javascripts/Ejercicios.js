@@ -154,28 +154,33 @@ function configurarFiltros() {
 
 // Función para aplicar los filtros de grupo muscular y búsqueda
 function aplicarFiltros(grupoMuscular, searchText) {
-  let ejerciciosFiltrados = ejerciciosGlobal;
+  const elementos = document.querySelectorAll(".elemento");
 
-  // Aplica el filtro de "ejercicios agregados"
-  if (grupoMuscular === "agregados") {
-    ejerciciosFiltrados = ejerciciosFiltrados.filter(ejercicio => ejercicio.id_rutina !== null);
-  } else if (grupoMuscular !== "todos") {
-    // Aplica el filtro de grupo muscular si no es 'todos'
-    ejerciciosFiltrados = ejerciciosFiltrados.filter(ejercicio =>
-      ejercicio.grupo_muscular === grupoMuscular
-    );
-  }
+  elementos.forEach((elemento) => {
+    const idEjercicio = parseInt(elemento.dataset.id, 10);
+    const ejercicio = ejerciciosGlobal.find(e => e.id_ejercicio === idEjercicio);
 
-  // Aplica el filtro de búsqueda si hay texto en la barra de búsqueda
-  if (searchText) {
-    ejerciciosFiltrados = ejerciciosFiltrados.filter(ejercicio =>
-      normalizarTexto(ejercicio.nombre).includes(searchText)
-    );
-  }
+    if (!ejercicio) {
+      elemento.style.display = "none";
+      return;
+    }
 
-  // Muestra los ejercicios filtrados
-  mostrarEjercicios(ejerciciosFiltrados);
+    // Verificar el filtro de grupo muscular
+    const matchGrupoMuscular =
+      grupoMuscular === "todos" ||
+      (grupoMuscular === "agregados" && ejercicio.id_rutina !== null) ||
+      ejercicio.grupo_muscular === grupoMuscular;
+
+    // Verificar el filtro de búsqueda
+    const matchBusqueda =
+      !searchText ||
+      normalizarTexto(ejercicio.nombre).includes(searchText);
+
+    // Mostrar u ocultar el elemento según los filtros
+    elemento.style.display = matchGrupoMuscular && matchBusqueda ? "" : "none";
+  });
 }
+
 
 // Función para normalizar texto eliminando tildes y mayúsculas
 function normalizarTexto(texto) {
@@ -232,21 +237,17 @@ function agregarEjercicio(idEjercicio) {
 function guardarEjercicio(idEjercicio) {
   console.log("Guardando ejercicio con id:", idEjercicio);
 
-  // Selecciona los inputs basados en sus IDs únicos
   const inputSeries = document.getElementById(`series-${idEjercicio}`);
   const inputRepeticiones = document.getElementById(`repeticiones-${idEjercicio}`);
 
-  // Verifica que ambos inputs existan
   if (!inputSeries || !inputRepeticiones) {
     console.error("No se encontraron los inputs de series o repeticiones");
     return;
   }
 
-  // Obtiene los valores de los inputs
   const series = inputSeries.value;
   const repeticiones = inputRepeticiones.value;
 
-  // Verifica que los valores no estén vacíos
   if (!series || !repeticiones) {
     console.error("Los valores de series o repeticiones están vacíos");
     return;
@@ -254,7 +255,6 @@ function guardarEjercicio(idEjercicio) {
 
   console.log(`Ejercicio ${idEjercicio}: ${series} series, ${repeticiones} repeticiones`);
 
-  // Enviar los datos al servidor
   fetch("agregar_ejercicio.php", {
     method: "POST",
     headers: {
@@ -277,12 +277,71 @@ function guardarEjercicio(idEjercicio) {
       console.log("Respuesta del servidor:", data);
       if (data.success) {
         console.log("Ejercicio guardado exitosamente");
-        cargarEjercicios(localStorage.getItem("idRutina"));
+        // Actualiza solo el div del ejercicio agregado
+        actualizarDivEjercicio(idEjercicio, parseInt(series, 10), parseInt(repeticiones, 10));
       } else {
         console.error("Error al guardar el ejercicio en el servidor");
       }
     })
     .catch((error) => console.error("Error en la solicitud:", error));
+}
+
+function actualizarDivEjercicio(idEjercicio, series, repeticiones) {
+  const ejercicio = ejerciciosGlobal.find(e => e.id_ejercicio === idEjercicio);
+
+  if (!ejercicio) {
+    console.error("No se encontró el ejercicio con id:", idEjercicio);
+    return;
+  }
+
+  // Actualizar los datos en ejerciciosGlobal
+  ejercicio.series = series;
+  ejercicio.repeticiones = repeticiones;
+  ejercicio.id_rutina = localStorage.getItem("idRutina");
+
+  // Busca el elemento del ejercicio correspondiente
+  const ejercicioDiv = document.querySelector(`.elemento-series-repes[data-id="${idEjercicio}"]`);
+
+  if (!ejercicioDiv) {
+    console.error("No se encontró el div del ejercicio con id:", idEjercicio);
+    return;
+  }
+
+  // Cambia la clase del div
+  ejercicioDiv.className = "elemento";
+
+  // Reemplaza el contenido del div con la nueva estructura
+  ejercicioDiv.innerHTML = `
+    <div class="contenedor-titulo">
+        <h2 class="titulo">${ejercicio.nombre}</h2>
+    </div>
+
+    <div class="contenedor">
+        <div class="image-holder">
+            <img class="imagen-superior" src="${ejercicio.imagenes.inicial}" alt="${ejercicio.nombre} - Posición inicial">
+            <img class="imagen-inferior" src="${ejercicio.imagenes.final}" alt="${ejercicio.nombre} - Posición final">
+        </div>
+
+        <div class="caracterisicas-ejercicio">
+            <h3>${ejercicio.nivel}</h3>
+            <h4>${ejercicio.grupo_muscular}</h4>
+            <div class="contenedor-parrafo">
+                <p class="parrafo">${ejercicio.descripcion}</p>
+            </div>
+        </div>
+    </div>
+    <div class="boton-mixto">
+        <button class="add-button-half"><img src="Icons/ICON-add.svg">EDITAR</button>
+        <button class="remove-button"><img src="Icons/ICON-remover.svg">REMOVER</button>
+    </div>
+  `;
+
+  // Agregar eventos a los botones
+  const editButton = ejercicioDiv.querySelector(".add-button-half");
+  const removeButton = ejercicioDiv.querySelector(".remove-button");
+
+  editButton.addEventListener("click", () => editarEjercicio(idEjercicio));
+  removeButton.addEventListener("click", () => removerEjercicio(idEjercicio));
 }
 
 
