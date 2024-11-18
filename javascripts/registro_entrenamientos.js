@@ -122,26 +122,29 @@ document.addEventListener("DOMContentLoaded", function () {
     
                     exerciseSection.appendChild(componenteDiv);
                 });
+
+                // Agregar la sección de fecha y botón guardar
+                agregarSeccionGuardar();
             })
             .catch((error) => console.error("Error al cargar los ejercicios:", error));
     }
-    
-    
-    
-    
 
-    function generarFilasTabla(series, ultimoRegistro) {
-        let filas = "";
-        for (let i = 1; i <= series; i++) {
-            filas += `
-                <tr>
-                    <td><span>${i}</span></td>
-                    <td><input class="repes" type="text" placeholder="0"></td>
-                    <td><span class="ultimo-registro">${ultimoRegistro || "N/A"}</span></td>
-                </tr>
-            `;
-        }
-        return filas;
+    function agregarSeccionGuardar() {
+        const submitSection = document.createElement("div");
+        submitSection.classList.add("submit");
+
+        const fechaActual = new Date().toISOString().split("T")[0]; // Obtiene la fecha actual en formato YYYY-MM-DD
+
+        submitSection.innerHTML = `
+            <div class="section-fecha">
+                <label for="fecha">Fecha:</label>
+                <input class="input-fecha" type="date" id="fecha" name="fecha" value="${fechaActual}">
+            </div>
+            <button class="save-button">GUARDAR</button>
+        `;
+
+        const exerciseSection = document.querySelector(".exercise-section");
+        exerciseSection.appendChild(submitSection);
     }
 
     function crearRutina() {
