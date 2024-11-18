@@ -1,104 +1,150 @@
 document.addEventListener("DOMContentLoaded", function () {
     const tabsContainer = document.querySelector(".tabs");
-  
-    // Función para cargar las rutinas del usuario
-    function cargarRutinas() {
-      fetch("obtener_rutinas.php")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Error al cargar las rutinas desde la base de datos");
-          }
-          return response.json();
-        })
-        .then((rutinas) => {
-          // Limpia el contenedor de tabs
-          tabsContainer.innerHTML = "";
-  
-          if (rutinas.error) {
-            console.error(rutinas.error);
-            return;
-          }
-  
-          // Construir los botones dinámicamente
-          rutinas.forEach((rutina) => {
-            const tabButton = document.createElement("button");
-            tabButton.classList.add("tab");
-            tabButton.textContent = rutina.nombre;
-  
-            // Muestra las imágenes de los ejercicios al pasar el mouse (opcional)
-            tabButton.addEventListener("mouseenter", () => {
-              mostrarEjerciciosPreview(rutina.ejercicios);
-            });
-  
-            tabButton.addEventListener("click", () => seleccionarRutina(tabButton, rutina.id_rutina));
-            tabsContainer.appendChild(tabButton);
-          });
-  
-          // Agregar botones "Crear Rutina" si hay menos de 7 rutinas
-          const botonesFaltantes = 7 - rutinas.length;
-          for (let i = 0; i < botonesFaltantes; i++) {
-            const tabButton = document.createElement("button");
-            tabButton.classList.add("tab");
-            tabButton.textContent = "Crear Rutina";
-            tabButton.addEventListener("click", () => seleccionarRutina(tabButton));
-            tabsContainer.appendChild(tabButton);
-          }
-  
-          // Marcar el primer botón como activo
-          const firstTab = tabsContainer.querySelector(".tab");
-          if (firstTab) {
-            firstTab.classList.add("active");
-          }
-        })
-        .catch((error) => console.error("Error al cargar las rutinas:", error));
-    }
-  
-    // Función para manejar la selección de rutina
-    function seleccionarRutina(tabButton, idRutina = null) {
-      console.log("Rutina seleccionada:", idRutina || "Nueva Rutina");
-  
-      // Desactivar la pestaña activa actualmente
-      const activeTab = tabsContainer.querySelector(".tab.active");
-      if (activeTab) {
-        activeTab.classList.remove("active");
-      }
-  
-      // Marcar la nueva pestaña como activa
-      tabButton.classList.add("active");
-  
-      if (idRutina) {
-        // Lógica para cargar datos de la rutina si ya existe
-        console.log("Cargando datos de la rutina con ID:", idRutina);
-      } else {
-        // Redirigir al gestor de rutinas si es una nueva rutina
-        crearRutina();
-      }
-    }
-  
-    // Función para redirigir al gestor de rutinas
-    function crearRutina() {
-      console.log("Redirigiendo al gestor de rutinas...");
-      window.location.href = "gestor-rutinas.html";
-    }
-  
-    // Función opcional para mostrar un preview de los ejercicios
-    function mostrarEjerciciosPreview(ejercicios) {
-      if (!ejercicios || ejercicios.length === 0) return;
-  
-      const previewContainer = document.querySelector(".preview-container");
-      if (!previewContainer) return;
-  
-      previewContainer.innerHTML = ""; // Limpia el contenedor de previsualización
-  
-      ejercicios.forEach((ejercicio) => {
-        const img = document.createElement("img");
-        img.src = ejercicio.imagen_inicial;
-        img.alt = "Ejercicio";
-        previewContainer.appendChild(img);
-      });
-    }
-  
-    // Inicializar la carga de rutinas
+    const exerciseSection = document.querySelector(".exercise-section");
+
+    // Carga las rutinas del usuario y crea las pestañas
     cargarRutinas();
-  });
-  
+
+    function cargarRutinas() {
+        fetch("obtener_rutinas.php")
+            .then((response) => response.json())
+            .then((rutinas) => {
+                tabsContainer.innerHTML = "";
+
+                if (rutinas.error) {
+                    console.error(rutinas.error);
+                    return;
+                }
+
+                rutinas.forEach((rutina) => {
+                    const tabButton = document.createElement("button");
+                    tabButton.classList.add("tab");
+                    tabButton.textContent = rutina.nombre;
+                    tabButton.addEventListener("click", () => seleccionarRutina(tabButton, rutina.id_rutina));
+                    tabsContainer.appendChild(tabButton);
+                });
+
+                const botonesFaltantes = 7 - rutinas.length;
+                for (let i = 0; i < botonesFaltantes; i++) {
+                    const tabButton = document.createElement("button");
+                    tabButton.classList.add("tab");
+                    tabButton.textContent = "Crear Rutina";
+                    tabButton.addEventListener("click", () => crearRutina());
+                    tabsContainer.appendChild(tabButton);
+                }
+
+                const firstTab = tabsContainer.querySelector(".tab");
+                if (firstTab) {
+                    firstTab.click();
+                }
+            })
+            .catch((error) => console.error("Error al cargar las rutinas:", error));
+    }
+
+    function seleccionarRutina(tabButton, idRutina) {
+        const activeTab = tabsContainer.querySelector(".tab.active");
+        if (activeTab) activeTab.classList.remove("active");
+
+        tabButton.classList.add("active");
+        cargarEjerciciosRutina(idRutina);
+    }
+
+    function cargarEjerciciosRutina(idRutina) {
+        fetch(`obtener_ejercicios_rutina.php?id_rutina=${idRutina}`)
+            .then((response) => response.json())
+            .then((ejercicios) => {
+                if (ejercicios.error) {
+                    console.error(ejercicios.error);
+                    return;
+                }
+    
+                const exerciseSection = document.querySelector(".exercise-section");
+                exerciseSection.innerHTML = ""; // Limpia la sección de ejercicios
+    
+                ejercicios.forEach((ejercicio) => {
+                    const detalles = Array.isArray(ejercicio.detalles) ? ejercicio.detalles : [];
+                    const pesoPrevio = ejercicio.ultimo_peso || "N/A";
+    
+                    const componenteDiv = document.createElement("div");
+                    componenteDiv.classList.add("componente");
+    
+                    // Generar las filas de la tabla con los datos de las series
+                    const filasTabla = detalles.map((detalle) => `
+                        <tr>
+                            <td><span>${detalle.serie}</span></td>
+                            <td><input class="repes" type="text" placeholder="0"></td>
+                            <td><span class="ultimo-registro">${detalle.ultimo_registro || "N/A"}</span></td>
+                        </tr>
+                    `).join("");
+    
+                    // Construir la estructura HTML
+                    componenteDiv.innerHTML = `
+                        <div class="exercise-content">
+                            <div class="columna-peso">
+                                <div class="title-image">
+                                    <div class="exercise-title">
+                                        <h2>${ejercicio.nombre}</h2>
+                                    </div>
+                                    <div class="image-holder">
+                                        <img class="imagen-superior" src="${ejercicio.imagen_inicial}" alt="${ejercicio.nombre} 1">
+                                        <img class="imagen-inferior" src="${ejercicio.imagen_final}" alt="${ejercicio.nombre} 2">
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <span class="sets-reps">${ejercicio.total_series}x${ejercicio.repeticiones_por_serie}</span>
+                                    <div>
+                                        <p class="table-title">Peso</p>
+                                        <input type="text" placeholder="kg">
+                                    </div>
+                                    <div class="ultimo-peso">
+                                        <span class="peso-previo">${pesoPrevio} kg</span>
+                                        <p class="peso-previo">Último<br>registro</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="exercise-stats">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th><p class="table-title">Serie</p></th>
+                                            <th><p class="table-title">Repeticiones</p></th>
+                                            <th><p class="ultimo-registro">Último<br> Registro</p></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${filasTabla}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr />
+                    `;
+    
+                    exerciseSection.appendChild(componenteDiv);
+                });
+            })
+            .catch((error) => console.error("Error al cargar los ejercicios:", error));
+    }
+    
+    
+    
+    
+
+    function generarFilasTabla(series, ultimoRegistro) {
+        let filas = "";
+        for (let i = 1; i <= series; i++) {
+            filas += `
+                <tr>
+                    <td><span>${i}</span></td>
+                    <td><input class="repes" type="text" placeholder="0"></td>
+                    <td><span class="ultimo-registro">${ultimoRegistro || "N/A"}</span></td>
+                </tr>
+            `;
+        }
+        return filas;
+    }
+
+    function crearRutina() {
+        window.location.href = "gestor-rutinas.html";
+    }
+});
