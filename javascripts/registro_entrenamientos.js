@@ -196,10 +196,12 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((data) => {
                 if (data.success) {
                     alert("Entrenamiento guardado con éxito");
+                    limpiarInputs();
+                    cargarEjerciciosRutina(idRutina); // Actualizar los divs después de guardar
                 } else if (data.error === "Ya existe un entrenamiento para esta fecha.") {
                     // Si ya existe un entrenamiento, pedir confirmación al usuario
                     if (confirm(`${data.error} ¿Deseas sobrescribir los datos?`)) {
-                        sobrescribirEntrenamiento(data.entrenamiento_id, detalles);
+                        sobrescribirEntrenamiento(data.entrenamiento_id, detalles, idRutina);
                     }
                 } else {
                     console.error(data.error || "Error al guardar el entrenamiento");
@@ -212,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
     
-    function sobrescribirEntrenamiento(entrenamientoId, detalles) {
+    function sobrescribirEntrenamiento(entrenamientoId, detalles, idRutina) {
         fetch("actualizar_entrenamiento.php", {
             method: "POST",
             headers: {
@@ -227,6 +229,8 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((data) => {
                 if (data.success) {
                     alert("Entrenamiento actualizado con éxito");
+                    limpiarInputs();
+                    cargarEjerciciosRutina(idRutina); // Actualizar los divs después de actualizar
                 } else {
                     console.error(data.error || "Error al actualizar el entrenamiento");
                     alert("Error al actualizar el entrenamiento");
@@ -237,6 +241,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("Error en la solicitud al servidor");
             });
     }
+    
+    function limpiarInputs() {
+        const pesoInputs = document.querySelectorAll(".columna-peso input[type='text']");
+        const repeticionesInputs = document.querySelectorAll(".exercise-stats tbody input.repes");
+    
+        pesoInputs.forEach((input) => (input.value = ""));
+        repeticionesInputs.forEach((input) => (input.value = ""));
+    }
+    
     
 
     function crearRutina() {
