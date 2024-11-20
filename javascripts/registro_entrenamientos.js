@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div class="columna-peso">
                                 <div class="title-image">
                                     <div class="exercise-title">
-                                        <h2>${ejercicio.nombre}</h2>
+                                        <h2 data-id="${ejercicio.id_ejercicio}">${ejercicio.nombre}</h2>
                                     </div>
                                     <div class="image-holder">
                                         <img class="imagen-superior" src="${ejercicio.imagen_inicial}" alt="${ejercicio.nombre} 1">
@@ -122,14 +122,15 @@ document.addEventListener("DOMContentLoaded", function () {
     
                     exerciseSection.appendChild(componenteDiv);
                 });
-
-                // Agregar la sección de fecha y botón guardar
-                agregarSeccionGuardar();
+    
+                // Asegúrate de pasar el `idRutina` aquí
+                agregarSeccionGuardar(idRutina);
             })
             .catch((error) => console.error("Error al cargar los ejercicios:", error));
     }
+    
 
-    function agregarSeccionGuardar() {
+    function agregarSeccionGuardar(idRutina) {
         const submitSection = document.createElement("div");
         submitSection.classList.add("submit");
 
@@ -145,7 +146,98 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const exerciseSection = document.querySelector(".exercise-section");
         exerciseSection.appendChild(submitSection);
+
+        // Agregar evento al botón "GUARDAR"
+        const saveButton = submitSection.querySelector(".save-button");
+        saveButton.addEventListener("click", () => guardarEntrenamiento(idRutina));
     }
+
+    function guardarEntrenamiento(idRutina) {
+        const fechaInput = document.querySelector("#fecha");
+        const fecha = fechaInput.value;
+    
+        // Recuperar todos los datos de los inputs
+        const componentes = document.querySelectorAll(".componente");
+        const detalles = [];
+    
+        componentes.forEach((componente) => {
+            const idEjercicio = componente.querySelector(".exercise-title h2").getAttribute("data-id");
+            const pesoInput = componente.querySelector(".columna-peso input[type='text']");
+            const filas = componente.querySelectorAll(".exercise-stats tbody tr");
+    
+            filas.forEach((fila, index) => {
+                const serie = index + 1;
+                const repeticionesInput = fila.querySelector("input.repes");
+                const peso = parseFloat(pesoInput.value) || 0;
+                const repeticiones = parseInt(repeticionesInput.value) || 0;
+    
+                detalles.push({
+                    id_ejercicio: parseInt(idEjercicio, 10), // Asegúrate de convertir el ID a número
+                    peso: peso,
+                    serie: serie,
+                    repeticiones: repeticiones
+                });
+            });
+        });
+    
+        // Enviar datos al servidor
+        fetch("guardar_entrenamiento.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id_rutina: idRutina,
+                fecha: fecha,
+                detalles: detalles
+            })
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    alert("Entrenamiento guardado con éxito");
+                } else if (data.error === "Ya existe un entrenamiento para esta fecha.") {
+                    // Si ya existe un entrenamiento, pedir confirmación al usuario
+                    if (confirm(`${data.error} ¿Deseas sobrescribir los datos?`)) {
+                        sobrescribirEntrenamiento(data.entrenamiento_id, detalles);
+                    }
+                } else {
+                    console.error(data.error || "Error al guardar el entrenamiento");
+                    alert("Error al guardar el entrenamiento");
+                }
+            })
+            .catch((error) => {
+                console.error("Error en la solicitud:", error);
+                alert("Error en la solicitud al servidor");
+            });
+    }
+    
+    function sobrescribirEntrenamiento(entrenamientoId, detalles) {
+        fetch("actualizar_entrenamiento.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id_entrenamiento: entrenamientoId,
+                detalles: detalles
+            })
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    alert("Entrenamiento actualizado con éxito");
+                } else {
+                    console.error(data.error || "Error al actualizar el entrenamiento");
+                    alert("Error al actualizar el entrenamiento");
+                }
+            })
+            .catch((error) => {
+                console.error("Error en la solicitud:", error);
+                alert("Error en la solicitud al servidor");
+            });
+    }
+    
 
     function crearRutina() {
         window.location.href = "gestor-rutinas.html";
