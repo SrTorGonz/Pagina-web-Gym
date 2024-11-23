@@ -14,20 +14,29 @@ function cargarRutinas() {
             const routinesGrid = document.getElementById("routinesGrid");
             const createRoutineDiv = document.getElementById("createRoutine");
 
-            // Si el usuario tiene 7 rutinas, elimina la opción de crear nueva rutina
+            // Guarda temporalmente el div "Crear Rutina"
+            const createRoutineHtml = createRoutineDiv.outerHTML;
+
+            // Limpia el contenedor de rutinas antes de agregar nuevos divs
+            routinesGrid.innerHTML = "";
+
+            // Vuelve a insertar el div "Crear Rutina"
+            routinesGrid.insertAdjacentHTML("beforeend", createRoutineHtml);
+
+            // Mostrar u ocultar la opción de crear rutina según la cantidad de rutinas
             if (data.length >= 7) {
                 createRoutineDiv.style.display = "none";
             } else {
-                createRoutineDiv.style.display = "block"; // Asegúrate de mostrarla si hay menos de 7 rutinas
+                createRoutineDiv.style.display = "block";
             }
 
-            // Genera un div para cada rutina
+            // Generar un div para cada rutina
             data.forEach(rutina => {
                 const routineItem = document.createElement("div");
                 routineItem.classList.add("routine-item");
 
                 // Agrega las imágenes de los ejercicios
-                rutina.ejercicios.slice(0, 4).forEach(ejercicio => { // Limita a 4 imágenes
+                rutina.ejercicios.slice(0, 4).forEach(ejercicio => {
                     const routineImg = document.createElement("div");
                     routineImg.classList.add("routine-img");
 
@@ -87,6 +96,7 @@ function cargarRutinas() {
         .catch(error => console.error("Error en la solicitud:", error));
 }
 
+
 function crearRutina() {
     // Llama al PHP para crear la rutina y obtener su ID
     fetch("crear_rutina.php", {
@@ -121,3 +131,30 @@ function redirigirARutina(idRutina) {
     localStorage.setItem("idRutina", idRutina);
     window.location.href = "Creacion-rutina.html";
 }
+
+function eliminarRutina(idRutina) {
+    if (confirm("¿Estás seguro que quieres eliminar la rutina? No podrás recuperarla.")) {
+        fetch("eliminar_rutina.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ id_rutina: idRutina })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Rutina eliminada con éxito.");
+                    cargarRutinas(); // Recargar las rutinas después de eliminar
+                } else {
+                    console.error(data.error || "Error al eliminar la rutina.");
+                    alert("Error al eliminar la rutina.");
+                }
+            })
+            .catch(error => {
+                console.error("Error en la solicitud:", error);
+                alert("Error en la solicitud al servidor.");
+            });
+    }
+}
+
