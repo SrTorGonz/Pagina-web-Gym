@@ -117,9 +117,8 @@ p {
     position:absolute;
     bottom:0;
     left: 0;
-    width: 100%;
     flex-direction: column;
-
+    width: 75%;
 }
 .routine-info a{
     width: 220px;
@@ -127,38 +126,71 @@ p {
     z-index: 3;
 }
 .routine-info h3 {
-
-    width: 145px;
-    height: 41px;
-    display: flex;
-    align-content: center;
-    justify-content: center;
+    display: inline-block; /* Permite que el ancho se ajuste al contenido */
+    align-items: center; /* Centra verticalmente el contenido si necesario (en flexbox) */
     box-sizing: border-box;
     font-size: 30px;
-    text-align: center;
     margin-bottom: 10px;
     background-color: #0947CE;
     border-radius: 20px;
+    padding: 5px 10px; /* Espaciado interno para separación del texto */
     z-index: 3;
+    max-width: 100%; /* Asegura que el ancho dependa del contenido */
+    line-height:30px;
+    padding: 10px;
+    height: auto; /* Asegura que la altura dependa del contenido */ /* Evita que el texto se divida en varias líneas */
+}
+.routine-first h3{
+    width : 50%;
 }
 
-.routine-info button {
-    font-family: "Baloo 2", sans-serif;
+.edit-info{
+    display: flex;
+    z-index: 3;
+    width: 100%;
+    gap : 10px;
+}
+
+.routine-first button{
     background-color: #00A5E3;
-    border: none;
     width: 220px;
     height: 49px;
+}
+.routine-info button {
+    font-family: "Baloo 2", sans-serif; 
+    border: none;
     color: white;
     border-radius: 20px;
     /*cursor: pointer;*/
     font-size: 30px;
     font-weight: bold;
-    transition: background-color 0.3s;
     z-index: 3;
 }
-.routine-info button:hover {
+.editButton{
+    background-color: #00A5E3;
+    width: 220px;
+    height: 49px;
+}
+.removeButton{
+    width: 50px;
+    background-color: #FF0000;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+.removeButton:hover{
+    background-color: #b80000;
+}
+
+.editButton:hover {
     background-color: #007AB8;
 }
+.routine-first button:hover {
+    background-color: #007AB8;
+}
+
 
 @media(max-width:460px){
     h1{
