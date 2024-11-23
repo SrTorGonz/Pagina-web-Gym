@@ -17,6 +17,8 @@ function cargarRutinas() {
             // Si el usuario tiene 7 rutinas, elimina la opción de crear nueva rutina
             if (data.length >= 7) {
                 createRoutineDiv.style.display = "none";
+            } else {
+                createRoutineDiv.style.display = "block"; // Asegúrate de mostrarla si hay menos de 7 rutinas
             }
 
             // Genera un div para cada rutina
@@ -25,18 +27,18 @@ function cargarRutinas() {
                 routineItem.classList.add("routine-item");
 
                 // Agrega las imágenes de los ejercicios
-                rutina.ejercicios.forEach(ejercicio => {
+                rutina.ejercicios.slice(0, 4).forEach(ejercicio => { // Limita a 4 imágenes
                     const routineImg = document.createElement("div");
                     routineImg.classList.add("routine-img");
 
                     const imgFront = document.createElement("img");
                     imgFront.src = ejercicio.imagen_inicial;
-                    imgFront.alt = "Ejercicio";
+                    imgFront.alt = ejercicio.nombre;
                     imgFront.classList.add("image-front");
 
                     const imgBack = document.createElement("img");
                     imgBack.src = ejercicio.imagen_final;
-                    imgBack.alt = "Ejercicio";
+                    imgBack.alt = ejercicio.nombre;
                     imgBack.classList.add("image-back");
 
                     routineImg.appendChild(imgFront);
@@ -44,7 +46,7 @@ function cargarRutinas() {
                     routineItem.appendChild(routineImg);
                 });
 
-                // Agrega el nombre de la rutina y el botón para editar
+                // Agrega la información de la rutina
                 const routineInfo = document.createElement("div");
                 routineInfo.classList.add("routine-info");
 
@@ -52,11 +54,30 @@ function cargarRutinas() {
                 routineName.textContent = rutina.nombre;
                 routineInfo.appendChild(routineName);
 
-                const editButton = document.createElement("button");
-                editButton.textContent = "Editar Rutina";
-                editButton.addEventListener("click", () => redirigirARutina(rutina.id_rutina)); // Redirige con idRutina
+                // Contenedor de botones
+                const editInfoDiv = document.createElement("div");
+                editInfoDiv.classList.add("edit-info");
 
-                routineInfo.appendChild(editButton);
+                // Botón para editar la rutina
+                const editButton = document.createElement("button");
+                editButton.classList.add("editButton");
+                editButton.textContent = "Editar Rutina";
+                editButton.addEventListener("click", () => redirigirARutina(rutina.id_rutina));
+
+                // Botón para eliminar la rutina
+                const removeButton = document.createElement("button");
+                removeButton.classList.add("removeButton");
+
+                const removeIcon = document.createElement("img");
+                removeIcon.src = "Icons/ICON-delete.svg";
+                removeButton.appendChild(removeIcon);
+
+                removeButton.addEventListener("click", () => eliminarRutina(rutina.id_rutina));
+
+                editInfoDiv.appendChild(editButton);
+                editInfoDiv.appendChild(removeButton);
+
+                routineInfo.appendChild(editInfoDiv);
                 routineItem.appendChild(routineInfo);
 
                 // Agrega la rutina al contenedor principal
