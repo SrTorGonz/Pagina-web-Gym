@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         lista.forEach(ejercicio => {
             const button = document.createElement("button");
             button.textContent = ejercicio.nombre; // Nombre del ejercicio
+            button.setAttribute("data-id-ejercicio", ejercicio.id_ejercicio);
             button.classList.add("exercise-button");
 
             // Agregar un evento click para seleccionar/deseleccionar
