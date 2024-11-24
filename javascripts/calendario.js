@@ -196,5 +196,4 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentWeek = getWeek(today);
     marcarSemana(currentWeek);
     cargarEntrenamientosSemana(currentWeek);
-    resaltarBoton(today); // Resaltar el botón del día actual
 });
