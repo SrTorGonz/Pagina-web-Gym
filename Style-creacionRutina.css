@@ -416,4 +416,32 @@ h4{
     }
 }
 
+.routine-name-input {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: #D9D9D9; /* Texto gris claro */
+    background-color: #0AA3E7; /* Fondo similar al tema */
+    border: none;
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    width: 300px; /* Ajusta el ancho según lo necesites */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombras suaves */
+    outline: none; /* Quita el borde azul al hacer foco */
+    transition: all 0.3s ease; /* Transiciones suaves */
+}
 
+/* Estilo para cuando el usuario hace foco */
+.routine-name-input:focus {
+    background-color: #28DEC5; /* Cambia de color al hacer foco */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); /* Incrementa la sombra */
+    color: #ffffff; /* Cambia el color del texto */
+}
+
+/* Estilo para que se vea bien en dispositivos móviles */
+@media (max-width: 768px) {
+    .routine-name-input {
+        font-size: 24px;
+        width: 90%; /* Ajusta el ancho dinámicamente */
+    }
+}

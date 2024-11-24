@@ -172,3 +172,14 @@ footer{
     }
     
 }
+
+.alert-container {
+    margin-top: 5px; /* Espacio entre el botón y el mensaje */
+    text-align: center;
+    color: #f66060; /* Color rojo para los mensajes */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
