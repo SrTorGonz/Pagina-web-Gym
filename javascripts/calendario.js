@@ -1,49 +1,45 @@
 document.addEventListener("DOMContentLoaded", function () {
     const calendarContainer = document.getElementById("calendar");
     const summaryContainer = document.querySelector(".training-summary");
+    const tableContainer = document.querySelector(".container-table");
+
+    let selectedButton = null;
 
     if (typeof FullCalendar === "undefined") {
         console.error("FullCalendar no está definido. Revisa si el script está cargado correctamente.");
         return;
     }
 
-    // Variable para rastrear el botón seleccionado
-    let selectedButton = null;
-
-    // Inicializar el calendario
     const calendar = new FullCalendar.Calendar(calendarContainer, {
         initialView: "dayGridMonth",
         selectable: true,
         dateClick: function (info) {
             const selectedDate = new Date(info.dateStr);
-            const week = getWeek(selectedDate); // Obtener las fechas de la semana
-            marcarSemana(week, selectedDate); // Pasar la fecha seleccionada
-            cargarEntrenamientosSemana(week, selectedDate); // Consultar y cargar los entrenamientos
+            const week = getWeek(selectedDate);
+            marcarSemana(week, selectedDate);
+            cargarEntrenamientosSemana(week, selectedDate);
         }
     });
 
     calendar.render();
 
-    // Función para calcular las fechas de la semana (lunes a domingo)
     function getWeek(date) {
-        const dayOfWeek = date.getDay(); // 0 (domingo) a 6 (sábado)
+        const dayOfWeek = date.getDay();
         const startOfWeek = new Date(date);
-        const diff = dayOfWeek === 0 ? -6 : 1 - dayOfWeek; // Ajusta para que el lunes sea el primer día de la semana
+        const diff = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
 
         startOfWeek.setDate(startOfWeek.getDate() + diff);
-        startOfWeek.setHours(0, 0, 0, 0); // Ajusta a medianoche local
+        startOfWeek.setHours(0, 0, 0, 0);
 
         const week = [];
         for (let i = 0; i < 7; i++) {
             const current = new Date(startOfWeek);
             current.setDate(startOfWeek.getDate() + i);
-            current.setHours(0, 0, 0, 0); // Asegura que cada día esté en medianoche local
             week.push(current);
         }
         return week;
     }
 
-    // Función para marcar la semana seleccionada en el calendario
     function marcarSemana(week, selectedDate) {
         calendar.getEvents().forEach(event => event.remove());
         week.forEach(day => {
@@ -55,21 +51,22 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        // Marcar automáticamente el botón correspondiente al día seleccionado
         const buttons = summaryContainer.querySelectorAll("button");
         buttons.forEach(button => {
-            const buttonDate = button.dataset.date; // Supongamos que cada botón tiene un data-date
+            const buttonDate = button.dataset.date;
             if (buttonDate === selectedDate.toISOString().split("T")[0]) {
                 if (selectedButton) {
                     selectedButton.classList.remove("selected");
                 }
                 button.classList.add("selected");
                 selectedButton = button;
+
+                // Cargar la tabla para el día seleccionado
+                cargarTablaEntrenamientos(buttonDate);
             }
         });
     }
 
-    // Función para cargar los entrenamientos de la semana
     function cargarEntrenamientosSemana(week, selectedDate) {
         const fechas = week.map(date => date.toISOString().split("T")[0]);
 
@@ -87,10 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 return response.json();
             })
             .then(data => {
-                if (data.error) {
-                    console.error("Error en el servidor:", data.error);
-                    return;
-                }
                 generarResumenEntrenamientos(week, data, selectedDate);
             })
             .catch(error => {
@@ -99,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    // Generar los botones del resumen dinámicamente
     function generarResumenEntrenamientos(week, data, selectedDate) {
         summaryContainer.innerHTML = "";
 
@@ -109,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const entrenamiento = data.find(item => item.fecha === date.toISOString().split("T")[0]);
 
             const button = document.createElement("button");
-            button.dataset.date = date.toISOString().split("T")[0]; // Asociar la fecha con el botón
+            button.dataset.date = date.toISOString().split("T")[0];
             button.innerHTML = `
                 <div class="boton-info">
                     <div class="container-fecha">
@@ -120,32 +112,89 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             `;
 
-            // Evento para seleccionar y deseleccionar botones
             button.addEventListener("click", function () {
                 if (selectedButton) {
                     selectedButton.classList.remove("selected");
                 }
-
                 button.classList.add("selected");
                 selectedButton = button;
+
+                cargarTablaEntrenamientos(button.dataset.date);
             });
 
-            // Resaltar el botón correspondiente al día seleccionado
             if (selectedDate && button.dataset.date === selectedDate.toISOString().split("T")[0]) {
                 button.classList.add("selected");
                 selectedButton = button;
+
+                cargarTablaEntrenamientos(button.dataset.date);
             }
 
             summaryContainer.appendChild(button);
         });
     }
-     // Marcar la semana de la fecha actual al cargar la página
+
+    function cargarTablaEntrenamientos(fecha) {
+        fetch("obtener_entrenamiento_dia.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ fecha })
+        })
+            .then(response => response.json())
+            .then(data => {
+                generarTablaEntrenamientos(data.entrenamientos, data.maxSeries);
+            })
+            .catch(error => {
+                console.error("Error al cargar la tabla:", error);
+                tableContainer.innerHTML = "<p>Error al cargar la tabla de entrenamientos.</p>";
+            });
+    }
+    
+    function generarTablaEntrenamientos(entrenamientos, maxSeries) {
+        // Crear encabezado dinámico
+        const headers = `
+            <tr>
+                <th><span>Ejercicio</span></th>
+                <th><span>Peso</span></th>
+                ${Array.from({ length: maxSeries }, (_, i) => `<th><span>Serie ${i + 1}</span></th>`).join("")}
+            </tr>
+        `;
+    
+        // Crear filas dinámicas
+        const rows = entrenamientos.map(ejercicio => {
+            const series = Array.from({ length: maxSeries }, (_, i) => {
+                const serieNum = i + 1;
+                return `<td><span>${ejercicio.series[serieNum] || ""}</span></td>`;
+            }).join("");
+    
+            return `
+                <tr>
+                    <td><span>${ejercicio.nombre}</span></td>
+                    <td><span>${ejercicio.peso}</span></td>
+                    ${series}
+                </tr>
+            `;
+        }).join("");
+    
+        // Construir la tabla
+        tableContainer.innerHTML = `
+            <table class="exercise-table">
+                <thead>
+                    ${headers}
+                </thead>
+                <tbody>
+                    ${rows}
+                </tbody>
+            </table>
+        `;
+    }
+    
+
+    // Marcar la semana de la fecha actual al cargar la página
     const today = new Date();
     const currentWeek = getWeek(today);
     marcarSemana(currentWeek);
     cargarEntrenamientosSemana(currentWeek);
     resaltarBoton(today); // Resaltar el botón del día actual
 });
-
-
-
