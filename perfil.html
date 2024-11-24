@@ -21,6 +21,14 @@
     <script src="javascripts/busqueda-ejercicios-perfil.js"></script>
     <script src="javascripts/grafico.js"></script>
 
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+
+    <!-- FullCalendar JS -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+
+    
+
     
 </head>
 
@@ -82,76 +90,8 @@
         <section class="trainings">
             <h2>MIS ENTRENAMIENTOS</h2>
             <div class="calendar-section">
-                <div class="calendar">
-                    <div class="titulo-calendario">
-                        <h3> Enero de 2024 </h3>
-                        <div class="iconos">
-                            <img src="Icons/ICON-arrowback.svg" alt="img">
-                            <img src="Icons/ICON-arrowforward.svg" alt="img">
-                        </div>
-                    </div>
-                    
-                    <div class="table-holder">
-                        <table class="exercise-calendar">
-                            <thead>
-                                <tr>
-                                    <th><span>DO</span></th>
-                                    <th><span>LU</span></th>
-                                    <th><span>MA</span></th>
-                                    <th><span>MI</span></th>
-                                    <th><span>JU</span></th>
-                                    <th><span>VI</span></th>
-                                    <th><span>SA</span></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><span></span></td>
-                                    <td><span>1</span></td>
-                                    <td><span>2</span></td>
-                                    <td><span>3</span></td>
-                                    <td><span>4</span></td>
-                                    <td><span>5</span></td>
-                                    <td><span>6</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span>7</span></td>
-                                    <td><span>8</span></td>
-                                    <td><span>9</span></td>
-                                    <td><span>10</span></td>
-                                    <td><span>11</span></td>
-                                    <td><span>12</span></td>
-                                    <td><span>13</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span>14</span></td>
-                                    <td><span>15</span></td>
-                                    <td><span>16</span></td>
-                                    <td><span>17</span></td>
-                                    <td><span>18</span></td>
-                                    <td><span>19</span></td>
-                                    <td><span>20</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span>21</span></td>
-                                    <td><span>22</span></td>
-                                    <td><span>23</span></td>
-                                    <td><span>24</span></td>
-                                    <td><span>25</span></td>
-                                    <td><span>26</span></td>
-                                    <td><span>27</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span>28</span></td>
-                                    <td><span>29</span></td>
-                                    <td><span>30</span></td>
-                                    <td><span>31</span></td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <div id="calendar"></div>
+                <script src="javascripts/calendario.js"></script>
                 <div class="training-summary">
 
                     <button>
