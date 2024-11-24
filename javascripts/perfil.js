@@ -66,5 +66,26 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Hubo un error al actualizar el perfil.");
         });
     });
+    const cerrarButton = document.getElementById("cerrar");
+
+    // Evento para manejar el clic en el botón "cerrar"
+    cerrarButton.addEventListener("click", function () {
+        fetch("cerrar_sesion.php")
+            .then(response => response.json()) // Procesar la respuesta como JSON
+            .then(data => {
+                if (data.success && data.redirect) {
+                    // Redirigir al usuario a la página especificada
+                    window.location.href = data.redirect;
+                } else {
+                    alert("Hubo un problema al cerrar sesión.");
+                }
+            })
+            .catch(error => {
+                console.error("Error al cerrar sesión:", error);
+                alert("Hubo un error al cerrar sesión.");
+            });
+    });
 });
+
+
 

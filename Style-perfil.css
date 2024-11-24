@@ -402,6 +402,12 @@ form {
     outline: none;
 }
 
+.botones {
+
+    display: flex;
+    gap: 20px;
+}
+
 
 label {
     font-size: 14px;
@@ -422,6 +428,14 @@ button {
     border-radius: 30px;
     cursor: pointer;
     font-size: 18px;
+}
+
+#cerrar {
+    background-color: #d21010;
+    
+}
+#cerrar:hover {
+    background-color: #920404;
 }
 
 button:hover {
