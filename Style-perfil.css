@@ -270,6 +270,11 @@ body {
     border-radius: 20px;
     cursor: pointer;
 }
+.training-summary button.selected {
+    background-color: #3057BD; /* Color de fondo para botón seleccionado */
+
+    transform: scale(1.05); /* Efecto de agrandamiento leve */
+}
 
 .boton-info {
     display: flex;

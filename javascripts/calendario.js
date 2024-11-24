@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    // Variable para rastrear el botón seleccionado
+    let selectedButton = null;
+
     // Inicializar el calendario
     const calendar = new FullCalendar.Calendar(calendarContainer, {
         initialView: "dayGridMonth",
@@ -14,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
         dateClick: function (info) {
             const selectedDate = new Date(info.dateStr);
             const week = getWeek(selectedDate); // Obtener las fechas de la semana
-            marcarSemana(week);
-            cargarEntrenamientosSemana(week); // Consultar y cargar los entrenamientos
+            marcarSemana(week, selectedDate); // Pasar la fecha seleccionada
+            cargarEntrenamientosSemana(week, selectedDate); // Consultar y cargar los entrenamientos
         }
     });
 
@@ -26,10 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const dayOfWeek = date.getDay(); // 0 (domingo) a 6 (sábado)
         const startOfWeek = new Date(date);
         const diff = dayOfWeek === 0 ? -6 : 1 - dayOfWeek; // Ajusta para que el lunes sea el primer día de la semana
-    
+
         startOfWeek.setDate(startOfWeek.getDate() + diff);
         startOfWeek.setHours(0, 0, 0, 0); // Ajusta a medianoche local
-    
+
         const week = [];
         for (let i = 0; i < 7; i++) {
             const current = new Date(startOfWeek);
@@ -41,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Función para marcar la semana seleccionada en el calendario
-    function marcarSemana(week) {
+    function marcarSemana(week, selectedDate) {
         calendar.getEvents().forEach(event => event.remove());
         week.forEach(day => {
             calendar.addEvent({
@@ -51,10 +54,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 allDay: true
             });
         });
+
+        // Marcar automáticamente el botón correspondiente al día seleccionado
+        const buttons = summaryContainer.querySelectorAll("button");
+        buttons.forEach(button => {
+            const buttonDate = button.dataset.date; // Supongamos que cada botón tiene un data-date
+            if (buttonDate === selectedDate.toISOString().split("T")[0]) {
+                if (selectedButton) {
+                    selectedButton.classList.remove("selected");
+                }
+                button.classList.add("selected");
+                selectedButton = button;
+            }
+        });
     }
 
     // Función para cargar los entrenamientos de la semana
-    function cargarEntrenamientosSemana(week) {
+    function cargarEntrenamientosSemana(week, selectedDate) {
         const fechas = week.map(date => date.toISOString().split("T")[0]);
 
         fetch("obtener_entrenamientos_semana.php", {
@@ -75,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.error("Error en el servidor:", data.error);
                     return;
                 }
-                generarResumenEntrenamientos(week, data);
+                generarResumenEntrenamientos(week, data, selectedDate);
             })
             .catch(error => {
                 console.error("Error al cargar entrenamientos:", error);
@@ -84,14 +100,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Generar los botones del resumen dinámicamente
-    function generarResumenEntrenamientos(week, data) {
+    function generarResumenEntrenamientos(week, data, selectedDate) {
         summaryContainer.innerHTML = "";
+
         week.forEach(date => {
             const day = date.getDate();
-            const month = date.toLocaleDateString("es-ES", { month: "long" }); // Formatear mes
+            const month = date.toLocaleDateString("es-ES", { month: "long" });
             const entrenamiento = data.find(item => item.fecha === date.toISOString().split("T")[0]);
-    
+
             const button = document.createElement("button");
+            button.dataset.date = date.toISOString().split("T")[0]; // Asociar la fecha con el botón
             button.innerHTML = `
                 <div class="boton-info">
                     <div class="container-fecha">
@@ -101,13 +119,33 @@ document.addEventListener("DOMContentLoaded", function () {
                     <span class="nombre">${entrenamiento ? entrenamiento.rutina : "Sin registro"}</span>
                 </div>
             `;
+
+            // Evento para seleccionar y deseleccionar botones
+            button.addEventListener("click", function () {
+                if (selectedButton) {
+                    selectedButton.classList.remove("selected");
+                }
+
+                button.classList.add("selected");
+                selectedButton = button;
+            });
+
+            // Resaltar el botón correspondiente al día seleccionado
+            if (selectedDate && button.dataset.date === selectedDate.toISOString().split("T")[0]) {
+                button.classList.add("selected");
+                selectedButton = button;
+            }
+
             summaryContainer.appendChild(button);
         });
     }
-
-    // Marcar la semana de la fecha actual al cargar la página
+     // Marcar la semana de la fecha actual al cargar la página
     const today = new Date();
     const currentWeek = getWeek(today);
     marcarSemana(currentWeek);
     cargarEntrenamientosSemana(currentWeek);
+    resaltarBoton(today); // Resaltar el botón del día actual
 });
+
+
+
