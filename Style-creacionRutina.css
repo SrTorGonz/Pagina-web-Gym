@@ -445,3 +445,45 @@ h4{
         width: 90%; /* Ajusta el ancho dinámicamente */
     }
 }
+
+#routineNameInput {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 40px; /* Tamaño de fuente fijo */
+    height: 58px; /* Altura fija */
+    width: 300px; /* Ancho fijo */
+    padding: 10px;
+    border: 2px solid #9DB4F0;
+    border-radius: 15px;
+    background-color: #040911;
+    color: white;
+    outline: none;
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+}
+
+/* Consultas de medios para pantallas medianas */
+@media (max-width: 768px) {
+    #routineNameInput {
+        font-size: 18px; /* Fuente ligeramente más pequeña */
+        height: 50px;
+        width: 250px;
+    }
+}
+
+/* Consultas de medios para pantallas pequeñas */
+@media (max-width: 425px) {
+    #routineNameInput {
+        font-size: 16px; /* Fuente más pequeña */
+        height: 45px;
+        width: 220px;
+    }
+}
+
+/* Consultas de medios para pantallas muy pequeñas */
+@media (max-width: 320px) {
+    #routineNameInput {
+        font-size: 14px; /* Fuente aún más pequeña */
+        height: 40px;
+        width: 200px;
+    }
+}
+
