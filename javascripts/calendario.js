@@ -11,8 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const calendar = new FullCalendar.Calendar(calendarContainer, {
+        locale: 'es', // Configurar idioma en español
         initialView: "dayGridMonth",
         selectable: true,
+        titleFormat: { year: 'numeric', month: 'long' }, // Personalizar el formato del título
         dateClick: function (info) {
             const selectedDate = new Date(info.dateStr);
             const week = getWeek(selectedDate);
@@ -20,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
             cargarEntrenamientosSemana(week, selectedDate);
         }
     });
+    
+    
 
     calendar.render();
 
@@ -39,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return week;
     }
+    
 
     function marcarSemana(week, selectedDate) {
         calendar.getEvents().forEach(event => event.remove());

@@ -237,6 +237,79 @@ body {
     border-spacing: 30px 12px;
 }
 
+#calendar {
+    
+    height:602px;
+}
+/* Cambiar el fondo del calendario */
+.fc .fc-scrollgrid {
+    
+    width: 465px;
+    background-color: #0CC4EA; /* Fondo oscuro */
+    border: 1px solid #0CC4EA;   /* Bordes */
+}
+
+/* Personalizar los números de los días */
+.fc-daygrid-day-number {
+
+    text-align: center;
+    color: #ffffff; /* Color de texto blanco */
+    font-weight: bold;
+    font-size: 20px;
+}
+.fc-daygrid-day-top {
+    display:flex;
+    justify-items: center;
+}
+/* Estilo de los eventos */
+.fc-daygrid-event {
+    background-color: #ff4081; /* Fondo rosa */
+    color: white;              /* Texto blanco */
+    border-radius: 5px;        /* Bordes redondeados */
+    padding: 2px 5px;          /* Espaciado */
+    font-size: 12px;           /* Tamaño de fuente */
+}
+
+/* Personalizar los botones del toolbar */
+.fc-toolbar .fc-button {
+
+    width: 80px;
+    height: 50px;
+    background-color: #0CC4EA;  /* Fondo oscuro */
+    color: #fff;               /* Texto blanco */
+    border: none;              /* Sin bordes */
+    border-radius: 4px;        /* Bordes redondeados */
+    padding: 5px 10px;         /* Espaciado */
+    font-size: 14px;           /* Tamaño de fuente */
+}
+.fc-header-toolbar.fc-toolbar {
+    flex-direction: column;
+}
+
+/* Hover en los botones */
+.fc-toolbar .fc-button:hover {
+    background-color: #258ca0; /* Fondo más claro al pasar el mouse */
+    color: #ffffff;
+}
+
+/* Día seleccionado */
+.fc-daygrid-day.fc-day-today {
+    background-color: #74e2f8; /* Fondo verde oscuro */
+    color: white;              /* Texto blanco */
+}
+
+/* Encabezado del calendario (nombres de días) */
+.fc-col-header-cell {
+    background-color: #0CC4EA; /* Fondo oscuro */
+    color: #fff;            /* Texto blanco */
+    font-size: 20px;
+}
+
+/* Marcar la semana seleccionada */
+.fc-event {
+    background-color: #D9D9D9; /* Fondo amarillo */
+    color: #000;               /* Texto negro */
+}
 
 
 /* Sección Entrenamientos */
