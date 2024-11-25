@@ -379,12 +379,12 @@ body {
 
 .container-table {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: #0B80E9;
     width: 935px;
     height: 420px;
     border-radius: 30px;
-    overflow: hidden;
+    overflow-x: auto;
 }
 
 .exercise-table {
