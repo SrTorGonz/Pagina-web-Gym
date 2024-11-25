@@ -16,7 +16,20 @@
     <link rel="stylesheet" href="Style-perfil.css">
      <!-- Estilo css footer-->
      <link rel="stylesheet" href="Style-footer.css">
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="javascripts/perfil.js"></script>
+    <script src="javascripts/busqueda-ejercicios-perfil.js"></script>
+    <script src="javascripts/grafico.js"></script>
+
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+
+    <!-- FullCalendar JS -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+
+    
+
+    
 </head>
 
 <body>
@@ -58,9 +71,9 @@
                         <input type="text" placeholder="Buscar ejercicio" class="search-input">
                     </div>
                     <div class="button">
-                        <button>Press Banca</button>
-                        <button>Sentadilla</button>
-                        <button>Peso Muerto</button>
+                        <button class="exercise-button">Press Banca</button>
+                        <button class="exercise-button">Sentadilla</button>
+                        <button class="exercise-button">Press de banca inclinado con barra</button>
                     </div>
 
                 </div>
@@ -68,7 +81,7 @@
             </div>
             <div class="progress-graph">
                 <div class="graph">
-                    <img src="Images/Grafico1.png" alt="Gráfico">
+                    <canvas id="grafica" ></canvas>
                 </div>
             </div>
         </section>
@@ -77,79 +90,11 @@
         <section class="trainings">
             <h2>MIS ENTRENAMIENTOS</h2>
             <div class="calendar-section">
-                <div class="calendar">
-                    <div class="titulo-calendario">
-                        <h3> Enero de 2024 </h3>
-                        <div class="iconos">
-                            <img src="Icons/ICON-arrowback.svg" alt="img">
-                            <img src="Icons/ICON-arrowforward.svg" alt="img">
-                        </div>
-                    </div>
-                    
-                    <div class="table-holder">
-                        <table class="exercise-calendar">
-                            <thead>
-                                <tr>
-                                    <th><span>DO</span></th>
-                                    <th><span>LU</span></th>
-                                    <th><span>MA</span></th>
-                                    <th><span>MI</span></th>
-                                    <th><span>JU</span></th>
-                                    <th><span>VI</span></th>
-                                    <th><span>SA</span></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><span></span></td>
-                                    <td><span>1</span></td>
-                                    <td><span>2</span></td>
-                                    <td><span>3</span></td>
-                                    <td><span>4</span></td>
-                                    <td><span>5</span></td>
-                                    <td><span>6</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span>7</span></td>
-                                    <td><span>8</span></td>
-                                    <td><span>9</span></td>
-                                    <td><span>10</span></td>
-                                    <td><span>11</span></td>
-                                    <td><span>12</span></td>
-                                    <td><span>13</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span>14</span></td>
-                                    <td><span>15</span></td>
-                                    <td><span>16</span></td>
-                                    <td><span>17</span></td>
-                                    <td><span>18</span></td>
-                                    <td><span>19</span></td>
-                                    <td><span>20</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span>21</span></td>
-                                    <td><span>22</span></td>
-                                    <td><span>23</span></td>
-                                    <td><span>24</span></td>
-                                    <td><span>25</span></td>
-                                    <td><span>26</span></td>
-                                    <td><span>27</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span>28</span></td>
-                                    <td><span>29</span></td>
-                                    <td><span>30</span></td>
-                                    <td><span>31</span></td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <div id="calendar"></div>
+                <script src="javascripts/calendario.js"></script>
                 <div class="training-summary">
 
-                    <button>
+                    <!-- <button>
                         <div class="boton-info">
                             <div class="container-fecha">
                                 <span class="fecha">21</span>
@@ -158,72 +103,12 @@
                             <span class="nombre">Sin registro</span>
                         </div>
 
-                    </button>
-                    <button>
-                        <div class="boton-info">
-                            <div class="container-fecha">
-                                <span class="fecha">22</span>
-                                <span class="fecha">Enero</span>
-                            </div>
-                            <span class="nombre">Pull 2</span>
-                        </div>
-
-                    </button>
-                    <button>
-                        <div class="boton-info">
-                            <div class="container-fecha">
-                                <span class="fecha">23</span>
-                                <span class="fecha">Enero</span>
-                            </div>
-                            <span class="nombre">Leg 1</span>
-                        </div>
-
-                    </button>
-                    <button>
-                        <div class="boton-info">
-                            <div class="container-fecha">
-                                <span class="fecha">24</span>
-                                <span class="fecha">Enero</span>
-                            </div>
-                            <span class="nombre">Push1</span>
-                        </div>
-
-                    </button>
-                    <button>
-                        <div class="boton-info">
-                            <div class="container-fecha">
-                                <span class="fecha">25</span>
-                                <span class="fecha">Enero</span>
-                            </div>
-                            <span class="nombre">Pull 1</span>
-                        </div>
-
-                    </button>
-                    <button>
-                        <div class="boton-info">
-                            <div class="container-fecha">
-                                <span class="fecha">26</span>
-                                <span class="fecha">Enero</span>
-                            </div>
-                            <span class="nombre">Sin Registro</span>
-                        </div>
-
-                    </button>
-                    <button>
-                        <div class="boton-info">
-                            <div class="container-fecha">
-                                <span class="fecha">27</span>
-                                <span class="fecha">Enero</span>
-                            </div>
-                            <span class="nombre">Push 2</span>
-                        </div>
-
-                    </button>
+                    </button> -->
 
                 </div>
             </div>
             <div class="container-table">
-                <table class="exercise-table">
+                <!-- <table class="exercise-table">
                     <thead>
                         <tr>
                             <th><span>Ejercicio</span></th>
@@ -277,7 +162,7 @@
                             <td><span>12</span></td>
                         </tr>
                     </tbody>
-                </table>
+                </table> -->
             </div>
 
         </section>
@@ -300,8 +185,11 @@
                         <label for="password"> Contraseña</label>
                         <input type="password" id="password" placeholder="Nueva Contraseña">
                     </div>
-                    
-                    <button type="submit">ACTUALIZAR PERFIL</button>
+                
+                    <div class="botones">
+                        <button type="submit">ACTUALIZAR PERFIL</button>
+                        <button type="submit" id="cerrar">CERRAR SESIÓN</button>
+                    </div>
                 </form>
             </div>
         </section>

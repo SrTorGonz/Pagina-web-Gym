@@ -88,20 +88,52 @@ body {
     margin-left: 35px;
 }
 
-.button {
 
+.button {
+    height: 400px; /* Altura fija para el contenedor */
+    width: 100%; /* Ajusta el ancho del contenedor si es necesario */
     margin-top: 20px;
     display: flex;
-    justify-content: left;
-    align-items: left;
-    flex-direction: column;
+    flex-direction: column; /* Mantener los botones en columna */
     gap: 15px;
-    margin-left: 20px;
+    justify-content: flex-start; /* Alinear elementos al inicio */
+    align-items: center;
+    overflow-y: auto; /* Agregar barra de desplazamiento vertical */
+    padding: 10px; /* Espaciado interno para evitar que los botones queden pegados a los bordes */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño del contenedor */
 }
 
-.button button {
-    width: 195px;
-    height: 37px;
+/* Personalización de barra de desplazamiento */
+.button {
+    scrollbar-width: thin; /* Funciona en Firefox */
+    scrollbar-color: #888 #f1f1f1; /* Deslizador y fondo */
+    overflow-y: auto; /* Asegúrate de habilitar el desplazamiento vertical */
+}
+
+/* Para navegadores basados en WebKit (incluye Edge basado en Chromium) */
+.button::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra */
+}
+
+.button::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Fondo de la pista */
+    border-radius: 4px;
+}
+
+.button::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color del deslizador */
+    border-radius: 4px; /* Bordes redondeados */
+    border: 2px solid #f1f1f1; /* Borde para mejor diseño */
+}
+
+.button::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color del deslizador al pasar el mouse */
+}
+
+
+.exercise-button {
+    width: 70%;
+    height: auto;
     font-family: "Baloo 2", sans-serif;
     background-color: #9DB4F0;
     border: none;
@@ -109,11 +141,17 @@ body {
     font-size: 16px;
     border-radius: 26px;
     cursor: pointer;
+    text-align: center;
     display: flex;
     align-items: center;
-    justify-content: left;
-    padding-left: 20px;
+    justify-content: center;
     outline: none;
+}
+
+.exercise-button.selected {
+    background-color: #007bff; /* Color de fondo al seleccionar */
+    color: #fff; /* Color de texto al seleccionar */
+     
 }
 
 .calendar-section {
@@ -134,6 +172,18 @@ body {
     border-radius: 0 26px 26px 0;
     justify-content: center;
     align-items: center;
+}
+
+.graph {
+    width: 622px;
+    height: 530px;
+}
+
+#grafica {
+    width: 622px;
+    height: 530px;
+    background-color: #000000;
+    border-radius: 26px;
 }
 
 .trainings {
@@ -187,15 +237,80 @@ body {
     border-spacing: 30px 12px;
 }
 
-.graph {
-    width: 622px;
-    height: 530px;
+#calendar {
+    
+    height:602px;
+}
+/* Cambiar el fondo del calendario */
+.fc .fc-scrollgrid {
+    
+    width: 465px;
+    background-color: #0CC4EA; /* Fondo oscuro */
+    border: 1px solid #0CC4EA;   /* Bordes */
 }
 
-.graph img {
-    width: 100%;
-    border-radius: 10px;
+/* Personalizar los números de los días */
+.fc-daygrid-day-number {
+
+    text-align: center;
+    color: #ffffff; /* Color de texto blanco */
+    font-weight: bold;
+    font-size: 20px;
 }
+.fc-daygrid-day-top {
+    display:flex;
+    justify-items: center;
+}
+/* Estilo de los eventos */
+.fc-daygrid-event {
+    background-color: #ff4081; /* Fondo rosa */
+    color: white;              /* Texto blanco */
+    border-radius: 5px;        /* Bordes redondeados */
+    padding: 2px 5px;          /* Espaciado */
+    font-size: 12px;           /* Tamaño de fuente */
+}
+
+/* Personalizar los botones del toolbar */
+.fc-toolbar .fc-button {
+
+    width: 80px;
+    height: 50px;
+    background-color: #0CC4EA;  /* Fondo oscuro */
+    color: #fff;               /* Texto blanco */
+    border: none;              /* Sin bordes */
+    border-radius: 4px;        /* Bordes redondeados */
+    padding: 5px 10px;         /* Espaciado */
+    font-size: 14px;           /* Tamaño de fuente */
+}
+.fc-header-toolbar.fc-toolbar {
+    flex-direction: column;
+}
+
+/* Hover en los botones */
+.fc-toolbar .fc-button:hover {
+    background-color: #258ca0; /* Fondo más claro al pasar el mouse */
+    color: #ffffff;
+}
+
+/* Día seleccionado */
+.fc-daygrid-day.fc-day-today {
+    background-color: #74e2f8; /* Fondo verde oscuro */
+    color: white;              /* Texto blanco */
+}
+
+/* Encabezado del calendario (nombres de días) */
+.fc-col-header-cell {
+    background-color: #0CC4EA; /* Fondo oscuro */
+    color: #fff;            /* Texto blanco */
+    font-size: 20px;
+}
+
+/* Marcar la semana seleccionada */
+.fc-event {
+    background-color: #D9D9D9; /* Fondo amarillo */
+    color: #000;               /* Texto negro */
+}
+
 
 /* Sección Entrenamientos */
 .trainings h2 {
@@ -228,6 +343,11 @@ body {
     border-radius: 20px;
     cursor: pointer;
 }
+.training-summary button.selected {
+    background-color: #3057BD; /* Color de fondo para botón seleccionado */
+
+    transform: scale(1.05); /* Efecto de agrandamiento leve */
+}
 
 .boton-info {
     display: flex;
@@ -259,12 +379,12 @@ body {
 
 .container-table {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: #0B80E9;
     width: 935px;
     height: 420px;
     border-radius: 30px;
-    overflow: hidden;
+    overflow-x: auto;
 }
 
 .exercise-table {
@@ -360,6 +480,12 @@ form {
     outline: none;
 }
 
+.botones {
+
+    display: flex;
+    gap: 20px;
+}
+
 
 label {
     font-size: 14px;
@@ -382,7 +508,19 @@ button {
     font-size: 18px;
 }
 
+#cerrar {
+    background-color: #d21010;
+    
+}
+#cerrar:hover {
+    background-color: #920404;
+}
+
 button:hover {
     background-color: #6391F6;
+    color: white;
+}
+.exercise-button:hover {
+    background-color: #007bff;
     color: white;
 }

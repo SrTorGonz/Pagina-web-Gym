@@ -3,19 +3,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const telefonoInput = document.getElementById("telefono");
     const passwordInput = document.getElementById("password");
     const guardarButton = document.querySelector("button[type='submit']");
-    const nameElement = document.getElementById("name"); // Obtener el elemento h2 con id="name"
+    const nameElement = document.getElementById("name");
 
     // Cargar datos del perfil
     fetch("obtener_perfil.php")
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Cargar los datos en los inputs
                 emailInput.placeholder = data.data.correo;
                 telefonoInput.placeholder = data.data.telefono;
-
-                // Mostrar el nombre del usuario en el h2
-                nameElement.textContent = data.data.nombre; // Asumiendo que el nombre está en 'data.data.nombre'
+                nameElement.textContent = data.data.nombre;
             } else {
                 alert("Error al cargar el perfil: " + data.message);
             }
@@ -25,18 +22,30 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("No se pudieron cargar los datos del perfil.");
         });
 
+    // Validación de correo electrónico
+    function validarCorreo(correo) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Patrón para validar correos
+        return regex.test(correo);
+    }
+
     // Función para manejar el clic en el botón guardar
     guardarButton.addEventListener("click", function (event) {
-        event.preventDefault(); // Evita el envío del formulario por defecto
+        event.preventDefault();
 
         const email = emailInput.value.trim();
         const telefono = telefonoInput.value.trim();
         const password = passwordInput.value.trim();
 
+        // Validar el correo si se ingresó
+        if (email && !validarCorreo(email)) {
+            alert("El correo ingresado no es válido. Por favor, verifica e intenta nuevamente.");
+            return; // No continuar si el correo no es válido
+        }
+
         // Verificar si todos los campos están vacíos
         if (!email && !telefono && !password) {
             alert("No hay datos para actualizar.");
-            return; // Salir de la función para evitar el envío de datos vacíos
+            return;
         }
 
         // Preparar los datos para enviar
@@ -66,5 +75,21 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Hubo un error al actualizar el perfil.");
         });
     });
-});
 
+    const cerrarButton = document.getElementById("cerrar");
+    cerrarButton.addEventListener("click", function () {
+        fetch("cerrar_sesion.php")
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.redirect) {
+                    window.location.href = data.redirect;
+                } else {
+                    alert("Hubo un problema al cerrar sesión.");
+                }
+            })
+            .catch(error => {
+                console.error("Error al cerrar sesión:", error);
+                alert("Hubo un error al cerrar sesión.");
+            });
+    });
+});
